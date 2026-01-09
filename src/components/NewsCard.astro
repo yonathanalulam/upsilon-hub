@@ -99,7 +99,7 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
 
       // 2. Click Handler
       btn.addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent opening article if user missed the button slightly
+        e.preventDefault(); 
         
         const currentSaved = JSON.parse(localStorage.getItem('ups_saved_articles') || '[]');
         const existingIndex = currentSaved.findIndex(item => item.url === url);

@@ -136,7 +136,7 @@ async function fetchNews() {
           category: source.category,
           sourceName: source.name,
           image: image,
-          isReal: isReal, // Flag for sorting
+          isReal: isReal, 
           summary: item.contentSnippet ? item.contentSnippet.substring(0, 140) + "..." : ""
         });
       }
@@ -145,8 +145,8 @@ async function fetchNews() {
 
   // SORTING LOGIC: Real Images First, then Randomize to keep variety
   allNews.sort((a, b) => {
-    if (a.isReal === b.isReal) return 0.5 - Math.random(); // If both real or both fake, shuffle
-    return b.isReal - a.isReal; // If one is real, it goes first
+    if (a.isReal === b.isReal) return 0.5 - Math.random(); 
+    return b.isReal - a.isReal; 
   });
 
   const outputPath = path.resolve('./src/data/news.json');
