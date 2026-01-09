@@ -2,7 +2,7 @@ name: Daily News Fetcher
 
 on:
   schedule:
-    - cron: '0 6 * * *' # Runs at 6:00 AM UTC every day
+    - cron: '0 6 * * *' # Runs at 6:00 AM UTC daily
   workflow_dispatch:      # Allows manual trigger
 
 permissions:
@@ -21,8 +21,13 @@ jobs:
         with:
           node-version: '18'
 
+      # FIX 1: Use 'npm install' instead of 'npm ci' (Less strict, fewer errors)
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
+
+      # FIX 2: Manually create the folder to prevent "Directory not found" errors
+      - name: Ensure Data Directory Exists
+        run: mkdir -p src/data
 
       - name: Fetch Fresh News
         run: node src/scripts/fetchNews.js
@@ -32,5 +37,6 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add src/data/news.json
+          # The "|| echo" part prevents it from crashing if there's no new news
           git commit -m "🤖 Daily News Update" || echo "No news changes to commit"
           git push
