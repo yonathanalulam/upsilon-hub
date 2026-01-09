@@ -4,7 +4,7 @@ An automated intelligence platform tracking the frontier of modern physics.
 The Mission:
 Keeping up with scientific breakthroughs is difficult. The signal-to-noise ratio in modern media is low, and important discoveries often get buried under clickbait.
 
-[Upsilon.Hub](https://upsilon-hub.vercel.app/) solves this by aggregating raw, high-impact research news from the world's most respected institutions like CERN, NASA, MIT, and leading physics journals,into one clean, real-time feed.
+[Upsilon Hub](https://upsilon-hub.vercel.app/) solves this by aggregating raw, high-impact research news from the world's most respected institutions like CERN, NASA, MIT, and leading physics journals,into one clean, real-time feed.
 
 🤖
 How It Works:
