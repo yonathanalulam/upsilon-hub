@@ -33,7 +33,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:image" content="/social-image.png" />
 
-    <meta name="google-site-verification" content="xy5jvx5424SPEri-DiwxTF64QS6wPfyJwjrn1Wam1ss" />
+    <meta name="google-site-verification" content="GtX_w4WkaPm6ZJsz755t1qsyC2QRrCSzJJ881KrVch8" />
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
     
@@ -117,7 +117,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         }
       });
 
-      // 2. SCROLL LOGIC (Header Hide + Progress Bar + ScrollTop)
+      // 2. SCROLL LOGIC
       const header = document.getElementById('main-header');
       const progressBar = document.getElementById('progress-bar');
       const scrollBtn = document.getElementById('scrollToTop');
@@ -126,7 +126,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
         
-        // A. Progress Bar Calculation
+        // A. Progress Bar
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolled = (winScroll / height);
@@ -134,12 +134,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
         // B. Auto-Hide Header
         if (currentScrollY > lastScrollY && currentScrollY > 100) {
-          header.classList.add('-translate-y-full'); // Hide
+          header.classList.add('-translate-y-full');
         } else {
-          header.classList.remove('-translate-y-full'); // Show
+          header.classList.remove('-translate-y-full');
         }
         
-        // C. Scroll To Top Button Visibility
+        // C. Scroll To Top Button
         if (currentScrollY > 300) {
           scrollBtn.classList.remove('opacity-0', 'invisible', 'translate-y-4');
         } else {
@@ -149,7 +149,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         lastScrollY = currentScrollY;
       });
 
-      // 3. SCROLL TO TOP CLICK
       scrollBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
