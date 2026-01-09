@@ -1,16 +1,49 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import NewsCard from '../components/NewsCard.astro';
+import FadeIn from '../components/FadeIn.jsx';
+import newsData from '../data/news.json';
 
+// LOGIC: Chunk the news into groups of 8
+const CHUNK_SIZE = 8;
+const newsChunks = [];
+const safeNews = newsData || [];
+
+for (let i = 0; i < safeNews.length; i += CHUNK_SIZE) {
+  newsChunks.push(safeNews.slice(i, i + CHUNK_SIZE));
+}
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Upsilon Hub | The Frontier of Physics">
+  
+  <div class="flex flex-col gap-12 pb-20">
+    
+    <header class="mb-8 mt-8 border-b border-gray-200 dark:border-gray-800 pb-10">
+      <h1 class="text-5xl md:text-7xl font-black text-gray-900 dark:text-white tracking-tight mb-6">
+        The Frontier <br/> of <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Physics</span>
+      </h1>
+      <p class="text-xl text-gray-600 dark:text-gray-400 font-serif max-w-2xl leading-relaxed">
+        Daily reports from the world's leading research institutions.
+      </p>
+    </header>
+
+    {newsChunks.map((chunk) => (
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {chunk.map((item, index) => (
+          <FadeIn client:load delay={index * 0.05}>
+            <NewsCard 
+              title={item.title}
+              category={item.category}
+              image={item.image}
+              summary={item.summary}
+              url={item.link}
+              sourceName={item.sourceName} 
+            />
+          </FadeIn>
+        ))}
+      </div>
+    ))}
+
+  </div>
+
+</Layout>

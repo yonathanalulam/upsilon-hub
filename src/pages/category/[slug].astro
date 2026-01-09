@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import NewsCard from '../../components/NewsCard.astro';
+import FadeIn from '../../components/FadeIn.jsx';
+import newsData from '../../data/news.json';
+
+export async function getStaticPaths() {
+  const uniqueCategories = [...new Set(newsData.map(item => item.category))];
+  return uniqueCategories.map(category => ({
+    params: { slug: category.toLowerCase().replace(/\s+/g, '-') },
+    props: { categoryName: category }
+  }));
+}
+
+const { categoryName } = Astro.props;
+const categoryNews = newsData.filter(item => item.category === categoryName);
+---
+
+<Layout title={`${categoryName} News | Upsilon Hub`}>
+  
+  <header class="mb-12 mt-4">
+    <a href="/" class="inline-flex items-center text-sm font-bold text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 mb-6 transition-colors">
+      &larr; Back to Global News
+    </a>
+    <div class="flex items-baseline gap-4">
+      <h1 class="text-4xl md:text-6xl font-black text-gray-900 dark:text-white tracking-tight">
+        {categoryName}
+      </h1>
+      <span class="hidden md:inline-block h-px flex-grow bg-gray-200 dark:bg-gray-800"></span>
+      <span class="text-gray-400 font-mono text-sm">{categoryNews.length} Articles</span>
+    </div>
+  </header>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    {categoryNews.map((item, index) => (
+      <FadeIn client:load delay={index * 0.05}>
+        <NewsCard 
+          title={item.title}
+          category={item.category}
+          image={item.image}
+          summary={item.summary}
+          url={item.link} 
+          sourceName={item.sourceName}
+        />
+      </FadeIn>
+    ))}
+  </div>
+
+</Layout>
