@@ -27,31 +27,38 @@ const { title } = Astro.props;
   
   <body class="bg-gray-50 text-gray-900 dark:bg-[#0f1117] dark:text-gray-100 transition-colors duration-300 font-sans antialiased selection:bg-blue-600/30 relative">
     
-    <nav class="sticky top-0 z-50 bg-white/90 dark:bg-[#0f1117]/90 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 transition-all">
-      <div class="max-w-[1800px] mx-auto px-6 h-20 flex items-center justify-between">
-        
-        <a href="/" class="group flex items-center gap-2">
-          <span class="text-2xl font-black tracking-tighter text-gray-900 dark:text-white">
-            UPSILON<span class="text-blue-600">.HUB</span>
-          </span>
-        </a>
+    <div class="fixed top-0 left-0 w-full h-1 z-[60] pointer-events-none bg-transparent">
+      <div id="progress-bar" class="h-full bg-blue-600 origin-left scale-x-0 transition-transform duration-100 ease-out"></div>
+    </div>
 
-        <div class="flex items-center gap-3">
+    <header id="main-header" class="sticky top-0 z-50 transition-transform duration-300 ease-in-out">
+      
+      <nav class="bg-white/95 dark:bg-[#0f1117]/95 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 transition-colors">
+        <div class="max-w-[1800px] mx-auto px-6 h-20 flex items-center justify-between">
           
-          <a href="/about" aria-label="About" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <a href="/" class="group flex items-center gap-2">
+            <span class="text-2xl font-black tracking-tighter text-gray-900 dark:text-white">
+              UPSILON<span class="text-blue-600">.HUB</span>
+            </span>
           </a>
 
-          <button id="theme-toggle" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none ring-1 ring-gray-200 dark:ring-gray-700 bg-gray-50 dark:bg-gray-900/50">
-            <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-            <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-          </button>
+          <div class="flex items-center gap-3">
+            
+            <a href="/about" aria-label="About" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </a>
+
+            <button id="theme-toggle" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none ring-1 ring-gray-200 dark:ring-gray-700 bg-gray-50 dark:bg-gray-900/50">
+              <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+              <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            </button>
+          </div>
+
         </div>
+      </nav>
 
-      </div>
-    </nav>
-
-    <CategoryNav />
+      <CategoryNav />
+    </header>
 
     <main class="max-w-[1800px] mx-auto px-6 py-10 min-h-screen">
       <slot />
@@ -68,7 +75,7 @@ const { title } = Astro.props;
     </button>
 
     <script>
-      // DARK MODE LOGIC
+      // 1. DARK MODE
       const themeToggleBtn = document.getElementById('theme-toggle');
       const lightIcon = document.getElementById('theme-toggle-light-icon');
       const darkIcon = document.getElementById('theme-toggle-dark-icon');
@@ -89,15 +96,38 @@ const { title } = Astro.props;
         }
       });
 
-      // SCROLL TO TOP LOGIC
+      // 2. SCROLL LOGIC (Header Hide + Progress Bar)
+      const header = document.getElementById('main-header');
+      const progressBar = document.getElementById('progress-bar');
       const scrollBtn = document.getElementById('scrollToTop');
-      
+      let lastScrollY = window.scrollY;
+
       window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
+        const currentScrollY = window.scrollY;
+        
+        // A. Progress Bar Calculation
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height);
+        // Use scaleX for performance
+        if (progressBar) progressBar.style.transform = `scaleX(${scrolled})`;
+
+        // B. Auto-Hide Header
+        // If scrolling DOWN and not at the very top (buffer of 100px)
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+          header.classList.add('-translate-y-full'); // Hide
+        } else {
+          header.classList.remove('-translate-y-full'); // Show
+        }
+        
+        // C. Scroll To Top Button Visibility
+        if (currentScrollY > 300) {
           scrollBtn.classList.remove('opacity-0', 'invisible', 'translate-y-4');
         } else {
           scrollBtn.classList.add('opacity-0', 'invisible', 'translate-y-4');
         }
+
+        lastScrollY = currentScrollY;
       });
 
       scrollBtn.addEventListener('click', () => {
