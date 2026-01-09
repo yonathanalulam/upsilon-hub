@@ -16,16 +16,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      # FIX: Upgrade to Node.js 20 to support modern fetch/File APIs
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20'
 
-      # FIX 1: Use 'npm install' instead of 'npm ci' (Less strict, fewer errors)
       - name: Install Dependencies
         run: npm install
 
-      # FIX 2: Manually create the folder to prevent "Directory not found" errors
       - name: Ensure Data Directory Exists
         run: mkdir -p src/data
 
@@ -37,6 +36,5 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add src/data/news.json
-          # The "|| echo" part prevents it from crashing if there's no new news
           git commit -m "🤖 Daily News Update" || echo "No news changes to commit"
           git push
