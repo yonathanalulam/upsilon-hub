@@ -1,12 +1,9 @@
 name: Daily News Fetcher
 
-# TRIGGER:
-# 1. Runs automatically every day at 6:00 AM UTC
-
 on:
   schedule:
-    - cron: '0 6 * * *'
-  workflow_dispatch:
+    - cron: '0 6 * * *' # Runs at 6:00 AM UTC daily
+  workflow_dispatch:      # Allows manual trigger
 
 permissions:
   contents: write
@@ -16,25 +13,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      
+      # FIX: Upgrade to Node.js 20 to support modern fetch/File APIs
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20'
 
-      
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
 
-      
+      - name: Ensure Data Directory Exists
+        run: mkdir -p src/data
+
       - name: Fetch Fresh News
         run: node src/scripts/fetchNews.js
 
-      
       - name: Commit and Push Changes
         run: |
           git config --global user.name 'github-actions[bot]'
