@@ -31,7 +31,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/social-image.png" />
+    <meta property="og:image" content="https://upsilon-hub.vercel.app/social-image.jpg" />
 
     <meta name="google-site-verification" content="GtX_w4WkaPm6ZJsz755t1qsyC2QRrCSzJJ881KrVch8" />
 
@@ -96,7 +96,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </button>
 
     <script>
-      // 1. DARK MODE LOGIC
+      // DARK MODE LOGIC
       const themeToggleBtn = document.getElementById('theme-toggle');
       const lightIcon = document.getElementById('theme-toggle-light-icon');
       const darkIcon = document.getElementById('theme-toggle-dark-icon');
@@ -117,7 +117,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         }
       });
 
-      // 2. SCROLL LOGIC
+      // SCROLL LOGIC
       const header = document.getElementById('main-header');
       const progressBar = document.getElementById('progress-bar');
       const scrollBtn = document.getElementById('scrollToTop');
@@ -125,27 +125,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
       window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
-        
-        // A. Progress Bar
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolled = (winScroll / height);
         if (progressBar) progressBar.style.transform = `scaleX(${scrolled})`;
 
-        // B. Auto-Hide Header
         if (currentScrollY > lastScrollY && currentScrollY > 100) {
           header.classList.add('-translate-y-full');
         } else {
           header.classList.remove('-translate-y-full');
         }
         
-        // C. Scroll To Top Button
         if (currentScrollY > 300) {
           scrollBtn.classList.remove('opacity-0', 'invisible', 'translate-y-4');
         } else {
           scrollBtn.classList.add('opacity-0', 'invisible', 'translate-y-4');
         }
-
         lastScrollY = currentScrollY;
       });
 
@@ -153,6 +148,5 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
     </script>
-
   </body>
 </html>
