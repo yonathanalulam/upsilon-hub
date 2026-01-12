@@ -19,21 +19,42 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <link rel="icon" type="image/png" href="/atom.png" />
+    
     <meta name="generator" content={Astro.generator} />
 
-    <title>{title}</title>
+    <title>{title.includes('|') ? title : `${title} | Upsilon Hub`}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="Upsilon Hub, Physics News, Astrophysics, Quantum Physics, Science News, Research Feed, CERN, NASA" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content="Upsilon Hub - The Frontier of Physics" />
     <meta property="og:description" content={description} />
     <meta property="og:image" content="https://upsilon-hub.vercel.app/social-image.jpg" />
 
     <meta name="google-site-verification" content="GtX_w4WkaPm6ZJsz755t1qsyC2QRrCSzJJ881KrVch8" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Upsilon Hub",
+        "url": "https://upsilon-hub.vercel.app/",
+        "description": "The Frontier of Physics News",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Upsilon Hub",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://upsilon-hub.vercel.app/atom.png"
+          }
+        }
+      }
+    </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
     
@@ -44,9 +65,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         document.documentElement.classList.remove('dark');
       }
     </script>
+    
+    <style is:global>
+      /* This class temporarily disables animations during theme toggle */
+      .no-transitions * {
+        transition: none !important;
+      }
+    </style>
   </head>
   
-  <body class="bg-gray-50 text-gray-900 dark:bg-[#0f1117] dark:text-gray-100 transition-colors duration-300 font-sans antialiased selection:bg-blue-600/30 relative">
+  <body class="bg-gray-50 text-gray-900 dark:bg-[#0f1117] dark:text-gray-100 font-sans antialiased selection:bg-blue-600/30 relative transition-colors duration-150">
     
     <div class="fixed top-0 left-0 w-full h-1 z-[60] pointer-events-none bg-transparent">
       <div id="progress-bar" class="h-full bg-blue-600 origin-left scale-x-0 transition-transform duration-100 ease-out"></div>
@@ -96,7 +124,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </button>
 
     <script>
-      // DARK MODE LOGIC
+      // DARK MODE LOGIC (WITH LAG FIX)
       const themeToggleBtn = document.getElementById('theme-toggle');
       const lightIcon = document.getElementById('theme-toggle-light-icon');
       const darkIcon = document.getElementById('theme-toggle-dark-icon');
@@ -106,8 +134,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       else darkIcon.classList.remove('hidden');
 
       themeToggleBtn.addEventListener('click', () => {
+        // 1. Disable transitions temporarily to prevent lag
+        html.classList.add('no-transitions');
+        
+        // 2. Toggle Icons
         lightIcon.classList.toggle('hidden');
         darkIcon.classList.toggle('hidden');
+        
+        // 3. Toggle Theme
         if (html.classList.contains('dark')) {
           html.classList.remove('dark');
           localStorage.setItem('theme', 'light');
@@ -115,6 +149,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           html.classList.add('dark');
           localStorage.setItem('theme', 'dark');
         }
+
+        // 4. Force a repaint and then re-enable transitions
+        // This ensures the browser applies the new colors instantly without animating them
+        const _ = html.offsetHeight; 
+        html.classList.remove('no-transitions');
       });
 
       // SCROLL LOGIC
@@ -125,22 +164,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
       window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
+        
+        // A. Progress Bar
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolled = (winScroll / height);
         if (progressBar) progressBar.style.transform = `scaleX(${scrolled})`;
 
+        // B. Auto-Hide Header
         if (currentScrollY > lastScrollY && currentScrollY > 100) {
           header.classList.add('-translate-y-full');
         } else {
           header.classList.remove('-translate-y-full');
         }
         
+        // C. Scroll To Top Button
         if (currentScrollY > 300) {
           scrollBtn.classList.remove('opacity-0', 'invisible', 'translate-y-4');
         } else {
           scrollBtn.classList.add('opacity-0', 'invisible', 'translate-y-4');
         }
+
         lastScrollY = currentScrollY;
       });
 
