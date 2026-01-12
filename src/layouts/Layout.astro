@@ -226,7 +226,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </div>
     
     <script is:inline>
-      if (sessionStorage.getItem('hasSeenPreloader')) {
+      if (window.hasSeenPreloader) {
         const p = document.getElementById('preloader');
         if (p) p.style.display = 'none';
       }
@@ -283,14 +283,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       const initPreloader = () => {
         const preloader = document.getElementById('preloader');
         if (!preloader) return;
-        if (sessionStorage.getItem('hasSeenPreloader')) {
+        
+        if (window.hasSeenPreloader) {
           preloader.style.display = 'none';
           return;
         }
+        
         window.addEventListener('load', () => {
           setTimeout(() => {
             preloader.classList.add('preloader-hidden');
-            sessionStorage.setItem('hasSeenPreloader', 'true');
+            window.hasSeenPreloader = true;
           }, 2000); 
         });
       };
@@ -329,7 +331,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       themeToggleBtn.addEventListener('click', (event) => {
         const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-        if (!document.startViewTransition) {
+        if (isMobile || !document.startViewTransition) {
           performToggle();
           return;
         }
@@ -341,18 +343,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         });
 
         transition.ready.then(() => {
-          if (isMobile) {
-            document.documentElement.animate(
-              { opacity: [1, 0] },
-              { duration: 300, easing: 'ease-out', pseudoElement: '::view-transition-old(root)', fill: 'forwards' }
-            );
-            document.documentElement.animate(
-              { opacity: [0, 1] },
-              { duration: 300, easing: 'ease-out', pseudoElement: '::view-transition-new(root)', fill: 'forwards' }
-            );
-            return;
-          }
-
           const x = event.clientX;
           const y = event.clientY;
           const endRadius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
