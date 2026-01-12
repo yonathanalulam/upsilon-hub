@@ -173,6 +173,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         transition-duration: 300ms; 
       }
 
+      /* PERFORMANCE FIX: Aggressively hide laggy elements during transition */
+      html.is-transitioning * {
+        animation-play-state: paused !important;
+        transition: none !important;
+      }
+      
+      html.is-transitioning .blur-\[120px\] {
+        opacity: 0 !important;
+        display: none !important;
+      }
+
       .article-card {
         transition: transform 0.4s ease, box-shadow 0.4s ease;
       }
@@ -199,15 +210,49 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       .dark ::-webkit-scrollbar-thumb { background-color: rgba(75, 85, 99, 0.4); }
       .dark ::-webkit-scrollbar-thumb:hover { background-color: rgba(75, 85, 99, 0.7); }
 
-      html.is-transitioning *, html.is-transitioning *::before, html.is-transitioning *::after {
-        transition: none !important;
+      /* Circular Transition CSS */
+      ::view-transition-old(root),
+      ::view-transition-new(root) {
+        animation: none;
+        mix-blend-mode: normal;
+      }
+      ::view-transition-new(root) {
+        z-index: 9999;
+      }
+      ::view-transition-old(root) {
+        z-index: 1;
       }
 
-      ::view-transition-old(root), ::view-transition-new(root) {
-        animation: none; mix-blend-mode: normal; animation-duration: 500ms; 
+      /* Mobile Optimizations */
+      @media screen and (max-width: 768px) {
+        * {
+          backdrop-filter: none !important;
+          -webkit-backdrop-filter: none !important;
+        }
+        
+        /* On mobile we keep these hidden/simplified always for general performance */
+        .blur-\[120px\] {
+            filter: none !important;
+            opacity: 0.3;
+        }
+
+        .animate-pulse {
+            animation: none !important;
+        }
+
+        .nucleus, .orbit::before {
+            box-shadow: none !important;
+        }
+        
+        nav {
+            background-color: rgb(255 255 255 / 0.95) !important;
+        }
+        
+        html.dark nav {
+            background-color: #0f1117 !important;
+            border-bottom: 1px solid #1f2937;
+        }
       }
-      ::view-transition-new(root) { z-index: 9999; }
-      ::view-transition-old(root) { z-index: 1; }
     </style>
   </head>
   
@@ -226,7 +271,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </div>
     
     <script is:inline>
-      if (window.hasSeenPreloader) {
+      if (sessionStorage.getItem('introShown')) {
         const p = document.getElementById('preloader');
         if (p) p.style.display = 'none';
       }
@@ -284,7 +329,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         const preloader = document.getElementById('preloader');
         if (!preloader) return;
         
-        if (window.hasSeenPreloader) {
+        if (sessionStorage.getItem('introShown')) {
           preloader.style.display = 'none';
           return;
         }
@@ -292,7 +337,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         window.addEventListener('load', () => {
           setTimeout(() => {
             preloader.classList.add('preloader-hidden');
-            window.hasSeenPreloader = true;
+            sessionStorage.setItem('introShown', 'true');
           }, 2000); 
         });
       };
@@ -329,15 +374,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       else darkIcon.classList.remove('hidden');
 
       themeToggleBtn.addEventListener('click', (event) => {
-        const isMobile = window.matchMedia('(max-width: 768px)').matches;
-
-        if (isMobile || !document.startViewTransition) {
+        
+        if (!document.startViewTransition) {
           performToggle();
           return;
         }
 
+        // AGGRESSIVE FIX: Add class to html to pause heavy rendering
         document.documentElement.classList.add('is-transitioning');
-        
+
         const transition = document.startViewTransition(() => {
           performToggle();
         });
@@ -354,6 +399,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         });
 
         transition.finished.then(() => {
+          // Remove class to resume animations and blobs
           document.documentElement.classList.remove('is-transitioning');
         });
       });
