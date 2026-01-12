@@ -8,7 +8,7 @@ interface Props {
 
 const { 
   title, 
-  description = "Upsilon Hub is an automated intelligence platform tracking the latest breakthroughs in Astrophysics, Quantum Physics, High Energy, and Nanotech. Real-time updates from CERN, NASA, and MIT." 
+  description = "Upsilon Hub is an automated intelligence platform tracking the latest breakthroughs in Astrophysics, Quantum Physics, High Energy, and Nanotech." 
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -28,8 +28,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
     <meta name="robots" content="index, follow" />
-    <meta name="keywords" content="Upsilon Hub, Physics News, Astrophysics, Quantum Physics, Science News, Research Feed, CERN, NASA" />
-
+    
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content="Upsilon Hub - The Frontier of Physics" />
@@ -44,7 +43,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         "@type": "WebSite",
         "name": "Upsilon Hub",
         "url": "https://upsilon-hub.vercel.app/",
-        "description": "The Frontier of Physics News",
         "publisher": {
           "@type": "Organization",
           "name": "Upsilon Hub",
@@ -66,40 +64,45 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
     </script>
     
-    <style is:global>
-      /* This class temporarily disables animations during theme toggle */
-      .no-transitions * {
-        transition: none !important;
+    <style>
+      /* Custom Animation for Page Load */
+      @keyframes fadeSlideUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      .animate-enter {
+        animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       }
     </style>
   </head>
   
-  <body class="bg-gray-50 text-gray-900 dark:bg-[#0f1117] dark:text-gray-100 font-sans antialiased selection:bg-blue-600/30 relative transition-colors duration-150">
+  <body class="bg-gray-50 text-gray-900 dark:bg-[#0f1117] dark:text-gray-100 font-sans antialiased selection:bg-blue-600/30 relative transition-colors duration-300 ease-in-out">
     
     <div class="fixed top-0 left-0 w-full h-1 z-[60] pointer-events-none bg-transparent">
-      <div id="progress-bar" class="h-full bg-blue-600 origin-left scale-x-0 transition-transform duration-100 ease-out"></div>
+      <div id="progress-bar" class="h-full bg-blue-600 origin-left scale-x-0 transition-transform duration-100 ease-out shadow-[0_0_10px_rgba(37,99,235,0.5)]"></div>
     </div>
 
-    <header id="main-header" class="sticky top-0 z-50 transition-transform duration-300 ease-in-out">
+    <header id="main-header" class="sticky top-0 z-50 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]">
       
-      <nav class="bg-white/95 dark:bg-[#0f1117]/95 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 transition-colors">
+      <nav class="bg-white/80 dark:bg-[#0f1117]/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
         <div class="max-w-[1800px] mx-auto px-6 h-20 flex items-center justify-between">
           
-          <a href="/" class="group flex items-center gap-2">
+          <a href="/" class="group flex items-center gap-2 transition-transform duration-300 hover:scale-[1.02]">
             <span class="text-2xl font-black tracking-tighter text-gray-900 dark:text-white">
-              UPSILON<span class="text-blue-600">.HUB</span>
+              UPSILON<span class="text-blue-600 group-hover:text-blue-500 transition-colors">.HUB</span>
             </span>
           </a>
 
           <div class="flex items-center gap-3">
             
-            <a href="/about" aria-label="About" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
+            <a href="/about" aria-label="About" class="p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 hover:scale-110 active:scale-95 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
               <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
             </a>
 
-            <button id="theme-toggle" class="p-2.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none ring-1 ring-gray-200 dark:ring-gray-700 bg-gray-50 dark:bg-gray-900/50">
-              <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-              <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+            <button id="theme-toggle" class="p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300 hover:scale-110 active:scale-90 focus:outline-none ring-1 ring-gray-200 dark:ring-gray-700 bg-gray-50 dark:bg-gray-900/50 group overflow-hidden relative">
+              <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400 transition-transform duration-500 rotate-0 group-hover:rotate-90" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+              <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-blue-300 transition-transform duration-500 rotate-0 group-hover:-rotate-12" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
             </button>
           </div>
 
@@ -109,39 +112,37 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <CategoryNav />
     </header>
 
-    <main class="max-w-[1800px] mx-auto px-6 py-10 min-h-screen">
+    <main class="max-w-[1800px] mx-auto px-6 py-10 min-h-screen animate-enter">
       <slot />
     </main>
 
-    <footer class="border-t border-gray-200 dark:border-gray-800 mt-20 py-10 text-center">
-      <p class="text-gray-500 dark:text-gray-600 text-sm font-medium uppercase tracking-wider">
+    <footer class="border-t border-gray-200 dark:border-gray-800 mt-20 py-10 text-center transition-colors duration-300">
+      <p class="text-gray-500 dark:text-gray-600 text-sm font-medium uppercase tracking-wider hover:text-blue-600 transition-colors cursor-default">
         &copy; {new Date().getFullYear()} Upsilon Hub. The Frontier of Physics.
       </p>
     </footer>
 
-    <button id="scrollToTop" class="fixed bottom-8 right-8 p-3 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition-all opacity-0 invisible translate-y-4 duration-300 z-50">
+    <button id="scrollToTop" class="fixed bottom-8 right-8 p-3 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 hover:scale-110 active:scale-95 transition-all duration-300 opacity-0 invisible translate-y-10 z-50">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
     </button>
 
     <script>
-      // DARK MODE LOGIC (WITH LAG FIX)
+      // 1. THEME TOGGLE LOGIC
       const themeToggleBtn = document.getElementById('theme-toggle');
       const lightIcon = document.getElementById('theme-toggle-light-icon');
       const darkIcon = document.getElementById('theme-toggle-dark-icon');
       const html = document.documentElement;
 
+      // Set initial state
       if (html.classList.contains('dark')) lightIcon.classList.remove('hidden');
       else darkIcon.classList.remove('hidden');
 
       themeToggleBtn.addEventListener('click', () => {
-        // 1. Disable transitions temporarily to prevent lag
-        html.classList.add('no-transitions');
-        
-        // 2. Toggle Icons
+        // Toggle Icons with visual feedback
         lightIcon.classList.toggle('hidden');
         darkIcon.classList.toggle('hidden');
         
-        // 3. Toggle Theme
+        // Toggle Theme
         if (html.classList.contains('dark')) {
           html.classList.remove('dark');
           localStorage.setItem('theme', 'light');
@@ -149,14 +150,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           html.classList.add('dark');
           localStorage.setItem('theme', 'dark');
         }
-
-        // 4. Force a repaint and then re-enable transitions
-        // This ensures the browser applies the new colors instantly without animating them
-        const _ = html.offsetHeight; 
-        html.classList.remove('no-transitions');
       });
 
-      // SCROLL LOGIC
+      // 2. SCROLL & HEADER LOGIC
       const header = document.getElementById('main-header');
       const progressBar = document.getElementById('progress-bar');
       const scrollBtn = document.getElementById('scrollToTop');
@@ -165,29 +161,30 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       window.addEventListener('scroll', () => {
         const currentScrollY = window.scrollY;
         
-        // A. Progress Bar
+        // A. Reading Progress Bar
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolled = (winScroll / height);
         if (progressBar) progressBar.style.transform = `scaleX(${scrolled})`;
 
-        // B. Auto-Hide Header
+        // B. Smart Header (Hides on scroll down, shows on scroll up)
         if (currentScrollY > lastScrollY && currentScrollY > 100) {
-          header.classList.add('-translate-y-full');
+          header.classList.add('-translate-y-full'); // Hide
         } else {
-          header.classList.remove('-translate-y-full');
+          header.classList.remove('-translate-y-full'); // Show
         }
         
-        // C. Scroll To Top Button
-        if (currentScrollY > 300) {
-          scrollBtn.classList.remove('opacity-0', 'invisible', 'translate-y-4');
+        // C. Scroll to Top Button (Pops in)
+        if (currentScrollY > 400) {
+          scrollBtn.classList.remove('opacity-0', 'invisible', 'translate-y-10');
         } else {
-          scrollBtn.classList.add('opacity-0', 'invisible', 'translate-y-4');
+          scrollBtn.classList.add('opacity-0', 'invisible', 'translate-y-10');
         }
 
         lastScrollY = currentScrollY;
       });
 
+      // 3. Smooth Scroll Action
       scrollBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
