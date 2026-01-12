@@ -1,5 +1,6 @@
 ---
 import CategoryNav from '../components/CategoryNav.astro';
+import Analytics from '@vercel/analytics/astro';
 
 interface Props {
   title: string;
@@ -44,6 +45,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         document.documentElement.classList.remove('dark');
       }
     </script>
+    <Analytics />
   </head>
   
   <body class="bg-gray-50 text-gray-900 dark:bg-[#0f1117] dark:text-gray-100 transition-colors duration-300 font-sans antialiased selection:bg-blue-600/30 relative">
