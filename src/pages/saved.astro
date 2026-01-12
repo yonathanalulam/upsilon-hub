@@ -89,7 +89,7 @@ import Layout from '../layouts/Layout.astro';
     });
   }
 
-  // global helper to remove items
+
   window.removeArticle = (url) => {
     const current = JSON.parse(localStorage.getItem('ups_saved_articles') || '[]');
     const updated = current.filter(i => i.url !== url);

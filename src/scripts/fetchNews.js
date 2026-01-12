@@ -143,7 +143,7 @@ async function fetchNews() {
     } catch (error) { console.error(`❌ Error: ${error.message}`); }
   }
 
-  // SORTING LOGIC: Real Images First, then Randomize to keep variety
+ 
   allNews.sort((a, b) => {
     if (a.isReal === b.isReal) return 0.5 - Math.random(); 
     return b.isReal - a.isReal; 

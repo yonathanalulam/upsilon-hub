@@ -79,7 +79,7 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
 </div>
 
 <script>
-  // Handle Bookmark Logic per Card
+ 
   function initBookmarks() {
     const buttons = document.querySelectorAll('.bookmark-btn');
     
@@ -88,7 +88,7 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
       const emptyIcon = btn.querySelector('.bookmark-icon-empty');
       const filledIcon = btn.querySelector('.bookmark-icon-filled');
 
-      // 1. Check if saved
+   
       const saved = JSON.parse(localStorage.getItem('ups_saved_articles') || '[]');
       const isSaved = saved.some(item => item.url === url);
 
@@ -97,7 +97,7 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
         filledIcon.classList.remove('hidden');
       }
 
-      // 2. Click Handler
+     
       btn.addEventListener('click', (e) => {
         e.preventDefault(); 
         
@@ -131,6 +131,6 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
 
   // Run on load
   initBookmarks();
-  // Re-run if Astro navigates (View Transitions)
+  // Re-run if Astro navigates 
   document.addEventListener('astro:page-load', initBookmarks);
 </script>
