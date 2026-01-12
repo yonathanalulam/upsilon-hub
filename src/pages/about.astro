@@ -3,56 +3,93 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="About - Upsilon Hub">
-  <section class="max-w-4xl mx-auto py-12 md:py-20">
+  <section class="max-w-5xl mx-auto py-12 md:py-20 animate-fade-up">
     
-    <div class="text-center mb-16">
-      <h1 class="text-4xl md:text-6xl font-black mb-6 tracking-tighter">
-        About <span class="text-blue-600">Upsilon</span>
+    <div class="mb-16">
+      <h1 class="text-4xl md:text-5xl font-black mb-4 tracking-tighter text-gray-900 dark:text-white">
+        About <span class="text-blue-600">Upsilon Hub</span>
       </h1>
-      <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
-        Bridging the gap between complex scientific papers and public understanding.
+      <p class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed border-b border-gray-200 dark:border-gray-800 pb-8">
+        An automated intelligence platform tracking the frontier of modern physics.
       </p>
     </div>
 
-    <div class="bg-white dark:bg-gray-900 rounded-3xl p-8 md:p-12 shadow-2xl shadow-blue-900/10 mb-12 border border-gray-100 dark:border-gray-800">
-      <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
-        <span class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white text-sm">01</span>
-        The Mission
-      </h2>
-      <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-        Upsilon Hub is an automated intelligence platform designed to track, aggregate, and summarize the latest breakthroughs in Physics. From the particle colliders at CERN to the deep-space telescopes of NASA, it brings the frontier of science to your screen in real-time.
-      </p>
-      <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-        The goal is simple: <strong>Make Science Accessible.</strong> No paywalls, no jargon, just pure discovery.
-      </p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-8 mb-16">
-      <div class="bg-blue-50 dark:bg-blue-900/20 p-8 rounded-3xl border border-blue-100 dark:border-blue-800/30">
-        <h3 class="font-bold text-xl mb-4 text-blue-900 dark:text-blue-100"></h3>
-        <p class="text-blue-800 dark:text-blue-200 text-sm leading-relaxed">
-         
-        </p>
-      </div>
-      <div class="bg-gray-50 dark:bg-gray-800/50 p-8 rounded-3xl border border-gray-100 dark:border-gray-700">
-        <h3 class="font-bold text-xl mb-4"></h3>
-        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-          Our data sources include verified institutions like MIT, Nature, and the American Physical Society and other well accredited journals
-        </p>
-      </div>
-    </div>
-
-    <div class="text-center py-12 border-t border-gray-200 dark:border-gray-800">
-      <h2 class="text-3xl font-black mb-8">Get in Touch</h2>
+    <div class="grid md:grid-cols-2 gap-12 mb-20">
       
-      <div class="inline-block bg-gray-100 dark:bg-gray-800 px-8 py-4 rounded-xl border border-gray-200 dark:border-gray-700">
-        <p class="text-gray-900 dark:text-white font-mono text-lg select-all">
-          yonathanalulam@gmail.com
-        </p>
+      <div class="animate-fade-up delay-100">
+        <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-gray-900 dark:text-white">
+          <span class="text-2xl">⚡</span> The Mission
+        </h2>
+        <div class="prose dark:prose-invert text-gray-600 dark:text-gray-300 leading-relaxed space-y-4">
+          <p>
+            Keeping up with scientific breakthroughs is difficult. The <strong>signal-to-noise ratio</strong> in modern media is low, and important discoveries often get buried under clickbait.
+          </p>
+          <p>
+            Upsilon.Hub solves this by aggregating raw, high-impact research news from the world's most respected institutions like <strong>CERN, NASA, MIT</strong>, and leading physics journals, into one clean, real-time feed.
+          </p>
+        </div>
       </div>
-      <p class="mt-4 text-sm text-gray-500 dark:text-gray-400">
-        Copy the address above to send a message.
+
+      <div class="animate-fade-up delay-200">
+        <h2 class="text-2xl font-bold mb-6 flex items-center gap-3 text-gray-900 dark:text-white">
+          <span class="text-2xl">🤖</span> How It Works
+        </h2>
+        <ul class="space-y-6">
+          <li class="flex gap-4">
+            <svg class="w-6 h-6 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <div>
+              <strong class="text-gray-900 dark:text-white block mb-1">Automated Retrieval</strong>
+              <p class="text-sm text-gray-600 dark:text-gray-400">A custom scraping engine runs daily at 6:00 AM UTC via GitHub Actions.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <svg class="w-6 h-6 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <div>
+              <strong class="text-gray-900 dark:text-white block mb-1">Smart Filtering</strong>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Algorithms filter out irrelevant noise and categorize content into Quantum, Astrophysics, and High Energy Physics.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <svg class="w-6 h-6 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <div>
+              <strong class="text-gray-900 dark:text-white block mb-1">Self-Deploying</strong>
+              <p class="text-sm text-gray-600 dark:text-gray-400">The system automatically rebuilds and deploys the live site on Vercel whenever new data is verified.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="bg-[#111827] dark:bg-[#0f1117] rounded-3xl p-8 md:p-12 text-center shadow-2xl border border-gray-800 animate-fade-up delay-300">
+      <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Have Feedback or Suggestions?</h2>
+      <p class="text-gray-400 mb-8 max-w-xl mx-auto">
+        Feel free to reach out for collaboration, bug reports, or just to say hi.
       </p>
+      
+      <div class="flex flex-col md:flex-row justify-center items-center gap-4">
+        
+        <a href="#" class="w-full md:w-auto px-6 py-3 bg-[#229ED9] hover:bg-[#1f8ub] text-white font-bold rounded-xl transition-transform hover:scale-105 flex items-center justify-center gap-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 11.944 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.638z"/></svg>
+          Telegram
+        </a>
+
+        <a href="#" class="w-full md:w-auto px-6 py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold rounded-xl transition-transform hover:scale-105 flex items-center justify-center gap-2">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp
+        </a>
+
+        <div class="relative group">
+          <div class="hidden group-hover:block absolute -top-10 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+            Copy to clipboard
+          </div>
+          <div class="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-all hover:scale-105 cursor-pointer shadow-lg shadow-red-600/20 select-all">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            yonathanalulam@gmail.com
+          </div>
+        </div>
+
+      </div>
     </div>
 
   </section>
