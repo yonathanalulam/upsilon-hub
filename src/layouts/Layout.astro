@@ -27,6 +27,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link rel="canonical" href={canonicalURL} />
     <meta name="robots" content="index, follow" />
     
+    <meta property="og:site_name" content="Upsilon Hub" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url} />
     <meta property="og:title" content="Upsilon Hub - The Frontier of Physics" />
@@ -34,6 +35,24 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:image" content="https://upsilon-hub.vercel.app/social-image.jpg" />
 
     <meta name="google-site-verification" content="GtX_w4WkaPm6ZJsz755t1qsyC2QRrCSzJJ881KrVch8" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Upsilon Hub",
+        "alternateName": ["UpsilonHub", "The Frontier of Physics"],
+        "url": "https://upsilon-hub.vercel.app/",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Upsilon Hub",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://upsilon-hub.vercel.app/atom.png"
+          }
+        }
+      }
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -48,7 +67,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </script>
     
     <style is:global>
-      
+     
       :root { font-family: 'Outfit', sans-serif; }
       
      
@@ -58,20 +77,104 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         z-index: 99999;
         background-color: #0f1117; 
         display: flex;
+        flex-direction: column; 
         justify-content: center;
         align-items: center;
-        transition: transform 0.8s cubic-bezier(0.76, 0, 0.24, 1); 
-        will-change: transform;
+        gap: 2rem; 
+        transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
       }
-      html:not(.dark) #preloader { background-color: #f9fafb; }
       
-      .preloader-hidden { transform: translateY(-100%); pointer-events: none; }
+      html:not(.dark) #preloader { background-color: #ffffff; }
+
       
-      .loader-logo { animation: pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-      @keyframes pulse {
-        0%, 100% { opacity: 1; transform: scale(1); }
-        50% { opacity: 0.6; transform: scale(0.98); }
+      .preloader-hidden {
+        opacity: 0;
+        transform: scale(1.05); 
+        pointer-events: none;
       }
+
+      
+      .atom-container {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        perspective: 1000px;
+      }
+
+      .nucleus {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        background: #3b82f6; 
+        border-radius: 50%;
+        box-shadow: 0 0 25px #3b82f6;
+        z-index: 10;
+        animation: pulseNucleus 3s infinite ease-in-out;
+      }
+
+      .orbit {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        border: 2px solid rgba(59, 130, 246, 0.2); 
+        transform-style: preserve-3d;
+      }
+      
+      
+      .orbit::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        height: 10px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 15px white;
+      }
+      html:not(.dark) .orbit::before { background: #3b82f6; box-shadow: none; } /
+
+   
+      .orbit:nth-child(1) { animation: rotate1 2s linear infinite; }
+      .orbit:nth-child(2) { animation: rotate2 2s linear infinite; }
+      .orbit:nth-child(3) { animation: rotate3 2s linear infinite; }
+
+      @keyframes rotate1 {
+        0% { transform: rotateZ(0deg) rotateX(65deg) rotateY(0deg); }
+        100% { transform: rotateZ(360deg) rotateX(65deg) rotateY(0deg); }
+      }
+      @keyframes rotate2 {
+        0% { transform: rotateZ(0deg) rotateX(65deg) rotateY(60deg); }
+        100% { transform: rotateZ(360deg) rotateX(65deg) rotateY(60deg); }
+      }
+      @keyframes rotate3 {
+        0% { transform: rotateZ(0deg) rotateX(65deg) rotateY(-60deg); }
+        100% { transform: rotateZ(360deg) rotateX(65deg) rotateY(-60deg); }
+      }
+      @keyframes pulseNucleus {
+        0%, 100% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.15); opacity: 0.9; }
+      }
+
+      /* -- The Branding Text -- */
+      .preloader-text {
+        font-family: 'Outfit', sans-serif;
+        font-weight: 800;
+        font-size: 1.75rem;
+        letter-spacing: -0.05em;
+        color: white;
+        opacity: 0;
+     
+        animation: fadeInText 1s ease forwards 0.5s; 
+      }
+      html:not(.dark) .preloader-text { color: #0f1117; } 
+
+      @keyframes fadeInText { to { opacity: 1; } }
 
       
       body, header, nav, footer, div, span, p, h1, h2, h3, a, button {
@@ -80,15 +183,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         transition-duration: 300ms; 
       }
 
-      
-      /* When the circular transition is active, disable all other transitions */
-      html.is-transitioning *,
-      html.is-transitioning *::before,
-      html.is-transitioning *::after {
-        transition: none !important;
-      }
-
-   
+    
       .article-card {
         transition: transform 0.4s ease, box-shadow 0.4s ease;
       }
@@ -101,10 +196,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.5);
       }
 
-
+      
       h1, h2, h3, h4, h5, h6 { letter-spacing: -0.025em; }
       
-            ::-webkit-scrollbar { width: 10px; }
+      
+      ::-webkit-scrollbar { width: 10px; }
       ::-webkit-scrollbar-track { background: transparent; }
       ::-webkit-scrollbar-thumb {
         background-color: rgba(156, 163, 175, 0.3); 
@@ -116,7 +212,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       .dark ::-webkit-scrollbar-thumb { background-color: rgba(75, 85, 99, 0.4); }
       .dark ::-webkit-scrollbar-thumb:hover { background-color: rgba(75, 85, 99, 0.7); }
 
-    
+      html.is-transitioning *, html.is-transitioning *::before, html.is-transitioning *::after {
+        transition: none !important;
+      }
+
+     
       ::view-transition-old(root), ::view-transition-new(root) {
         animation: none; mix-blend-mode: normal; animation-duration: 500ms; 
       }
@@ -128,7 +228,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <body class="bg-gray-50 text-gray-900 dark:bg-[#0f1117] dark:text-gray-100 font-sans antialiased selection:bg-blue-600/30 selection:text-blue-600 dark:selection:text-blue-300 relative flex flex-col min-h-screen">
     
     <div id="preloader">
-      <div class="loader-logo text-4xl font-black tracking-tighter text-gray-900 dark:text-white">
+      <div class="atom-container">
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="orbit"></div>
+        <div class="nucleus"></div>
+      </div>
+      <div class="preloader-text">
         UPSILON<span class="text-blue-600">.HUB</span>
       </div>
     </div>
@@ -188,19 +294,23 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </button>
 
     <script>
-
+      
       const initPreloader = () => {
         const preloader = document.getElementById('preloader');
         if (!preloader) return;
+
+        
         if (sessionStorage.getItem('hasSeenPreloader')) {
           preloader.style.display = 'none';
           return;
         }
+
         window.addEventListener('load', () => {
+          
           setTimeout(() => {
             preloader.classList.add('preloader-hidden');
             sessionStorage.setItem('hasSeenPreloader', 'true');
-          }, 600); 
+          }, 2200); 
         });
       };
 
@@ -228,7 +338,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         initMagnetics();
       });
 
-  
+     
       const themeToggleBtn = document.getElementById('theme-toggle-btn');
       const lightIcon = document.getElementById('theme-toggle-light-icon');
       const darkIcon = document.getElementById('theme-toggle-dark-icon');
@@ -243,9 +353,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           return;
         }
 
-  
         document.documentElement.classList.add('is-transitioning');
-        
         const x = event.clientX;
         const y = event.clientY;
         const endRadius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
@@ -262,7 +370,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         });
 
         transition.finished.then(() => {
-        
           document.documentElement.classList.remove('is-transitioning');
         });
       });
