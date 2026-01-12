@@ -341,7 +341,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         });
 
         transition.ready.then(() => {
-          if (isMobile) return;
+          if (isMobile) {
+            document.documentElement.animate(
+              { opacity: [1, 0] },
+              { duration: 300, easing: 'ease-out', pseudoElement: '::view-transition-old(root)', fill: 'forwards' }
+            );
+            document.documentElement.animate(
+              { opacity: [0, 1] },
+              { duration: 300, easing: 'ease-out', pseudoElement: '::view-transition-new(root)', fill: 'forwards' }
+            );
+            return;
+          }
 
           const x = event.clientX;
           const y = event.clientY;
