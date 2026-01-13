@@ -1,14 +1,4 @@
 ---
-interface Props {
-  title: string;
-  category: string;
-  image: string;
-  summary: string;
-  url: string;
-  sourceName: string;
-  isReal?: boolean;
-}
-
 const { title, category, image, summary, url, sourceName } = Astro.props;
 const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
 ---
@@ -79,16 +69,16 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
 </div>
 
 <script>
- 
   function initBookmarks() {
     const buttons = document.querySelectorAll('.bookmark-btn');
     
     buttons.forEach(btn => {
+      if (!(btn instanceof HTMLElement)) return;
+
       const url = btn.dataset.url;
       const emptyIcon = btn.querySelector('.bookmark-icon-empty');
       const filledIcon = btn.querySelector('.bookmark-icon-filled');
 
-   
       const saved = JSON.parse(localStorage.getItem('ups_saved_articles') || '[]');
       const isSaved = saved.some(item => item.url === url);
 
@@ -97,7 +87,6 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
         filledIcon.classList.remove('hidden');
       }
 
-     
       btn.addEventListener('click', (e) => {
         e.preventDefault(); 
         
@@ -105,12 +94,10 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
         const existingIndex = currentSaved.findIndex(item => item.url === url);
 
         if (existingIndex > -1) {
-          // Remove
           currentSaved.splice(existingIndex, 1);
           emptyIcon.classList.remove('hidden');
           filledIcon.classList.add('hidden');
         } else {
-          // Add
           const articleData = {
             url: btn.dataset.url,
             title: btn.dataset.title,
@@ -129,8 +116,6 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
     });
   }
 
-  // Run on load
   initBookmarks();
-  // Re-run if Astro navigates 
   document.addEventListener('astro:page-load', initBookmarks);
 </script>

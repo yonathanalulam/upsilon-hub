@@ -69,6 +69,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <style is:global>
       :root { font-family: 'Outfit', sans-serif; }
       
+      /* --- GLOBAL ANIMATION ENGINE --- */
+      /* This custom bezier curve gives the 'buttery' premium feel */
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(30px) scale(0.96); 
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0) scale(1); 
+        }
+      }
+
+      .animate-card-entry {
+        animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        opacity: 0; 
+        will-change: opacity, transform; 
+        backface-visibility: hidden;     
+      }
+
+      /* Preloader */
       #preloader {
         position: fixed;
         inset: 0;
@@ -173,7 +194,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         transition-duration: 300ms; 
       }
 
-      /* PERFORMANCE FIX: Aggressively hide laggy elements during transition */
+      /* Performance: Aggressively hide laggy elements during theme transition */
       html.is-transitioning * {
         animation-play-state: paused !important;
         transition: none !important;
@@ -210,7 +231,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       .dark ::-webkit-scrollbar-thumb { background-color: rgba(75, 85, 99, 0.4); }
       .dark ::-webkit-scrollbar-thumb:hover { background-color: rgba(75, 85, 99, 0.7); }
 
-      /* Circular Transition CSS */
       ::view-transition-old(root),
       ::view-transition-new(root) {
         animation: none;
@@ -223,31 +243,24 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         z-index: 1;
       }
 
-      /* Mobile Optimizations */
       @media screen and (max-width: 768px) {
         * {
           backdrop-filter: none !important;
           -webkit-backdrop-filter: none !important;
         }
-        
-        /* On mobile we keep these hidden/simplified always for general performance */
         .blur-\[120px\] {
             filter: none !important;
             opacity: 0.3;
         }
-
         .animate-pulse {
             animation: none !important;
         }
-
         .nucleus, .orbit::before {
             box-shadow: none !important;
         }
-        
         nav {
             background-color: rgb(255 255 255 / 0.95) !important;
         }
-        
         html.dark nav {
             background-color: #0f1117 !important;
             border-bottom: 1px solid #1f2937;
@@ -310,7 +323,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <CategoryNav />
     </header>
 
-    <main class="max-w-[1800px] mx-auto px-6 py-10 flex-grow relative min-h-screen">
+    <main class="max-w-[1800px] mx-auto px-4 sm:px-6 pt-6 pb-20 flex-grow relative min-h-screen">
       <slot />
     </main>
 
@@ -347,14 +360,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         magneticBtns.forEach(btn => {
           btn.addEventListener('mousemove', (e) => {
             const rect = btn.getBoundingClientRect();
-            const x = (e as MouseEvent).clientX - rect.left - rect.width / 2;
-            const y = (e as MouseEvent).clientY - rect.top - rect.height / 2;
-            (btn as HTMLElement).style.transition = 'transform 0s';
-            (btn as HTMLElement).style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            const x = (e).clientX - rect.left - rect.width / 2;
+            const y = (e).clientY - rect.top - rect.height / 2;
+            (btn).style.transition = 'transform 0s';
+            (btn).style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
           });
           btn.addEventListener('mouseleave', () => {
-            (btn as HTMLElement).style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-            (btn as HTMLElement).style.transform = 'translate(0, 0)';
+            (btn).style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            (btn).style.transform = 'translate(0, 0)';
           });
         });
       };
@@ -380,7 +393,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           return;
         }
 
-        // AGGRESSIVE FIX: Add class to html to pause heavy rendering
         document.documentElement.classList.add('is-transitioning');
 
         const transition = document.startViewTransition(() => {
@@ -399,7 +411,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         });
 
         transition.finished.then(() => {
-          // Remove class to resume animations and blobs
           document.documentElement.classList.remove('is-transitioning');
         });
       });

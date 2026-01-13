@@ -2,9 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 ---
 
-<Layout title="Saved Articles | Upsilon Hub">
+<Layout title="Saved Articles | Upsilon Hub" description="Your personal collection of physics reports and scientific breakthroughs saved from Upsilon Hub.">
   
-  <header class="mb-12 mt-4 border-b border-gray-200 dark:border-gray-800 pb-8">
+  <header class="mb-6 mt-4 border-b border-gray-200 dark:border-gray-800 pb-6">
     <div class="flex items-center gap-4 mb-2">
       <div class="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400">
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
@@ -18,36 +18,38 @@ import Layout from '../layouts/Layout.astro';
     </p>
   </header>
 
-  <div id="savedGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+  <div id="savedGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
     </div>
 
-  <div id="emptyState" class="hidden flex flex-col items-center justify-center py-20 text-center">
+  <div id="emptyState" class="hidden flex flex-col items-center justify-center py-20 text-center animate-card-entry">
     <div class="w-20 h-20 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mb-6">
       <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
     </div>
     <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-2">No saved articles yet</h2>
     <p class="text-gray-500 mb-8 max-w-md mx-auto">Click the bookmark icon on any article to add it to your reading list.</p>
-    <a href="/" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors">
+    <a href="/" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors shadow-lg hover:shadow-blue-500/30">
       Browse News
     </a>
   </div>
 
 </Layout>
 
-<script>
+<script is:inline>
   const savedGrid = document.getElementById('savedGrid');
   const emptyState = document.getElementById('emptyState');
   
-  // 1. Get Saved Items
   const savedArticles = JSON.parse(localStorage.getItem('ups_saved_articles') || '[]');
 
   if (savedArticles.length === 0) {
     emptyState.classList.remove('hidden');
   } else {
 
-    savedArticles.forEach(item => {
+    savedArticles.forEach((item, index) => {
+      // Logic: Add animation class and dynamic delay to JS-generated HTML
+      const delay = Math.min(index * 50, 800);
+      
       const cardHTML = `
-        <div class="group relative flex flex-col h-full bg-white dark:bg-[#1a1d26] rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl dark:shadow-none dark:hover:bg-[#232732] transition-all duration-300 border border-gray-100 dark:border-gray-800">
+        <div class="article-card group relative flex flex-col h-full bg-white dark:bg-[#1a1d26] rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl dark:shadow-none dark:hover:bg-[#232732] transition-all duration-300 border border-gray-100 dark:border-gray-800 animate-card-entry" style="animation-delay: ${delay}ms" data-url="${item.url}">
           
           <div class="h-56 overflow-hidden relative bg-gray-200 dark:bg-gray-800">
              <div class="absolute top-4 left-4 z-20">
@@ -56,12 +58,12 @@ import Layout from '../layouts/Layout.astro';
               </span>
             </div>
             
-            <button onclick="removeArticle('${item.url}')" class="absolute top-4 right-4 z-30 p-2 rounded-full bg-red-500 text-white shadow-lg hover:bg-red-600 transition-colors" title="Remove">
+            <button onclick="window.removeArticle('${item.url}', this)" class="absolute top-4 right-4 z-30 p-2 rounded-full bg-red-500 text-white shadow-lg hover:bg-red-600 transition-colors transform hover:scale-110 active:scale-95" title="Remove">
                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
 
             <a href="${item.url}" target="_blank" class="block h-full w-full">
-              <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+              <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" loading="lazy" />
               <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-80"></div>
             </a>
           </div>
@@ -80,7 +82,7 @@ import Layout from '../layouts/Layout.astro';
                   <span class="w-2 h-2 rounded-full bg-blue-500"></span>
                   ${item.sourceName || 'Source'}
                 </span>
-                <a href="${item.url}" target="_blank" class="text-blue-600 dark:text-blue-400 font-bold text-xs uppercase tracking-wide">Read Now</a>
+                <a href="${item.url}" target="_blank" class="text-blue-600 dark:text-blue-400 font-bold text-xs uppercase tracking-wide hover:underline">Read Now</a>
             </div>
           </div>
         </div>
@@ -89,11 +91,23 @@ import Layout from '../layouts/Layout.astro';
     });
   }
 
-
-  window.removeArticle = (url) => {
+  window.removeArticle = (url, btnElement) => {
     const current = JSON.parse(localStorage.getItem('ups_saved_articles') || '[]');
     const updated = current.filter(i => i.url !== url);
     localStorage.setItem('ups_saved_articles', JSON.stringify(updated));
-    location.reload(); 
+
+    // UI Update without Reload
+    const card = btnElement.closest('.article-card');
+    if (card) {
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+            card.remove();
+            // Check if empty after removal
+            if (updated.length === 0) {
+                document.getElementById('emptyState').classList.remove('hidden');
+            }
+        }, 300);
+    }
   };
 </script>
