@@ -22,21 +22,13 @@ const categoryNews = newsData
   description={`Latest breakthroughs and research reports in ${categoryName} curated by Upsilon Hub.`}
 >
   
-<<<<<<< HEAD
   <header class="mb-6 mt-4">
-=======
-  <header class="mb-12 mt-4">
->>>>>>> 79fba9beff509f05926c2a9533b0bb9e00132418
     <a href="/" class="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gray-100 dark:bg-[#1a1d26] text-sm font-bold text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-x-1">
       <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
       Back to Global News
     </a>
 
-<<<<<<< HEAD
     <div class="flex flex-col md:flex-row md:items-end gap-4 mt-8 border-b border-gray-200 dark:border-gray-800 pb-6">
-=======
-    <div class="flex flex-col md:flex-row md:items-end gap-4 mt-8 border-b border-gray-200 dark:border-gray-800 pb-8">
->>>>>>> 79fba9beff509f05926c2a9533b0bb9e00132418
       <h1 class="text-4xl md:text-6xl font-black text-gray-900 dark:text-white tracking-tight leading-none">
         {categoryName}
       </h1>
@@ -50,14 +42,10 @@ const categoryNews = newsData
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
     {categoryNews.map((item, index) => (
-<<<<<<< HEAD
       <div 
         class="animate-card-entry h-full" 
         style={`animation-delay: ${Math.min(index * 50, 800)}ms`}
       >
-=======
-      <div class="fade-entry" style={`--delay: ${index * 50}ms`}>
->>>>>>> 79fba9beff509f05926c2a9533b0bb9e00132418
         <NewsCard 
           title={item.title}
           category={item.category}
@@ -71,30 +59,3 @@ const categoryNews = newsData
   </div>
 
 </Layout>
-
-<style>
-  .fade-entry {
-    opacity: 0;
-    animation: fadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: var(--delay);
-  }
-
-  @keyframes fadeUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  @media screen and (max-width: 768px) {
-    .fade-entry {
-      animation: none !important;
-      opacity: 1 !important;
-      transform: none !important;
-    }
-  }
-</style>
