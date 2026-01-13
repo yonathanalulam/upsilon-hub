@@ -5,153 +5,212 @@ import * as cheerio from 'cheerio';
 import axios from 'axios';
 
 const parser = new Parser({ 
-  timeout: 10000,
+  timeout: 20000, 
   headers: {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36'
   }
 });
 
+
 const SOURCES = [
-  // --- QUANTUM ---
-  { category: "Quantum Physics", name: "SciTechDaily", url: "https://scitechdaily.com/tag/quantum-physics/feed/" },
-  { category: "Quantum Physics", name: "Phys.org", url: "https://phys.org/rss-feed/physics-news/quantum-physics/" },
-  { category: "Quantum Physics", name: "Quanta Magazine", url: "https://api.quantamagazine.org/feed/" }, // High Quality Replacement
+  // Academic & Institutes
+  { name: "APS Physics", url: "http://feeds.aps.org/rss/recent/physics.xml" },
+  { name: "Physics World", url: "https://physicsworld.com/feed" },
+  { name: "CERN News", url: "https://home.cern/api/news/news/feed.rss" },
+  { name: "MIT News", url: "https://news.mit.edu/rss/topic/physics" },
+  { name: "Quanta Magazine", url: "https://api.quantamagazine.org/feed/" }, 
 
-  // --- ASTROPHYSICS ---
-  { category: "Astrophysics", name: "Space.com", url: "https://www.space.com/feeds/news" },
-  { category: "Astrophysics", name: "Universe Today", url: "https://www.universetoday.com/feed/" },
-  { category: "Astrophysics", name: "ScienceDaily", url: "https://www.sciencedaily.com/rss/space_time/astrophysics.xml" },
-
-  // --- HIGH ENERGY (Fixed Sources) ---
-  { category: "High Energy", name: "Symmetry Mag", url: "https://www.symmetrymagazine.org/feed" }, // Excellent visuals, reliable
-  { category: "High Energy", name: "Phys.org", url: "https://phys.org/rss-feed/physics-news/high-energy-particle-physics/" }, 
-  { category: "High Energy", name: "SciTechDaily", url: "https://scitechdaily.com/tag/particle-physics/feed/" }, // Replaces broken MIT link
-
-  // --- NANOTECH (Fixed Sources) ---
-  { category: "Nanotech", name: "Phys.org", url: "https://phys.org/rss-feed/nanotech-news/" }, // Replaces broken Nano Mag
-  { category: "Nanotech", name: "ScienceDaily", url: "https://www.sciencedaily.com/rss/matter_energy/nanotechnology.xml" },
-
-  // --- ROBOTICS ---
-  { category: "Robotics", name: "IEEE Spectrum", url: "https://spectrum.ieee.org/feeds/topic/robotics" },
-  { category: "Robotics", name: "ScienceDaily", url: "https://www.sciencedaily.com/rss/computers_math/robotics.xml" },
+  // Major Science Journalism
+  { name: "Scientific American", url: "http://rss.sciam.com/ScientificAmerican-Global" },
+  { name: "New Scientist", url: "https://www.newscientist.com/subject/physics/feed/" },
+  { name: "Ars Technica", url: "https://arstechnica.com/science/feed/" },
+  { name: "Live Science", url: "https://www.livescience.com/feeds/all" },
+  
+  // Dedicated Wires
+  { name: "Phys.org", url: "https://phys.org/rss-feed/physics-news/" },
+  { name: "SciTechDaily", url: "https://scitechdaily.com/tag/physics/feed/" },
+  { name: "ScienceDaily", url: "https://www.sciencedaily.com/rss/matter_energy/physics.xml" },
+  { name: "Symmetry Mag", url: "https://www.symmetrymagazine.org/feed" },
+  { name: "Space.com", url: "https://www.space.com/feeds/news" }, 
+  { name: "IEEE Spectrum", url: "https://spectrum.ieee.org/feeds/topic/robotics" }
 ];
 
+
+const TOPIC_KEYWORDS = [
+  { id: "Quantum Physics", terms: ["quantum", "entanglement", "qubit", "spin", "superposition", "decoherence"] },
+  { id: "Astrophysics", terms: ["space", "universe", "galaxy", "star", "planet", "nasa", "webb", "black hole", "cosmos", "solar", "asteroid"] },
+  { id: "High Energy", terms: ["particle", "collider", "cern", "lhc", "neutrino", "boson", "dark matter", "antimatter", "symmetry", "quark"] },
+  { id: "Nanotech", terms: ["nano", "graphene", "material science", "microscopic", "molecular", "carbon nanotube"] },
+  { id: "Robotics", terms: ["robot", "drone", "autonomous", "actuator", "bionic", "android", "automation"] },
+  { id: "Nuclear Physics", terms: ["nuclear", "fission", "fusion", "radioactive", "reactor", "isotope", "atomic"] },
+  { id: "Optics", terms: ["laser", "light", "optic", "photon", "hologram", "lens", "microscope"] },
+  { id: "Condensed Matter", terms: ["superconductor", "semiconductor", "crystal", "fluid", "solid state", "condensed", "material"] },
+  { id: "Thermodynamics", terms: ["entropy", "heat", "thermal", "energy efficiency", "dynamic", "temperature"] },
+  { id: "Plasma Physics", terms: ["plasma", "ionization", "charged particle", "solar wind"] }
+];
+
+
 const THEME_GALLERY = {
-    "Quantum Physics": [
-        "https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/2034892/pexels-photo-2034892.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/17483848/pexels-photo-17483848.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/17485705/pexels-photo-17485705.jpeg?auto=compress&cs=tinysrgb&w=800"
-    ],
-    "Astrophysics": [
-        "https://images.pexels.com/photos/1169754/pexels-photo-1169754.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/39561/solar-flare-sun-eruption-energy-39561.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/110854/pexels-photo-110854.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/73873/star-clusters-rosette-nebula-star-73873.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/87009/earth-soil-creep-moon-lunar-surface-87009.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/586030/pexels-photo-586030.jpeg?auto=compress&cs=tinysrgb&w=800"
-    ],
-    "Nanotech": [
-        "https://images.pexels.com/photos/256262/pexels-photo-256262.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/356043/pexels-photo-356043.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/3735707/pexels-photo-3735707.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/3825527/pexels-photo-3825527.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/8438993/pexels-photo-8438993.jpeg?auto=compress&cs=tinysrgb&w=800"
-    ],
-    "High Energy": [
-        "https://images.pexels.com/photos/60022/pexels-photo-60022.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/256302/pexels-photo-256302.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800"
-    ],
-    "Robotics": [
-        "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/1036622/pexels-photo-1036622.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800", 
-        "https://images.pexels.com/photos/11035471/pexels-photo-11035471.jpeg?auto=compress&cs=tinysrgb&w=800"
-    ]
+  "Quantum Physics": [
+    "https://images.pexels.com/photos/256381/pexels-photo-256381.jpeg?auto=compress&cs=tinysrgb&w=800", 
+    "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=800"
+  ],
+  "Astrophysics": [
+    "https://images.pexels.com/photos/1169754/pexels-photo-1169754.jpeg?auto=compress&cs=tinysrgb&w=800", 
+    "https://images.pexels.com/photos/2150/sky-space-dark-galaxy.jpg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/39561/solar-flare-sun-eruption-energy-39561.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/110854/pexels-photo-110854.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/586030/pexels-photo-586030.jpeg?auto=compress&cs=tinysrgb&w=800"
+  ],
+  "High Energy": [
+     "https://images.pexels.com/photos/60022/pexels-photo-60022.jpeg?auto=compress&cs=tinysrgb&w=800", 
+     "https://images.pexels.com/photos/256302/pexels-photo-256302.jpeg?auto=compress&cs=tinysrgb&w=800",
+     "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
+     "https://images.pexels.com/photos/632470/pexels-photo-632470.jpeg?auto=compress&cs=tinysrgb&w=800"
+  ],
+  "Nanotech": [
+    "https://images.pexels.com/photos/3825527/pexels-photo-3825527.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/8438993/pexels-photo-8438993.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/3735707/pexels-photo-3735707.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/356043/pexels-photo-356043.jpeg?auto=compress&cs=tinysrgb&w=800"
+  ],
+  "Robotics": [
+    "https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/2599244/pexels-photo-2599244.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/11035471/pexels-photo-11035471.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/2085831/pexels-photo-2085831.jpeg?auto=compress&cs=tinysrgb&w=800"
+  ],
+  "Nuclear Physics": [
+    "https://images.pexels.com/photos/3044470/pexels-photo-3044470.jpeg?auto=compress&cs=tinysrgb&w=800", 
+    "https://images.pexels.com/photos/5473068/pexels-photo-5473068.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/4597922/pexels-photo-4597922.jpeg?auto=compress&cs=tinysrgb&w=800"
+  ],
+  "Optics": [
+    "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800", 
+    "https://images.pexels.com/photos/3862632/pexels-photo-3862632.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/5726706/pexels-photo-5726706.jpeg?auto=compress&cs=tinysrgb&w=800"
+  ],
+  "Condensed Matter": [
+    "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800", 
+    "https://images.pexels.com/photos/3662919/pexels-photo-3662919.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/256262/pexels-photo-256262.jpeg?auto=compress&cs=tinysrgb&w=800" 
+  ],
+  "Thermodynamics": [
+    "https://images.pexels.com/photos/2803163/pexels-photo-2803163.jpeg?auto=compress&cs=tinysrgb&w=800", 
+    "https://images.pexels.com/photos/2085831/pexels-photo-2085831.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/220201/pexels-photo-220201.jpeg?auto=compress&cs=tinysrgb&w=800" 
+  ],
+  "Plasma Physics": [
+    "https://images.pexels.com/photos/110854/pexels-photo-110854.jpeg?auto=compress&cs=tinysrgb&w=800", 
+    "https://images.pexels.com/photos/4597922/pexels-photo-4597922.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "https://images.pexels.com/photos/360591/pexels-photo-360591.jpeg?auto=compress&cs=tinysrgb&w=800"
+  ],
+  "Universal": [
+    "https://images.pexels.com/photos/2034892/pexels-photo-2034892.jpeg?auto=compress&cs=tinysrgb&w=800", 
+    "https://images.pexels.com/photos/5037913/pexels-photo-5037913.jpeg?auto=compress&cs=tinysrgb&w=800", 
+    "https://images.pexels.com/photos/6256247/pexels-photo-6256247.jpeg?auto=compress&cs=tinysrgb&w=800"
+  ]
 };
+
+function classifyArticle(item) {
+  const text = (item.title + " " + (item.contentSnippet || "") + " " + (item.categories || []).join(" ")).toLowerCase();
+
+  for (const topic of TOPIC_KEYWORDS) {
+    if (topic.terms.some(term => text.includes(term))) {
+      return topic.id;
+    }
+  }
+
+  return "General Physics";
+}
 
 function isRoboticsValid(item) {
   const text = (item.title + " " + item.contentSnippet).toLowerCase();
-  const forbidden = ["chatbot", "chatgpt", "generative ai", "llm", "large language model", "stock market", "virtual reality", "software update"];
-  const required = ["robot", "drone", "machine", "actuator", "sensor", "autonomous vehicle", "rover", "mechanic", "bot", "bionic", "hardware"];
+  const forbidden = ["chatbot", "chatgpt", "generative ai", "llm", "large language model", "stock market"];
+  const required = ["robot", "drone", "machine", "actuator", "sensor", "autonomous", "rover"];
   
   if (forbidden.some(word => text.includes(word))) return false;
-  if (!required.some(word => text.includes(word))) return false;
-  return true;
+  return required.some(word => text.includes(word));
 }
 
-function getRandomFallback(category) {
-    const gallery = THEME_GALLERY[category] || THEME_GALLERY["Quantum Physics"];
-    return gallery[Math.floor(Math.random() * gallery.length)];
+function getFallbackImage(category) {
+  const gallery = THEME_GALLERY[category] || THEME_GALLERY["Universal"];
+  return gallery[Math.floor(Math.random() * gallery.length)];
 }
 
 async function getOgImage(url) {
   try {
-    const { data } = await axios.get(url, { 
-      headers: { 'User-Agent': 'Mozilla/5.0' },
-      timeout: 3000
-    });
+    const { data } = await axios.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' }, timeout: 3000 });
     const $ = cheerio.load(data);
     return $('meta[property="og:image"]').attr('content') || null;
   } catch (error) { return null; }
 }
 
 async function fetchNews() {
-  console.log("🚀 Starting Prioritized Fetch...");
+  console.log("🚀 Starting Massive Physics Fetch...");
   let allNews = [];
 
   for (const source of SOURCES) {
     try {
-      console.log(`\n📡 Contacting ${source.name} [${source.category}]...`);
+      console.log(`\n📡 Contacting ${source.name}...`);
       const feed = await parser.parseURL(source.url);
-      const items = feed.items.slice(0, 10); 
+      
+      const items = feed.items.slice(0, 15); 
 
       for (const item of items) {
-        if (source.category === "Robotics" && !isRoboticsValid(item)) continue; 
-        process.stdout.write(`   ↳ ${item.title.substring(0, 30)}... `);
-        
-        // 1. TRY SCRAPE
+        let category = classifyArticle(item);
+
+        if (source.name === "IEEE Spectrum") {
+           category = "Robotics"; 
+           if (!isRoboticsValid(item)) continue;
+        }
+
+        process.stdout.write(`   ↳ [${category}] ${item.title.substring(0, 30)}... `);
+
         let image = await getOgImage(item.link);
         let isReal = false;
-        
-        // 2. FALLBACK
+
         if (!image) {
-            image = getRandomFallback(source.category); 
-            console.log("🎲 (Fallback)");
+          image = getFallbackImage(category); 
+          console.log("🎲 (Fallback)");
         } else {
-            isReal = true;
-            console.log("✅ (Scraped)");
+          isReal = true;
+          console.log("✅ (Scraped)");
         }
 
         allNews.push({
           title: item.title,
           link: item.link,
           pubDate: item.pubDate,
-          category: source.category,
+          category: category,
           sourceName: source.name,
           image: image,
-          isReal: isReal, 
+          isReal: isReal,
           summary: item.contentSnippet ? item.contentSnippet.substring(0, 140) + "..." : ""
         });
       }
     } catch (error) { console.error(`❌ Error: ${error.message}`); }
   }
 
+  //  SORTING LOGIC: REAL IMAGES FIRST 
  
   allNews.sort((a, b) => {
     if (a.isReal === b.isReal) return 0.5 - Math.random(); 
-    return b.isReal - a.isReal; 
+    return (b.isReal ? 1 : 0) - (a.isReal ? 1 : 0); 
   });
+
+  const realCount = allNews.filter(n => n.isReal).length;
+  const fallbackCount = allNews.filter(n => !n.isReal).length;
 
   const outputPath = path.resolve('./src/data/news.json');
   fs.writeFileSync(outputPath, JSON.stringify(allNews, null, 2));
-  console.log(`\n🎉 DONE! Saved ${allNews.length} articles (Real images prioritized).`);
+  
+  console.log(`\n🎉 DONE! Processed ${allNews.length} articles.`);
+  console.log(`📸 Scraped Images: ${realCount} | 🎲 Fallback Images: ${fallbackCount}`);
+  console.log(`✨ Articles with real images are now prioritized at the top.`);
 }
 
 fetchNews();
