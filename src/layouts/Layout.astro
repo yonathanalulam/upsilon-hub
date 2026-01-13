@@ -69,6 +69,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <style is:global>
       :root { font-family: 'Outfit', sans-serif; }
       
+<<<<<<< HEAD
       /* --- GLOBAL ANIMATION ENGINE --- */
       /* This custom bezier curve gives the 'buttery' premium feel */
       @keyframes fadeInUp {
@@ -79,10 +80,23 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         100% {
           opacity: 1;
           transform: translateY(0) scale(1); 
+=======
+      /* --- GLOBAL ANIMATIONS --- */
+      /* We define this here so we can use it on Index, Category, and Saved pages */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+>>>>>>> 79fba9beff509f05926c2a9533b0bb9e00132418
         }
       }
 
       .animate-card-entry {
+<<<<<<< HEAD
         animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
         opacity: 0; 
         will-change: opacity, transform; 
@@ -90,6 +104,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
 
       /* Preloader */
+=======
+        animation: fadeInUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        opacity: 0; /* Start hidden */
+      }
+
+      /* Preloader Styles */
+>>>>>>> 79fba9beff509f05926c2a9533b0bb9e00132418
       #preloader {
         position: fixed;
         inset: 0;
