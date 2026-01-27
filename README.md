@@ -8,7 +8,7 @@ Keeping up with scientific breakthroughs is difficult. The signal-to-noise ratio
 
 🤖
 How It Works:
-Automated Retrieval:A custom scraping engine runs daily at 6:00 AM UTC via GitHub Actions.
-Smart Filtering:Algorithms filter out irrelevant noise and categorize content into Quantum, Astrophysics, and High Energy Physics.
-Self-Deploying:The system automatically rebuilds and deploys the live site on Vercel whenever new data is verified.
+A custom scraping engine runs daily at 6:00 AM UTC via GitHub Actions.
+Algorithms filter out irrelevant noise and categorize content into Quantum, Astrophysics, and High Energy Physics.
+The system automatically rebuilds and deploys the live site on Vercel whenever new data is verified.
 
