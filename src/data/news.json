@@ -1,395 +1,5 @@
 [
   {
-    "title": "Distant entangled atoms acting as one sensor deliver stunning precision",
-    "link": "https://www.sciencedaily.com/releases/2026/01/260126075842.htm",
-    "pubDate": "Mon, 26 Jan 2026 08:26:09 EST",
-    "category": "Quantum Physics",
-    "sourceName": "ScienceDaily",
-    "image": "https://www.sciencedaily.com/images/1920/entangled-atomic-clouds.webp",
-    "isReal": true,
-    "summary": "Researchers have demonstrated that quantum entanglement can link atoms across space to improve measurement accuracy. By splitting an entangl..."
-  },
-  {
-    "title": "Former astronaut on lunar spacesuits: \"I don't think they're great right now\"",
-    "link": "https://arstechnica.com/space/2026/01/former-astronaut-on-lunar-spacesuits-i-dont-think-theyre-great-right-now/",
-    "pubDate": "Mon, 26 Jan 2026 12:00:57 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Ars Technica",
-    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/01/jsc2025e077725-1152x648.jpg",
-    "isReal": true,
-    "summary": "\"These are just the difficulties of designing a spacesuit for the lunar environment.\"..."
-  },
-  {
-    "title": "Ask me anything: Mažena Mackoit-Sinkevičienė – ‘Above all, curiosity drives everything’",
-    "link": "https://physicsworld.com/a/ask-me-anything-mazena-mackoit-sinkeviciene-above-all-curiosity-drives-everything/",
-    "pubDate": "Thu, 22 Jan 2026 11:00:23 +0000",
-    "category": "Quantum Physics",
-    "sourceName": "Physics World",
-    "image": "https://physicsworld.com/wp-content/uploads/2026/01/2026-01-ama-mazena-mackoit-sinkeviciene.jpg",
-    "isReal": true,
-    "summary": "Mažena Mackoit-Sinkevičienė works in quantum optics and technology and is vice-president of the Lithuanian Physical Society\nThe post Ask me ..."
-  },
-  {
-    "title": "Laser processed thin NiO powder coating for durable anode-free batteries",
-    "link": "https://physicsworld.com/a/laser-processed-thin-nio-powder-coating-for-durable-anode-free-batteries/",
-    "pubDate": "Mon, 26 Jan 2026 16:30:22 +0000",
-    "category": "Optics",
-    "sourceName": "Physics World",
-    "image": "https://physicsworld.com/wp-content/uploads/2026/01/rechargeable-batteries-1446570564-istock-phonlamai-photo-scaled.jpg",
-    "isReal": true,
-    "summary": "CO2 infra-red Laser modified NiO powder coating on Cu suppresses dendrite formation, and enables reversible Lithium plating and stripping ov..."
-  },
-  {
-    "title": "European Space Agency unveils first images from Earth-observation ‘sounder’ satellite",
-    "link": "https://physicsworld.com/a/european-space-agency-unveils-first-images-from-earth-observation-sounder-satellite/",
-    "pubDate": "Tue, 27 Jan 2026 18:26:07 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Physics World",
-    "image": "https://physicsworld.com/wp-content/uploads/2026/01/temperature-esa-27-01-26.jpg",
-    "isReal": true,
-    "summary": "Data from the mission will help improve the accuracy of weather forecasting \nThe post European Space Agency unveils first images from Earth-..."
-  },
-  {
-    "title": "Embracing quantum spookiness: Best ideas of the century",
-    "link": "https://www.newscientist.com/article/2508838-embracing-quantum-spookiness-best-ideas-of-the-century/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
-    "pubDate": "Mon, 19 Jan 2026 16:00:59 +0000",
-    "category": "Quantum Physics",
-    "sourceName": "New Scientist",
-    "image": "https://images.newscientist.com/wp-content/uploads/2026/01/13155950/SEI_280670149.jpg",
-    "isReal": true,
-    "summary": "The strange principle of quantum entanglement baffled Albert Einstein. Yet finally putting quantum weirdness to the ultimate test, and embra..."
-  },
-  {
-    "title": "Back from the dead, a black hole is erupting after a 100-million-year hiatus",
-    "link": "https://www.scientificamerican.com/article/back-from-the-dead-a-black-hole-is-erupting-after-a-100-million-year-hiatus/",
-    "pubDate": "Sat, 24 Jan 2026 13:00:00 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Scientific American",
-    "image": "https://static.scientificamerican.com/dam/m/615fff17bb18a3e9/original/10073540_radiooptical.png?m=1769204261.679&w=1200",
-    "isReal": true,
-    "summary": "Radio images captured this “cosmic volcano” being reborn at the heart of the galaxy J1007+3540..."
-  },
-  {
-    "title": "Uranus and Neptune may be more rocky than icy, say astrophysicists",
-    "link": "https://physicsworld.com/a/uranus-and-neptune-may-be-more-rocky-than-icy-say-astrophysicists/",
-    "pubDate": "Tue, 27 Jan 2026 13:00:47 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Physics World",
-    "image": "https://physicsworld.com/wp-content/uploads/2026/01/uranus-neptune.jpg",
-    "isReal": true,
-    "summary": "Novel modelling approach suggests that the traditionally ice-rich image of these planets may be skewed\nThe post Uranus and Neptune may be mo..."
-  },
-  {
-    "title": "Did Edison accidentally make graphene in 1879?",
-    "link": "https://arstechnica.com/science/2026/01/did-edison-accidentally-make-graphene-in-1879/",
-    "pubDate": "Sat, 24 Jan 2026 18:36:11 +0000",
-    "category": "Nanotech",
-    "sourceName": "Ars Technica",
-    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/01/edison3-1152x632.jpg",
-    "isReal": true,
-    "summary": "Rice University chemists replicated Thomas Edison's seminal experiment and found a surprising byproduct...."
-  },
-  {
-    "title": "Cosmic time capsules: the search for pristine comets",
-    "link": "https://physicsworld.com/a/cosmic-time-capsules-the-search-for-pristine-comets/",
-    "pubDate": "Fri, 23 Jan 2026 13:40:59 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Physics World",
-    "image": "https://physicsworld.com/wp-content/uploads/2026/01/hubble-3i-atlas-scaled.jpg",
-    "isReal": true,
-    "summary": "Ancient icy wanderers like comet 3I/ATLAS, spotted in July 2025, can reveal secrets of our cosmic origins\nThe post Cosmic time capsules: the..."
-  },
-  {
-    "title": "JWST unveils most intricate map yet of cosmic dark matter",
-    "link": "https://www.scientificamerican.com/article/jwst-unveils-most-intricate-map-yet-of-cosmic-dark-matter/",
-    "pubDate": "Mon, 26 Jan 2026 16:10:00 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Scientific American",
-    "image": "https://static.scientificamerican.com/dam/m/5831a87234924162/original/1-PIA26702.jpg?m=1769443947.243&w=1200",
-    "isReal": true,
-    "summary": "Astronomers puzzled out minuscule distortions in images of faraway galaxies taken by JWST in order to chart the invisible..."
-  },
-  {
-    "title": "Managers on alert for “launch fever” as pressure builds for NASA’s Moon mission",
-    "link": "https://arstechnica.com/space/2026/01/managers-on-alert-for-launch-fever-as-pressure-builds-for-nasas-moon-mission/",
-    "pubDate": "Sat, 17 Jan 2026 04:45:33 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Ars Technica",
-    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/01/Artemis-II-Trajectory-Thumbnail-1-1152x648-1768622903.jpg",
-    "isReal": true,
-    "summary": "\"I’ve got one job, and it’s the safe return of Reid, Victor, Christina, and Jeremy.\"..."
-  },
-  {
-    "title": "NASA readies for Artemis II mission, AI-powered speech gives stroke patients hope, and researchers discover oldest cave art ever",
-    "link": "https://www.scientificamerican.com/podcast/episode/nasa-readies-for-artemis-ii-mission-ai-powered-speech-gives-stroke-patients/",
-    "pubDate": "Mon, 26 Jan 2026 11:00:00 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Scientific American",
-    "image": "https://static.scientificamerican.com/dam/m/81f4d19ea9e91988/original/2601_SQ_MON_JAN_26_thumbnail-1.png?m=1769197954.583&w=1200",
-    "isReal": true,
-    "summary": "What’s on the road to the launch of NASA’s Artemis II, how scientists are using artificial intelligence to help stroke patients speak, and w..."
-  },
-  {
-    "title": "Hot ancient galaxy cluster challenges current cosmological models",
-    "link": "https://physicsworld.com/a/hot-ancient-galaxy-cluster-challenges-current-cosmological-models/",
-    "pubDate": "Fri, 23 Jan 2026 11:30:13 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Physics World",
-    "image": "https://physicsworld.com/wp-content/uploads/2026/01/23-01-26-galaxy-cluster.jpg",
-    "isReal": true,
-    "summary": "Observations of the thermal energy in a baby galaxy cluster 12.4 billion light years away suggest much more energetic early cluster growth t..."
-  },
-  {
-    "title": "The magnetic secret inside steel finally explained",
-    "link": "https://www.sciencedaily.com/releases/2026/01/260125083427.htm",
-    "pubDate": "Mon, 26 Jan 2026 11:57:18 EST",
-    "category": "Nuclear Physics",
-    "sourceName": "ScienceDaily",
-    "image": "https://www.sciencedaily.com/images/1920/iron-filings-in-magnetic-field.webp",
-    "isReal": true,
-    "summary": "For years, scientists noticed that magnetic fields could improve steel, but no one knew exactly why. New simulations reveal that magnetism c..."
-  },
-  {
-    "title": " 'Doomsday Clock' ticks 4 seconds closer to midnight as unregulated AI and 'mirror life' threaten humanity ",
-    "link": "https://www.livescience.com/planet-earth/doomsday-clock-ticks-4-seconds-closer-to-midnight-as-unregulated-ai-and-mirror-life-threaten-humanity",
-    "pubDate": "Tue, 27 Jan 2026 22:44:34 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Live Science",
-    "image": "https://cdn.mos.cms.futurecdn.net/Wotx2JnGVacWgECwuiLNqZ-1899-80.jpg",
-    "isReal": true,
-    "summary": "The Bulletin of the Atomic Scientists now says humanity is a metaphorical 85 seconds to global disaster...."
-  },
-  {
-    "title": "Superconductors, an opportunity for science and society",
-    "link": "https://home.cern/news/news/knowledge-sharing/superconductors-opportunity-science-and-society",
-    "pubDate": "Thu, 08 Jan 2026 13:11:50 +0000",
-    "category": "Quantum Physics",
-    "sourceName": "CERN News",
-    "image": "https://cds.cern.ch/images//file?size=medium",
-    "isReal": true,
-    "summary": "Superconductors, an opportunity for science and society\n\n\t\t\t\t\t\t\nSuperconductive technologies have long been central to particle physics, but..."
-  },
-  {
-    "title": " 'The dream has come true': Standard model of cosmology holds up in massive 6-year study of the universe — with one big caveat ",
-    "link": "https://www.livescience.com/physics-mathematics/dark-energy/the-dream-has-come-true-standard-model-of-cosmology-holds-up-in-massive-6-year-study-of-the-universe-with-one-big-caveat",
-    "pubDate": "Tue, 27 Jan 2026 21:15:47 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Live Science",
-    "image": "https://cdn.mos.cms.futurecdn.net/he4LUv6a9brqErfbUKF5D-1920-80.jpg",
-    "isReal": true,
-    "summary": "The six-year Dark Energy Survey has released its full results, showing that two leading models of cosmology are equally valid — but both fai..."
-  },
-  {
-    "title": "A strange in-between state of matter is finally observed",
-    "link": "https://www.sciencedaily.com/releases/2026/01/260125083404.htm",
-    "pubDate": "Mon, 26 Jan 2026 10:11:17 EST",
-    "category": "Nanotech",
-    "sourceName": "ScienceDaily",
-    "image": "https://www.sciencedaily.com/images/1920/protochips-fusion-heating-stage-and-chip.webp",
-    "isReal": true,
-    "summary": "When materials become just one atom thick, melting no longer follows the familiar rules. Instead of jumping straight from solid to liquid, a..."
-  },
-  {
-    "title": "Physicists challenge a 200-year-old law of thermodynamics at the atomic scale",
-    "link": "https://www.sciencedaily.com/releases/2026/01/260121034140.htm",
-    "pubDate": "Thu, 22 Jan 2026 02:27:26 EST",
-    "category": "Quantum Physics",
-    "sourceName": "ScienceDaily",
-    "image": "https://www.sciencedaily.com/images/1920/atomic-physics-thermodynamics-laws.webp",
-    "isReal": true,
-    "summary": "A long-standing law of thermodynamics turns out to have a loophole at the smallest scales. Researchers have shown that quantum engines made ..."
-  },
-  {
-    "title": " Canon 18x50 IS UD all-weather binoculars review ",
-    "link": "https://www.livescience.com/space/astronomy/canon-18x50-is-ud-all-weather-binoculars-review",
-    "pubDate": "Mon, 26 Jan 2026 12:00:00 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Live Science",
-    "image": "https://cdn.mos.cms.futurecdn.net/UDo9TPKdfmQb5FXm8iUeBU-2560-80.jpg",
-    "isReal": true,
-    "summary": "These Canon image-stabilized binoculars can keep up with you stargazing and wildlife spotting, and then some...."
-  },
-  {
-    "title": "The fastest human spaceflight mission in history crawls closer to liftoff",
-    "link": "https://arstechnica.com/space/2026/01/nasas-artemis-ii-rocket-rolls-to-launch-pad-but-key-test-looms-ahead/",
-    "pubDate": "Mon, 19 Jan 2026 22:01:52 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Ars Technica",
-    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/01/IMG_0127-1-1152x648.jpg",
-    "isReal": true,
-    "summary": "After a remarkably smooth launch campaign, Artemis II reached its last stop before the Moon...."
-  },
-  {
-    "title": " See the 'Seven Sisters' of the Pleiades swim in the light of a waxing moon at sunset tonight ",
-    "link": "https://www.space.com/stargazing/see-the-seven-sisters-of-the-pleiades-swim-in-the-light-of-a-waxing-moon-at-sunset-jan-27-2025",
-    "pubDate": "Tue, 27 Jan 2026 17:00:00 +0000",
-    "category": "Optics",
-    "sourceName": "Space.com",
-    "image": "https://cdn.mos.cms.futurecdn.net/MyLsusso3ocduhYUTEh4Lj-1878-80.jpg",
-    "isReal": true,
-    "summary": "The moon will be closest to the Pleiades in the hours following sunset...."
-  },
-  {
-    "title": "New sensor uses topological material to detect helium leaks",
-    "link": "https://physicsworld.com/a/new-sensor-uses-topological-material-to-detect-helium-leaks/",
-    "pubDate": "Mon, 26 Jan 2026 09:00:06 +0000",
-    "category": "Condensed Matter",
-    "sourceName": "Physics World",
-    "image": "https://physicsworld.com/wp-content/uploads/2026/01/helium-sensor.jpg",
-    "isReal": true,
-    "summary": "Device works by monitoring frequency of sound waves propagating through a kagome material\nThe post New sensor uses topological material to d..."
-  },
-  {
-    "title": "Does dark energy stem from a thermodynamic theory of space-time?",
-    "link": "https://www.newscientist.com/video/2512882-does-dark-energy-stem-from-a-thermodynamic-theory-of-space-time/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
-    "pubDate": "Wed, 21 Jan 2026 20:07:26 +0000",
-    "category": "Astrophysics",
-    "sourceName": "New Scientist",
-    "image": "https://images.newscientist.com/wp-content/uploads/2026/01/21200650/tessa-baker.jpg",
-    "isReal": true,
-    "summary": "By studying ripples in space-time, physicists are testing wheather dark energy might stem from hidden dimensions, elusive fields detectable ..."
-  },
-  {
-    "title": " Venus may get a huge meteor shower this July, thanks to a long-ago asteroid breakup ",
-    "link": "https://www.space.com/astronomy/venus/venus-may-get-a-huge-meteor-shower-this-july-thanks-to-a-long-ago-asteroid-breakup",
-    "pubDate": "Tue, 27 Jan 2026 11:00:00 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Space.com",
-    "image": "https://cdn.mos.cms.futurecdn.net/BkrqFoJMoDQjWNvTAV4tQc-1920-80.jpg",
-    "isReal": true,
-    "summary": "This coming July, Venus could plow through the dust generated by an asteroid breakup thousands of years ago, potentially sparking an impress..."
-  },
-  {
-    "title": "Silver just solved a major solid-state battery problem",
-    "link": "https://www.sciencedaily.com/releases/2026/01/260118064641.htm",
-    "pubDate": "Sun, 18 Jan 2026 22:23:20 EST",
-    "category": "Nanotech",
-    "sourceName": "ScienceDaily",
-    "image": "https://www.sciencedaily.com/images/1920/silver-coating-lithium-metal-batteries.webp",
-    "isReal": true,
-    "summary": "Solid-state batteries could store more energy and charge faster than today’s batteries, but they tend to crack and fail over time. Stanford ..."
-  },
-  {
-    "title": "NASA to push ahead with ‘wet’ dress rehearsal for Artemis II moon mission",
-    "link": "https://www.scientificamerican.com/article/nasa-to-push-ahead-with-wet-dress-rehearsal-for-artemis-ii-moon-mission/",
-    "pubDate": "Tue, 27 Jan 2026 16:00:00 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Scientific American",
-    "image": "https://static.scientificamerican.com/dam/m/7e5e51db4bcbd738/original/NASa-Artemis.jpg?m=1769530959.639&w=1200",
-    "isReal": true,
-    "summary": "A crucial test of NASA’s upcoming crewed flight to the moon is set to take place as soon as Saturday, the agency said..."
-  },
-  {
-    "title": "A hidden magnetic order could unlock superconductivity",
-    "link": "https://www.sciencedaily.com/releases/2026/01/260126231849.htm",
-    "pubDate": "Mon, 26 Jan 2026 23:39:16 EST",
-    "category": "Quantum Physics",
-    "sourceName": "ScienceDaily",
-    "image": "https://www.sciencedaily.com/images/1920/superconducting-material-hovering-over-magnets.webp",
-    "isReal": true,
-    "summary": "Physicists have discovered that hidden magnetic order plays a key role in the pseudogap, a puzzling state of matter that appears just before..."
-  },
-  {
-    "title": " Artemis 2 astronauts enter quarantine ahead of historic NASA moon launch ",
-    "link": "https://www.space.com/space-exploration/human-spaceflight/artemis-2-astronauts-enter-quarantine-ahead-of-historic-nasa-moon-launch",
-    "pubDate": "Mon, 26 Jan 2026 20:12:58 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Space.com",
-    "image": "https://cdn.mos.cms.futurecdn.net/pzTAAG8vKmH5mikB5q2aNd-2000-80.jpg",
-    "isReal": true,
-    "summary": "The four astronauts of NASA's Artemis 2 moon mission went into quarantine on Jan. 23, keeping everything on track for a possible launch in e..."
-  },
-  {
-    "title": "Encrypted qubits can be cloned and stored in multiple locations",
-    "link": "https://physicsworld.com/a/encrypted-qubits-can-be-cloned-and-stored-in-multiple-locations/",
-    "pubDate": "Sat, 24 Jan 2026 15:09:46 +0000",
-    "category": "Quantum Physics",
-    "sourceName": "Physics World",
-    "image": "https://physicsworld.com/wp-content/uploads/2026/01/23-1-26-cloning-illustration.jpg",
-    "isReal": true,
-    "summary": "“Elegant” result has implications for a quantum internet\nThe post Encrypted qubits can be cloned and stored in multiple locations appeared f..."
-  },
-  {
-    "title": "CERN wishes you a happy 2026",
-    "link": "https://home.cern/news/news/cern/cern-wishes-you-happy-2026",
-    "pubDate": "Mon, 05 Jan 2026 14:57:46 +0000",
-    "category": "High Energy",
-    "sourceName": "CERN News",
-    "image": "https://cds.cern.ch/images//file?size=medium",
-    "isReal": true,
-    "summary": "CERN wishes you a happy 2026\n\n\t\t\t\t\t\t\n\nThis video is available on YouTube.\n2026 promises to be an exciting year for CERN, starting with new l..."
-  },
-  {
-    "title": " Ancient lake full of crop circles lurks in the shadow of Saudi Arabia's 'camel-hump' mountain — Earth from space ",
-    "link": "https://www.livescience.com/planet-earth/ancient-lake-full-of-crop-circles-lurks-in-the-shadow-of-saudi-arabias-camel-hump-mountain-earth-from-space",
-    "pubDate": "Tue, 27 Jan 2026 12:32:13 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Live Science",
-    "image": "https://cdn.mos.cms.futurecdn.net/KTcufZQziZb9Y4JHJSKQd8-1600-80.jpg",
-    "isReal": true,
-    "summary": "A 2020 astronaut photo shows the oasis town of Jubbah lurking within a paleolake in the wind shadow of Saudi Arabia's \"two camel-hump mounta..."
-  },
-  {
-    "title": "What can you do with 380 million Higgs bosons?",
-    "link": "https://home.cern/news/news/physics/what-can-you-do-380-million-higgs-bosons",
-    "pubDate": "Fri, 16 Jan 2026 13:46:10 +0000",
-    "category": "Astrophysics",
-    "sourceName": "CERN News",
-    "image": "https://cds.cern.ch/images//file?size=medium",
-    "isReal": true,
-    "summary": "What can you do with 380 million Higgs bosons?\n\n\t\t\t\t\t\t\nWhat is the fate of the Universe? Why is there more matter than antimatter? What lurk..."
-  },
-  {
-    "title": "We have a new way to explain why we agree on the nature of reality",
-    "link": "https://www.newscientist.com/article/2512894-we-have-a-new-way-to-explain-why-we-agree-on-the-nature-of-reality/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
-    "pubDate": "Tue, 27 Jan 2026 08:00:20 +0000",
-    "category": "Quantum Physics",
-    "sourceName": "New Scientist",
-    "image": "https://images.newscientist.com/wp-content/uploads/2026/01/23172857/SEI_281782031.jpg",
-    "isReal": true,
-    "summary": "An evolution-inspired framework for how quantum fuzziness gives rise to our classical world shows that even imperfect observers can eventual..."
-  },
-  {
-    "title": "New research challenges the cold dark matter assumption",
-    "link": "https://www.sciencedaily.com/releases/2026/01/260114084113.htm",
-    "pubDate": "Thu, 15 Jan 2026 00:42:07 EST",
-    "category": "Astrophysics",
-    "sourceName": "ScienceDaily",
-    "image": "https://www.sciencedaily.com/images/1920/big-bang-hot-cold-dark-matter.webp",
-    "isReal": true,
-    "summary": "Dark matter, one of the Universe’s greatest mysteries, may have been born blazing hot instead of cold and sluggish as scientists long believ..."
-  },
-  {
-    "title": "Laser fusion: Focused Energy charts a course to commercial viability",
-    "link": "https://physicsworld.com/a/laser-fusion-focused-energy-charts-a-course-to-commercial-viability/",
-    "pubDate": "Thu, 22 Jan 2026 15:01:44 +0000",
-    "category": "Nuclear Physics",
-    "sourceName": "Physics World",
-    "image": "https://physicsworld.com/wp-content/uploads/2026/01/22-1-25-debbie-callahan-list.jpg",
-    "isReal": true,
-    "summary": "Plasma physicist Debbie Callahan is our podcast guest\nThe post Laser fusion: Focused Energy charts a course to commercial viability appeared..."
-  },
-  {
-    "title": "Researchers unlocked a new shortcut to quantum materials",
-    "link": "https://www.sciencedaily.com/releases/2026/01/260121233404.htm",
-    "pubDate": "Thu, 22 Jan 2026 00:03:43 EST",
-    "category": "Quantum Physics",
-    "sourceName": "ScienceDaily",
-    "image": "https://www.sciencedaily.com/images/1920/laser-exciting-quantum-material.webp",
-    "isReal": true,
-    "summary": "Scientists are learning how to temporarily reshape materials by nudging their internal quantum rhythms instead of blasting them with extreme..."
-  },
-  {
-    "title": "‘Impossible’ Higgs boson measurement within reach, thanks to a detour",
-    "link": "https://www.symmetrymagazine.org/article/impossible-higgs-boson-measurement-within-reach-thanks-to-a-detour?utm_source=main_feed_click&utm_medium=rss&utm_campaign=main_feed&utm_content=click",
-    "pubDate": "2025-08-05T08:00:00-0500\n",
-    "category": "High Energy",
-    "sourceName": "Symmetry Mag",
-    "image": "https://www.symmetrymagazine.org/sites/default/files/styles/2015_hero/public/2025-08/Header_Impossible_Higgs_boson_measurement_within_reach_thanks_to_a_detour.jpg?itok=iUzvy7F-",
-    "isReal": true,
-    "summary": "A team of young scientists paused their new physics searches to develop an innovative machine-learning tool, which is now helping them narro..."
-  },
-  {
     "title": "Could silicon become the bedrock of quantum computers?",
     "link": "https://physicsworld.com/a/could-silicon-become-the-bedrock-of-quantum-computers/",
     "pubDate": "Mon, 26 Jan 2026 16:00:06 +0000",
@@ -398,116 +8,6 @@
     "image": "https://physicsworld.com/wp-content/uploads/2026/01/27-01-2026-silicon-quantum-computing-engineers.jpg",
     "isReal": true,
     "summary": "Australian spin-out Silicon Quantum Computing makes the case with a modality-leading 11-qubit processor\nThe post Could silicon become the be..."
-  },
-  {
-    "title": "Trade wars muzzle allied talks on Trump's Golden Dome missile shield",
-    "link": "https://arstechnica.com/space/2026/01/trade-wars-muzzle-allied-talks-on-trumps-golden-dome-missile-shield/",
-    "pubDate": "Tue, 27 Jan 2026 15:42:04 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Ars Technica",
-    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/01/GettyImages-2216141394-1152x648.jpg",
-    "isReal": true,
-    "summary": "“International partners, I have not been allowed to talk to yet because of the trade wars.\"..."
-  },
-  {
-    "title": "Physicists used 'dark photons' in an effort to rewrite physics in 2025",
-    "link": "https://www.newscientist.com/article/2507992-physicists-used-dark-photons-in-an-effort-to-rewrite-physics-in-2025/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
-    "pubDate": "Wed, 24 Dec 2025 17:00:45 +0000",
-    "category": "Optics",
-    "sourceName": "New Scientist",
-    "image": "https://images.newscientist.com/wp-content/uploads/2025/12/10115629/SEI_276485461.jpg",
-    "isReal": true,
-    "summary": "A new theory of \"dark photons\" attempted to explain a centuries-old experiment in a new way this year, in an effort to change our understand..."
-  },
-  {
-    "title": "Our elegant universe: rethinking nature’s deepest principle",
-    "link": "https://www.newscientist.com/article/2509985-our-elegant-universe-rethinking-natures-deepest-principle/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
-    "pubDate": "Mon, 12 Jan 2026 16:00:44 +0000",
-    "category": "Quantum Physics",
-    "sourceName": "New Scientist",
-    "image": "https://images.newscientist.com/wp-content/uploads/2026/01/06114130/SEI_279759438.jpg",
-    "isReal": true,
-    "summary": "For centuries, the principle of symmetry has guided physicists towards more fundamental truths, but now a slew of shocking findings suggest ..."
-  },
-  {
-    "title": "Computer Security: A final marathon for service managers ",
-    "link": "https://home.cern/news/news/computing/computer-security-final-marathon-service-managers",
-    "pubDate": "Thu, 08 Jan 2026 11:57:59 +0000",
-    "category": "High Energy",
-    "sourceName": "CERN News",
-    "image": "https://cds.cern.ch/images//file?size=medium",
-    "isReal": true,
-    "summary": "Computer Security: A final marathon for service managers \n\n\t\t\t\t\t\t\nThe past two years have brought a lot of new computer-security deployments..."
-  },
-  {
-    "title": " Magnetic avalanches on the sun reveal the hidden engine powering solar flares ",
-    "link": "https://www.space.com/astronomy/sun/magnetic-avalanches-european-sun-watching-probe-unveils-the-central-engine-of-a-flare",
-    "pubDate": "Mon, 26 Jan 2026 22:00:00 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Space.com",
-    "image": "https://cdn.mos.cms.futurecdn.net/nfag49VkKftSJUUgyEDytD-1200-80.jpg",
-    "isReal": true,
-    "summary": "\"This is one of the most exciting results from Solar Orbiter so far.\"..."
-  },
-  {
-    "title": "New catalyst makes plastic upcycling 10x more efficient than platinum",
-    "link": "https://www.sciencedaily.com/releases/2026/01/260124003806.htm",
-    "pubDate": "Sat, 24 Jan 2026 04:15:29 EST",
-    "category": "Condensed Matter",
-    "sourceName": "ScienceDaily",
-    "image": "https://www.sciencedaily.com/images/1920/evolution-of-carburization-under-kinetic-control.webp",
-    "isReal": true,
-    "summary": "Scientists are finding new ways to replace expensive, scarce platinum catalysts with something far more abundant: tungsten carbide. By caref..."
-  },
-  {
-    "title": "Scientists twist tiny crystals to control electricity",
-    "link": "https://www.sciencedaily.com/releases/2026/01/260125081138.htm",
-    "pubDate": "Sun, 25 Jan 2026 08:48:10 EST",
-    "category": "Nanotech",
-    "sourceName": "ScienceDaily",
-    "image": "https://www.sciencedaily.com/images/1920/3d-nanostructure-sculpted-with-focused-ion-beam.webp",
-    "isReal": true,
-    "summary": "Researchers have developed a technique that allows them to carve complex three dimensional nanodevices directly from single crystals. To dem..."
-  },
-  {
-    "title": "A controversial experiment threatened to kill the multiverse in 2025",
-    "link": "https://www.newscientist.com/article/2508704-a-controversial-experiment-threatened-to-kill-the-multiverse-in-2025/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
-    "pubDate": "Tue, 30 Dec 2025 11:00:08 +0000",
-    "category": "Optics",
-    "sourceName": "New Scientist",
-    "image": "https://images.newscientist.com/wp-content/uploads/2025/12/15135033/SEI_277406814.jpg",
-    "isReal": true,
-    "summary": "A photon was apparently detected in two places at once in a twist on the classic double-slit experiment, but many physicists didn't accept t..."
-  },
-  {
-    "title": " Creepy humanoid robot face learned to move its lips more accurately by staring at itself in the mirror, then watching YouTube ",
-    "link": "https://www.livescience.com/technology/robotics/creepy-humanoid-robot-face-learned-to-move-its-lips-more-accurately-by-staring-at-itself-in-the-mirror-then-watching-youtube",
-    "pubDate": "Tue, 27 Jan 2026 16:50:00 +0000",
-    "category": "Robotics",
-    "sourceName": "Live Science",
-    "image": "https://cdn.mos.cms.futurecdn.net/SYBLYWDoM2PRYdFogXp39n-1600-80.png",
-    "isReal": true,
-    "summary": "EMO the robot learned how its silicone lips would move in response to its 26 facial motors by staring at its reflection...."
-  },
-  {
-    "title": "European labs get aligned at CERN",
-    "link": "https://home.cern/news/news/engineering/european-labs-get-aligned-cern",
-    "pubDate": "Mon, 26 Jan 2026 14:16:15 +0000",
-    "category": "High Energy",
-    "sourceName": "CERN News",
-    "image": "https://cds.cern.ch/images//file?size=medium",
-    "isReal": true,
-    "summary": "European labs get aligned at CERN\n\n\t\t\t\t\t\t\nUncertainty is inherent to the scientific process. The measurements that scientists make are only ..."
-  },
-  {
-    "title": "Is Particle Physics Dead, Dying, or Just Hard?",
-    "link": "https://www.quantamagazine.org/is-particle-physics-dead-dying-or-just-hard-20260126/",
-    "pubDate": "Mon, 26 Jan 2026 15:36:37 +0000",
-    "category": "High Energy",
-    "sourceName": "Quanta Magazine",
-    "image": "https://www.quantamagazine.org/wp-content/uploads/2026/01/Qualia_ParticlePhysics-crKristinaArmitage-Social.jpg",
-    "isReal": true,
-    "summary": "Columnist Natalie Wolchover checks in with particle physicists more than a decade after the field entered a profound crisis.             \nTh..."
   },
   {
     "title": "The daring idea that time is an illusion and how we could prove it",
@@ -520,14 +20,104 @@
     "summary": "The way time ticks forward in our universe has long stumped physicists. Now, a new set of tools from entangled atoms to black holes promises..."
   },
   {
-    "title": "Engineers just created a “phonon laser” that could shrink your next smartphone",
-    "link": "https://www.sciencedaily.com/releases/2026/01/260116035319.htm",
-    "pubDate": "Sat, 17 Jan 2026 10:43:09 EST",
-    "category": "Optics",
-    "sourceName": "ScienceDaily",
-    "image": "https://www.sciencedaily.com/images/1920/phonon-laser-chip.webp",
+    "title": "These striking photos are a window into the world of quantum physics",
+    "link": "https://www.newscientist.com/article/2510484-these-striking-photos-are-a-window-into-the-world-of-quantum-physics/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
+    "pubDate": "Wed, 14 Jan 2026 18:00:45 +0000",
+    "category": "Quantum Physics",
+    "sourceName": "New Scientist",
+    "image": "https://images.newscientist.com/wp-content/uploads/2026/01/07141826/sei279933924.jpg",
     "isReal": true,
-    "summary": "Engineers have created a device that generates incredibly tiny, earthquake-like vibrations on a microchip—and it could transform future elec..."
+    "summary": "David Severn has taken a series of images of scientists working on quantum physics for King’s College London’s new Quantum Untangled exhibit..."
+  },
+  {
+    "title": "Former astronaut on lunar spacesuits: \"I don't think they're great right now\"",
+    "link": "https://arstechnica.com/space/2026/01/former-astronaut-on-lunar-spacesuits-i-dont-think-theyre-great-right-now/",
+    "pubDate": "Mon, 26 Jan 2026 12:00:57 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Ars Technica",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/01/jsc2025e077725-1152x648.jpg",
+    "isReal": true,
+    "summary": "\"These are just the difficulties of designing a spacesuit for the lunar environment.\"..."
+  },
+  {
+    "title": " See February's full Snow Moon rise this weekend next to a glittering star cluster ",
+    "link": "https://www.livescience.com/space/the-moon/see-februarys-full-snow-moon-rise-this-weekend-next-to-a-glittering-star-cluster",
+    "pubDate": "Wed, 28 Jan 2026 10:00:00 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Live Science",
+    "image": "https://cdn.mos.cms.futurecdn.net/ayHvHRNkyXkxXTXYdP45TD-1024-80.jpg",
+    "isReal": true,
+    "summary": "February's full \"Snow Moon\" will be at its fullest on Sunday, Feb. 1, and will be best seen at moonrise. It will appear just beneath the Bee..."
+  },
+  {
+    "title": " How Earth's atmosphere and climate come together to create a polar vortex ",
+    "link": "https://www.space.com/astronomy/earth/how-earths-atmosphere-and-climate-come-together-to-create-a-polar-vortex",
+    "pubDate": "Wed, 28 Jan 2026 21:00:00 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Space.com",
+    "image": "https://cdn.mos.cms.futurecdn.net/QwgHQtMLFUyRgcKSZiPdUX-1250-80.jpg",
+    "isReal": true,
+    "summary": "To understand what Americans are experiencing with this winter blast, we need to look more than 20 miles above the surface of Earth, to the ..."
+  },
+  {
+    "title": "New sensor uses topological material to detect helium leaks",
+    "link": "https://physicsworld.com/a/new-sensor-uses-topological-material-to-detect-helium-leaks/",
+    "pubDate": "Mon, 26 Jan 2026 09:00:06 +0000",
+    "category": "Condensed Matter",
+    "sourceName": "Physics World",
+    "image": "https://physicsworld.com/wp-content/uploads/2026/01/helium-sensor.jpg",
+    "isReal": true,
+    "summary": "Device works by monitoring frequency of sound waves propagating through a kagome material\nThe post New sensor uses topological material to d..."
+  },
+  {
+    "title": "Computer Security: A final marathon for service managers ",
+    "link": "https://home.cern/news/news/computing/computer-security-final-marathon-service-managers",
+    "pubDate": "Thu, 08 Jan 2026 11:57:59 +0000",
+    "category": "High Energy",
+    "sourceName": "CERN News",
+    "image": "https://cds.cern.ch/images//file?size=medium",
+    "isReal": true,
+    "summary": "Computer Security: A final marathon for service managers \n\n\t\t\t\t\t\t\nThe past two years have brought a lot of new computer-security deployments..."
+  },
+  {
+    "title": "ATLAS narrows the hunt for dark matter",
+    "link": "https://physicsworld.com/a/atlas-narrows-the-hunt-for-dark-matter/",
+    "pubDate": "Wed, 28 Jan 2026 09:04:03 +0000",
+    "category": "High Energy",
+    "sourceName": "Physics World",
+    "image": "https://physicsworld.com/wp-content/uploads/2026/01/abstract-collider-square-505516720-istock-koto-feja.jpg",
+    "isReal": true,
+    "summary": "A new search for emerging jets at CERN has ruled out key dark‑sector scenarios\nThe post ATLAS narrows the hunt for dark matter appeared firs..."
+  },
+  {
+    "title": " Rocket Lab's 'Hungry Hippo' Neutron fairing arrives at spaceport in Virginia ",
+    "link": "https://www.space.com/space-exploration/launches-spacecraft/rocket-labs-hungry-hippo-neutron-fairing-arrives-at-spaceport-in-virginia",
+    "pubDate": "Wed, 28 Jan 2026 17:00:00 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Space.com",
+    "image": "https://cdn.mos.cms.futurecdn.net/jGhQ8VqsjATzNVxeEYnuGU-2047-80.jpg",
+    "isReal": true,
+    "summary": "The \"hungry hippo\" fairing for Rocket Lab's new Neutron launch vehicle has arrived for integration at the company's Virginia Spaceport facil..."
+  },
+  {
+    "title": " 'The dream has come true': Standard model of cosmology holds up in massive 6-year study of the universe — with one big caveat ",
+    "link": "https://www.livescience.com/physics-mathematics/dark-energy/the-dream-has-come-true-standard-model-of-cosmology-holds-up-in-massive-6-year-study-of-the-universe-with-one-big-caveat",
+    "pubDate": "Tue, 27 Jan 2026 21:15:47 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Live Science",
+    "image": "https://cdn.mos.cms.futurecdn.net/he4LUv6a9brqErfbUKF5D-1920-80.jpg",
+    "isReal": true,
+    "summary": "The six-year Dark Energy Survey has released its full results, showing that two leading models of cosmology are equally valid — but both fai..."
+  },
+  {
+    "title": "Physicists used 'dark photons' in an effort to rewrite physics in 2025",
+    "link": "https://www.newscientist.com/article/2507992-physicists-used-dark-photons-in-an-effort-to-rewrite-physics-in-2025/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
+    "pubDate": "Wed, 24 Dec 2025 17:00:45 +0000",
+    "category": "Optics",
+    "sourceName": "New Scientist",
+    "image": "https://images.newscientist.com/wp-content/uploads/2025/12/10115629/SEI_276485461.jpg",
+    "isReal": true,
+    "summary": "A new theory of \"dark photons\" attempted to explain a centuries-old experiment in a new way this year, in an effort to change our understand..."
   },
   {
     "title": "Rocket Report: Chinese rockets fail twice in 12 hours; Rocket Lab reports setback",
@@ -540,224 +130,24 @@
     "summary": "Another partially reusable Chinese rocket, the Long March 12B, is nearing its first test flight...."
   },
   {
-    "title": "ALICE welcomes its new management",
-    "link": "https://home.cern/news/news/experiments/alice-welcomes-its-new-management",
-    "pubDate": "Mon, 12 Jan 2026 11:44:55 +0000",
-    "category": "High Energy",
-    "sourceName": "CERN News",
-    "image": "https://cds.cern.ch/images//file?size=medium",
+    "title": "Laser processed thin NiO powder coating for durable anode-free batteries",
+    "link": "https://physicsworld.com/a/laser-processed-thin-nio-powder-coating-for-durable-anode-free-batteries/",
+    "pubDate": "Mon, 26 Jan 2026 16:30:22 +0000",
+    "category": "Optics",
+    "sourceName": "Physics World",
+    "image": "https://physicsworld.com/wp-content/uploads/2026/01/rechargeable-batteries-1446570564-istock-phonlamai-photo-scaled.jpg",
     "isReal": true,
-    "summary": "ALICE welcomes its new management\n\n\t\t\t\t\t\t\nALICE enters the new year with a new management team, ready to steer the collaboration through a k..."
+    "summary": "CO2 infra-red Laser modified NiO powder coating on Cu suppresses dendrite formation, and enables reversible Lithium plating and stripping ov..."
   },
   {
-    "title": "Into the quantum realm ",
-    "link": "https://www.symmetrymagazine.org/article/into-the-quantum-realm?utm_source=main_feed_click&utm_medium=rss&utm_campaign=main_feed&utm_content=click",
-    "pubDate": "2025-08-19T08:26:58-0500\n",
-    "category": "Quantum Physics",
-    "sourceName": "Symmetry Mag",
-    "image": "https://www.symmetrymagazine.org/sites/default/files/styles/2015_hero/public/2025-08/Header_Into_the_quantum_realm.png?itok=Y8-5KEYK",
-    "isReal": true,
-    "summary": "New technologies are enabling scientists to tackle previously elusive physics problems...."
-  },
-  {
-    "title": "Probing asteroids with particle beams",
-    "link": "https://home.cern/news/news/accelerators/probing-asteroids-particle-beams",
-    "pubDate": "Wed, 21 Jan 2026 11:16:49 +0000",
-    "category": "Astrophysics",
-    "sourceName": "CERN News",
-    "image": "https://cds.cern.ch/images//file?size=medium",
-    "isReal": true,
-    "summary": "Probing asteroids with particle beams\n\n\t\t\t\t\t\t\nMillions of asteroids orbit the Sun, most of them unnoticed. Far more rarely, larger objects c..."
-  },
-  {
-    "title": " Astronomers discover the 'growing pains' of teenage exoplanets ",
-    "link": "https://www.space.com/astronomy/exoplanets/astronomers-discover-the-growing-pains-of-teenage-exoplanets",
-    "pubDate": "Tue, 27 Jan 2026 22:00:00 +0000",
+    "title": " America's 250th lights up Washington Monument | Space photo of the day for Jan. 28, 2026 ",
+    "link": "https://www.space.com/astronomy/earth/americas-250th-lights-up-washington-monument-space-photo-of-the-day-for-jan-28-2026",
+    "pubDate": "Wed, 28 Jan 2026 14:00:00 +0000",
     "category": "Astrophysics",
     "sourceName": "Space.com",
-    "image": "https://cdn.mos.cms.futurecdn.net/bVh55HcGedfdi9nRWvYoxa-1600-80.png",
+    "image": "https://cdn.mos.cms.futurecdn.net/3m27ExaEhpVxPpCh7VCMVB-1920-80.jpg",
     "isReal": true,
-    "summary": "\"We've often seen the 'baby pictures' of planets forming, but until now, the 'teenage years' have been a missing link.\"..."
-  },
-  {
-    "title": "Accelerator Report: A very busy technical stop ahead of Long Shutdown 3",
-    "link": "https://home.cern/news/news/accelerators/accelerator-report-very-busy-technical-stop-ahead-long-shutdown-3",
-    "pubDate": "Thu, 15 Jan 2026 10:59:41 +0000",
-    "category": "High Energy",
-    "sourceName": "CERN News",
-    "image": "https://cds.cern.ch/images//file?size=medium",
-    "isReal": true,
-    "summary": "Accelerator Report: A very busy technical stop ahead of Long Shutdown 3\n\n\t\t\t\t\t\t\nThe accelerator complex delivered its last beams of 2025 on ..."
-  },
-  {
-    "title": " Are mysterious 'Little Red Dots' discovered by the James Webb Space Telescope actually nurseries for direct-collapse black holes? ",
-    "link": "https://www.space.com/astronomy/black-holes/are-mysterious-little-red-dots-discovered-by-the-james-webb-space-telescope-actually-nurseries-for-direct-collapse-black-holes",
-    "pubDate": "Tue, 27 Jan 2026 13:00:00 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Space.com",
-    "image": "https://cdn.mos.cms.futurecdn.net/UAbi349tMSZSPkMHFMjpY6-1600-80.png",
-    "isReal": true,
-    "summary": "\"It is exciting to think that Little Red Dots may represent the first direct observational evidence of the birth of the most massive black h..."
-  },
-  {
-    "title": "Electrons stop acting like particles—and physics still works",
-    "link": "https://www.sciencedaily.com/releases/2026/01/260115022758.htm",
-    "pubDate": "Thu, 15 Jan 2026 08:36:20 EST",
-    "category": "Quantum Physics",
-    "sourceName": "ScienceDaily",
-    "image": "https://www.sciencedaily.com/images/1920/frozen-atoms-quantum-physics-state-of-matter.webp",
-    "isReal": true,
-    "summary": "Physicists have long relied on the idea that electrons behave like tiny particles zipping through materials, even though quantum physics say..."
-  },
-  {
-    "title": "Ghostly particles might just break our understanding of the universe",
-    "link": "https://www.newscientist.com/article/2509266-ghostly-particles-might-just-break-our-understanding-of-the-universe/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
-    "pubDate": "Mon, 05 Jan 2026 08:00:49 +0000",
-    "category": "Astrophysics",
-    "sourceName": "New Scientist",
-    "image": "https://images.newscientist.com/wp-content/uploads/2025/12/19105422/SEI_278479059.jpg",
-    "isReal": true,
-    "summary": "An analysis of several experiments aimed at detecting the mysterious neutrino has identified a hint of a crack in the standard model of part..."
-  },
-  {
-    "title": "AI reveals 800 never-before-seen ‘cosmic anomalies’ in old Hubble images",
-    "link": "https://www.scientificamerican.com/article/ai-reveals-800-never-before-seen-cosmic-anomalies-in-old-hubble-images/",
-    "pubDate": "Tue, 27 Jan 2026 20:20:00 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Scientific American",
-    "image": "https://static.scientificamerican.com/dam/m/7871c2f785ac16f7/original/hubble-anomaly-jpeg.jpg?m=1769549595.561&w=1200",
-    "isReal": true,
-    "summary": "Scientists analyzed more than 100 million image cutouts from a Hubble Space Telescope archive and found hundreds of previously undiscovered ..."
-  },
-  {
-    "title": "Inside the mysterious collapse of dark matter halos",
-    "link": "https://www.sciencedaily.com/releases/2026/01/260118233609.htm",
-    "pubDate": "Mon, 19 Jan 2026 07:52:41 EST",
-    "category": "High Energy",
-    "sourceName": "ScienceDaily",
-    "image": "https://www.sciencedaily.com/images/1920/dark-matter-halo-collapse.webp",
-    "isReal": true,
-    "summary": "Physicists have unveiled a new way to simulate a mysterious form of dark matter that can collide with itself but not with normal matter. Thi..."
-  },
-  {
-    "title": "Muons: Emblems of discovery ",
-    "link": "https://www.symmetrymagazine.org/article/muons-emblems-of-discovery?utm_source=main_feed_click&utm_medium=rss&utm_campaign=main_feed&utm_content=click",
-    "pubDate": "2026-01-13T17:43:04-0600\n",
-    "category": "High Energy",
-    "sourceName": "Symmetry Mag",
-    "image": "https://www.symmetrymagazine.org/sites/default/files/styles/2015_hero/public/2025-10/Header_Muons_Emblems_of_discovery.jpg?itok=dckh1pCO",
-    "isReal": true,
-    "summary": "Once a surprise to physicists, these particles are useful tools inside and outside the realm of particle physics...."
-  },
-  {
-    "title": "Curiouser and curiouser: a riddle at the ALICE detector",
-    "link": "https://www.symmetrymagazine.org/article/curiouser-and-curiouser-a-riddle-at-the-alice-detector?utm_source=main_feed_click&utm_medium=rss&utm_campaign=main_feed&utm_content=click",
-    "pubDate": "2025-12-09T08:37:43-0600\n",
-    "category": "High Energy",
-    "sourceName": "Symmetry Mag",
-    "image": "https://www.symmetrymagazine.org/sites/default/files/styles/2015_hero/public/2025-11/ALICE_header.jpg?itok=VF6rX3pd",
-    "isReal": true,
-    "summary": "In 2023, the ALICE experiment was ready for their best year yet, until a mysterious signal threatened everything. As the LHC wraps up its 20..."
-  },
-  {
-    "title": "DUNE experiment prepares for supernova watch",
-    "link": "https://www.symmetrymagazine.org/article/dune-experiment-prepares-for-supernova-watch?utm_source=main_feed_click&utm_medium=rss&utm_campaign=main_feed&utm_content=click",
-    "pubDate": "2025-09-16T08:00:00-0500\n",
-    "category": "High Energy",
-    "sourceName": "Symmetry Mag",
-    "image": "https://www.symmetrymagazine.org/sites/default/files/styles/2015_hero/public/2025-09/Header_REV_DUNE_experiment_prepares_for_supernova_watch.jpg?itok=KomP1_YD",
-    "isReal": true,
-    "summary": "In addition to revealing characteristics of mysterious particles called neutrinos, the massive DUNE experiment could help astronomers find a..."
-  },
-  {
-    "title": "Dark Matter: A Worldwide Search",
-    "link": "https://www.symmetrymagazine.org/article/dark-matter-a-worldwide-search?utm_source=main_feed_click&utm_medium=rss&utm_campaign=main_feed&utm_content=click",
-    "pubDate": "2025-11-19T12:35:56-0600\n",
-    "category": "Astrophysics",
-    "sourceName": "Symmetry Mag",
-    "image": "https://www.symmetrymagazine.org/sites/default/files/styles/2015_hero/public/2025-10/SM25_DarkMatterDay_Hero_Fin.png?itok=cLLAZI2W",
-    "isReal": true,
-    "summary": "Something is out there. As far as scientists know, just 15% of the matter in the universe is the ordinary kind we can see. The other 85%, ca..."
-  },
-  {
-    "title": " 40 years after the space shuttle Challenger disaster, spaceflight remains far from routine ",
-    "link": "https://www.space.com/space-exploration/human-spaceflight/40-years-after-the-space-shuttle-challenger-disaster-spaceflight-remains-far-from-routine",
-    "pubDate": "Wed, 28 Jan 2026 05:05:00 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Space.com",
-    "image": "https://cdn.mos.cms.futurecdn.net/WwuXHcMBAg9N2DRSsrNnMQ-1920-80.jpg",
-    "isReal": true,
-    "summary": "Seven astronauts lost their lives during the Challenger space shuttle disaster on Jan. 28, 1986. Four decades later, human spaceflight remai..."
-  },
-  {
-    "title": "Help shape how CERN improves",
-    "link": "https://home.cern/news/news/cern/help-shape-how-cern-improves",
-    "pubDate": "Wed, 14 Jan 2026 15:00:27 +0000",
-    "category": "High Energy",
-    "sourceName": "CERN News",
-    "image": "https://cds.cern.ch/images//file?size=medium",
-    "isReal": true,
-    "summary": "Help shape how CERN improves\n\n\t\t\t\t\t\t\nIn his first presentation to personnel, CERN Director-General Mark Thomson emphasised his commitment to..."
-  },
-  {
-    "title": "Advancing cancer therapy with next-gen radionuclides",
-    "link": "https://home.cern/news/news/knowledge-sharing/advancing-cancer-therapy-next-gen-radionuclides",
-    "pubDate": "Tue, 13 Jan 2026 13:27:50 +0000",
-    "category": "High Energy",
-    "sourceName": "CERN News",
-    "image": "https://cds.cern.ch/images//file?size=medium",
-    "isReal": true,
-    "summary": "Advancing cancer therapy with next-gen radionuclides\n\n\t\t\t\t\t\t\nNuclear medicine uses radionuclides for imaging and therapeutic purposes. These..."
-  },
-  {
-    "title": "A new understanding of causality could fix quantum theory’s fatal flaw",
-    "link": "https://www.newscientist.com/article/2504149-a-new-understanding-of-causality-could-fix-quantum-theorys-fatal-flaw/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
-    "pubDate": "Mon, 24 Nov 2025 16:00:39 +0000",
-    "category": "Quantum Physics",
-    "sourceName": "New Scientist",
-    "image": "https://images.newscientist.com/wp-content/uploads/2025/11/13145354/14.-1350x900-copia.gif",
-    "isReal": true,
-    "summary": "Quantum theory fails to explain how the reality we experience emerges from the world of particles. A new take on quantum cause and effect co..."
-  },
-  {
-    "title": " Help defend Earth from asteroids with your Unistellar telescope ",
-    "link": "https://www.space.com/stargazing/skywatching-kit/help-defend-earth-from-asteroids-with-your-unistellar-telescope",
-    "pubDate": "Tue, 27 Jan 2026 17:10:54 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Space.com",
-    "image": "https://cdn.mos.cms.futurecdn.net/afdDrr6UDQGvQV27XeaFeK-2133-80.jpg",
-    "isReal": true,
-    "summary": "Unistellar co-founder tells Space.com about how citizen scientists are using smart telescopes to engage in planetary defense...."
-  },
-  {
-    "title": " NASA gets new F-15 fighter jet to chase its X-59 'quiet' supersonic aircraft ",
-    "link": "https://www.space.com/technology/aerospace/nasa-gets-new-f-15-fighter-jet-to-chase-its-x-59-quiet-supersonic-aircraft",
-    "pubDate": "Tue, 27 Jan 2026 20:00:00 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Space.com",
-    "image": "https://cdn.mos.cms.futurecdn.net/nisXo8vYoxawPuqVYjiT64-1920-80.jpg",
-    "isReal": true,
-    "summary": "What role will F-15 jets play in the future of supersonic flight?..."
-  },
-  {
-    "title": " Super-Earth exoplanets may have built-in magnetic protection from churning magma — and that's good news for life ",
-    "link": "https://www.space.com/astronomy/exoplanets/super-earth-exoplanets-may-have-built-in-magnetic-protection-from-churning-magma-and-thats-good-news-for-life",
-    "pubDate": "Mon, 26 Jan 2026 21:00:00 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Space.com",
-    "image": "https://cdn.mos.cms.futurecdn.net/vuQan3s5HNkU6bQtjHP3hD-1280-80.jpeg",
-    "isReal": true,
-    "summary": "\"A strong magnetic field is very important for life on a planet.\"..."
-  },
-  {
-    "title": "Monster Neutrino Could Be a Messenger of Ancient Black Holes",
-    "link": "https://www.quantamagazine.org/monster-neutrino-could-be-a-messenger-of-ancient-black-holes-20260123/",
-    "pubDate": "Fri, 23 Jan 2026 15:26:07 +0000",
-    "category": "Astrophysics",
-    "sourceName": "Quanta Magazine",
-    "image": "https://www.quantamagazine.org/wp-content/uploads/2026/01/Black-Holes-as-Dark-Matter-cr-Courtesy-of-KM3NeT-Social.jpg",
-    "isReal": true,
-    "summary": "Primordial black holes could rewrite our understanding of dark matter and the early universe. A record-breaking detection at the bottom of t..."
+    "summary": "A 250th anniversary only comes once in a lifetime...."
   },
   {
     "title": "Chernobyl cooling systems have lost power but meltdown risk is low",
@@ -770,24 +160,44 @@
     "summary": "An electrical outage at Chernobyl nuclear power plant risks dangerous fuel overheating, but experts say that the chances are extremely slim ..."
   },
   {
-    "title": " Astronaut sees sunset from space | Space photo of the day for Jan. 27, 2026 ",
-    "link": "https://www.space.com/space-exploration/international-space-station/astronaut-sees-sunset-from-space-space-photo-of-the-day-for-jan-27-2026",
-    "pubDate": "Tue, 27 Jan 2026 14:00:00 +0000",
+    "title": "Probing asteroids with particle beams",
+    "link": "https://home.cern/news/news/accelerators/probing-asteroids-particle-beams",
+    "pubDate": "Wed, 21 Jan 2026 11:16:49 +0000",
     "category": "Astrophysics",
-    "sourceName": "Space.com",
-    "image": "https://cdn.mos.cms.futurecdn.net/XS4hLr3v2mYdCTAuKyVSfJ-1920-80.jpg",
+    "sourceName": "CERN News",
+    "image": "https://cds.cern.ch/images//file?size=medium",
     "isReal": true,
-    "summary": "The views of the setting sun are just as spectacular from space as they are on Earth...."
+    "summary": "Probing asteroids with particle beams\n\n\t\t\t\t\t\t\nMillions of asteroids orbit the Sun, most of them unnoticed. Far more rarely, larger objects c..."
   },
   {
-    "title": "A quantum leap for antimatter measurements",
-    "link": "https://www.symmetrymagazine.org/article/a-quantum-leap-for-antimatter-measurements?utm_source=main_feed_click&utm_medium=rss&utm_campaign=main_feed&utm_content=click",
-    "pubDate": "2025-07-23T10:08:41-0500\n",
-    "category": "Quantum Physics",
-    "sourceName": "Symmetry Mag",
-    "image": "https://www.symmetrymagazine.org/sites/default/files/styles/2015_hero/public/2025-07/202407-168_023.jpg?itok=rc399xO4",
+    "title": "How do bacteria produce entropy?",
+    "link": "https://physicsworld.com/a/how-do-bacteria-produce-entropy/",
+    "pubDate": "Wed, 28 Jan 2026 09:02:07 +0000",
+    "category": "Thermodynamics",
+    "sourceName": "Physics World",
+    "image": "https://physicsworld.com/wp-content/uploads/2026/01/bacteria-22181010-istock-jezperklauzen.jpg",
     "isReal": true,
-    "summary": "The demonstration of the first antimatter quantum bit paves the way for substantially improved tests of nature’s fundamental symmetries...."
+    "summary": "A team of researchers from King’s College and Imperial College London have proposed a new way to calculate entropy production in active matt..."
+  },
+  {
+    "title": "Computer Security: A final dash to protect your account",
+    "link": "https://home.cern/news/news/computing/computer-security-final-dash-protect-your-account",
+    "pubDate": "Tue, 27 Jan 2026 11:29:43 +0000",
+    "category": "High Energy",
+    "sourceName": "CERN News",
+    "image": "https://cds.cern.ch/images//file?size=medium",
+    "isReal": true,
+    "summary": "Computer Security: A final dash to protect your account\n\n\t\t\t\t\t\t\nThe past two years have brought a lot of new computer-security deployments a..."
+  },
+  {
+    "title": "Is Particle Physics Dead, Dying, or Just Hard?",
+    "link": "https://www.quantamagazine.org/is-particle-physics-dead-dying-or-just-hard-20260126/",
+    "pubDate": "Mon, 26 Jan 2026 15:36:37 +0000",
+    "category": "High Energy",
+    "sourceName": "Quanta Magazine",
+    "image": "https://www.quantamagazine.org/wp-content/uploads/2026/01/Qualia_ParticlePhysics-crKristinaArmitage-Social.jpg",
+    "isReal": true,
+    "summary": "Columnist Natalie Wolchover checks in with particle physicists more than a decade after the field entered a profound crisis.             \nTh..."
   },
   {
     "title": "Inside world's ultimate X-ray machine before it becomes more powerful",
@@ -800,44 +210,444 @@
     "summary": "The Linac Coherent Light Source in California has been firing record-breaking X-ray pulses for years, but now it’s due for a shutdown and an..."
   },
   {
-    "title": "Quantum physicists just supersized Schrödinger’s cat",
-    "link": "https://www.scientificamerican.com/article/quantum-physicists-just-supersized-schroedingers-cat/",
-    "pubDate": "Sun, 25 Jan 2026 12:00:00 +0000",
-    "category": "Quantum Physics",
-    "sourceName": "Scientific American",
-    "image": "https://static.scientificamerican.com/dam/m/059d11476ad3e323/original/cat-poking-out-of-box.jpeg?m=1769184952.624&w=1200",
+    "title": "Did Edison accidentally make graphene in 1879?",
+    "link": "https://arstechnica.com/science/2026/01/did-edison-accidentally-make-graphene-in-1879/",
+    "pubDate": "Sat, 24 Jan 2026 18:36:11 +0000",
+    "category": "Nanotech",
+    "sourceName": "Ars Technica",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/01/edison3-1152x632.jpg",
     "isReal": true,
-    "summary": "A record-breaking experiment shows that a cluster of thousands of atoms can act like a wave as well as a particle..."
+    "summary": "Rice University chemists replicated Thomas Edison's seminal experiment and found a surprising byproduct...."
   },
   {
-    "title": "Photons light the way",
-    "link": "https://www.symmetrymagazine.org/article/photons-light-the-way?utm_source=main_feed_click&utm_medium=rss&utm_campaign=main_feed&utm_content=click",
-    "pubDate": "2025-12-01T12:19:18-0600\n",
+    "title": "Inside the mysterious collapse of dark matter halos",
+    "link": "https://www.sciencedaily.com/releases/2026/01/260118233609.htm",
+    "pubDate": "Mon, 19 Jan 2026 07:52:41 EST",
+    "category": "High Energy",
+    "sourceName": "ScienceDaily",
+    "image": "https://www.sciencedaily.com/images/1920/dark-matter-halo-collapse.webp",
+    "isReal": true,
+    "summary": "Physicists have unveiled a new way to simulate a mysterious form of dark matter that can collide with itself but not with normal matter. Thi..."
+  },
+  {
+    "title": "Accelerator Report: A very busy technical stop ahead of Long Shutdown 3",
+    "link": "https://home.cern/news/news/accelerators/accelerator-report-very-busy-technical-stop-ahead-long-shutdown-3",
+    "pubDate": "Thu, 15 Jan 2026 10:59:41 +0000",
+    "category": "High Energy",
+    "sourceName": "CERN News",
+    "image": "https://cds.cern.ch/images//file?size=medium",
+    "isReal": true,
+    "summary": "Accelerator Report: A very busy technical stop ahead of Long Shutdown 3\n\n\t\t\t\t\t\t\nThe accelerator complex delivered its last beams of 2025 on ..."
+  },
+  {
+    "title": "Engineers just created a “phonon laser” that could shrink your next smartphone",
+    "link": "https://www.sciencedaily.com/releases/2026/01/260116035319.htm",
+    "pubDate": "Sat, 17 Jan 2026 10:43:09 EST",
     "category": "Optics",
-    "sourceName": "Symmetry Mag",
-    "image": "https://www.symmetrymagazine.org/sites/default/files/styles/2015_hero/public/2025-10/Header_Photons_light_the_way.jpg?itok=G1zyOv81",
+    "sourceName": "ScienceDaily",
+    "image": "https://www.sciencedaily.com/images/1920/phonon-laser-chip.webp",
     "isReal": true,
-    "summary": "Photons, for centuries both a puzzle and a tool, continue to help scientists illuminate nature at the smallest and largest scales...."
+    "summary": "Engineers have created a device that generates incredibly tiny, earthquake-like vibrations on a microchip—and it could transform future elec..."
   },
   {
-    "title": " NASA moves critical fueling test for Artemis 2 moon rocket up to Jan. 31 ",
-    "link": "https://www.space.com/space-exploration/artemis/nasa-moves-critical-fueling-test-for-artemis-2-moon-rocket-up-to-jan-31",
-    "pubDate": "Tue, 27 Jan 2026 20:51:44 +0000",
+    "title": "Japan lost a 5-ton navigation satellite when it fell off a rocket during launch",
+    "link": "https://arstechnica.com/science/2026/01/heres-the-story-of-how-japans-h3-rocket-lost-its-cargo-and-just-kept-going/",
+    "pubDate": "Wed, 28 Jan 2026 12:15:54 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Ars Technica",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/01/jaxa_h3_f8_anim1.jpg",
+    "isReal": true,
+    "summary": "Imagine: You lost your car's cargo rack, but didn't notice until you reached your destination...."
+  },
+  {
+    "title": "The fastest human spaceflight mission in history crawls closer to liftoff",
+    "link": "https://arstechnica.com/space/2026/01/nasas-artemis-ii-rocket-rolls-to-launch-pad-but-key-test-looms-ahead/",
+    "pubDate": "Mon, 19 Jan 2026 22:01:52 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Ars Technica",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/01/IMG_0127-1-1152x648.jpg",
+    "isReal": true,
+    "summary": "After a remarkably smooth launch campaign, Artemis II reached its last stop before the Moon...."
+  },
+  {
+    "title": " Can AI detect cognitive decline better than a doctor? New study reveals surprising accuracy ",
+    "link": "https://www.livescience.com/health/ageing/can-ai-detect-cognitive-decline-better-than-a-doctor-new-study-reveals-surprising-accuracy",
+    "pubDate": "Wed, 28 Jan 2026 20:15:00 +0000",
+    "category": "Robotics",
+    "sourceName": "Live Science",
+    "image": "https://cdn.mos.cms.futurecdn.net/ue7MRnMbdy9Hoku8RZeahJ-1920-80.jpg",
+    "isReal": true,
+    "summary": "Designed to assist rather than replace doctors, a new autonomous tool scans clinical notes to highlight patients who may need urgent follow-..."
+  },
+  {
+    "title": "Einstein’s recoiling slit experiment realized at the quantum limit",
+    "link": "https://physicsworld.com/a/einsteins-recoiling-slit-experiment-realized-at-the-quantum-limit/",
+    "pubDate": "Wed, 28 Jan 2026 09:00:52 +0000",
+    "category": "Quantum Physics",
+    "sourceName": "Physics World",
+    "image": "https://physicsworld.com/wp-content/uploads/2026/01/28-01-26-einstein-slit-featured.jpg",
+    "isReal": true,
+    "summary": "A century-old thought experiment on wave–particle duality is brought into the laboratory using a single trapped atom \nThe post Einstein’s re..."
+  },
+  {
+    "title": "Ion-clock transition could benefit quantum computing and nuclear physics",
+    "link": "https://physicsworld.com/a/ion-clock-transition-could-benefit-quantum-computing-and-nuclear-physics/",
+    "pubDate": "Wed, 28 Jan 2026 15:07:43 +0000",
+    "category": "Quantum Physics",
+    "sourceName": "Physics World",
+    "image": "https://physicsworld.com/wp-content/uploads/2026/01/28-1-26-ion-clock-transition-list.jpg",
+    "isReal": true,
+    "summary": "Deformed nucleus makes multi-ion design easier\nThe post Ion-clock transition could benefit quantum computing and nuclear physics appeared fi..."
+  },
+  {
+    "title": " NASA and SpaceX move up launch of Crew-12 astronauts to Feb. 11 as relief crew after ISS medical evacuation ",
+    "link": "https://www.space.com/space-exploration/human-spaceflight/nasa-and-spacex-move-up-launch-of-crew-12-astronauts-to-feb-11-as-relief-crew-after-iss-medical-evacuation",
+    "pubDate": "Wed, 28 Jan 2026 23:00:00 +0000",
     "category": "Astrophysics",
     "sourceName": "Space.com",
-    "image": "https://cdn.mos.cms.futurecdn.net/75tEx5XMobTa55Kk8vEgGA-1920-80.jpg",
+    "image": "https://cdn.mos.cms.futurecdn.net/PPWuVdsXBHhENj5YBbSkyM-2560-80.jpg",
     "isReal": true,
-    "summary": "The SLS wet dress rehearsal is the rocket's last major hurdle before launch...."
+    "summary": "NASA and SpaceX are proceeding ahead of schedule with their next astronaut launch to the International Space Station, which is currently ope..."
   },
   {
-    "title": "These striking photos are a window into the world of quantum physics",
-    "link": "https://www.newscientist.com/article/2510484-these-striking-photos-are-a-window-into-the-world-of-quantum-physics/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
-    "pubDate": "Wed, 14 Jan 2026 18:00:45 +0000",
+    "title": "Monster Neutrino Could Be a Messenger of Ancient Black Holes",
+    "link": "https://www.quantamagazine.org/monster-neutrino-could-be-a-messenger-of-ancient-black-holes-20260123/",
+    "pubDate": "Fri, 23 Jan 2026 15:26:07 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Quanta Magazine",
+    "image": "https://www.quantamagazine.org/wp-content/uploads/2026/01/Black-Holes-as-Dark-Matter-cr-Courtesy-of-KM3NeT-Social.jpg",
+    "isReal": true,
+    "summary": "Primordial black holes could rewrite our understanding of dark matter and the early universe. A record-breaking detection at the bottom of t..."
+  },
+  {
+    "title": " NASA exoplanet probe tracks interstellar comet 3I/ATLAS to gauge its spin ",
+    "link": "https://www.space.com/astronomy/comets/nasa-exoplanet-probe-tracks-interstellar-comet-3i-atlas-to-gauge-its-spin",
+    "pubDate": "Wed, 28 Jan 2026 22:00:00 +0000",
+    "category": "Quantum Physics",
+    "sourceName": "Space.com",
+    "image": "https://cdn.mos.cms.futurecdn.net/VXDG9MtMBkCTTQdEdEtmej-1920-80.jpg",
+    "isReal": true,
+    "summary": "The interstellar visitor may still have a few things to tell us before it leaves our solar system...."
+  },
+  {
+    "title": " Creepy humanoid robot face learned to move its lips more accurately by staring at itself in the mirror, then watching YouTube ",
+    "link": "https://www.livescience.com/technology/robotics/creepy-humanoid-robot-face-learned-to-move-its-lips-more-accurately-by-staring-at-itself-in-the-mirror-then-watching-youtube",
+    "pubDate": "Tue, 27 Jan 2026 16:50:00 +0000",
+    "category": "Robotics",
+    "sourceName": "Live Science",
+    "image": "https://cdn.mos.cms.futurecdn.net/SYBLYWDoM2PRYdFogXp39n-1600-80.png",
+    "isReal": true,
+    "summary": "EMO the robot learned how its silicone lips would move in response to its 26 facial motors by staring at its reflection...."
+  },
+  {
+    "title": "Scientists twist tiny crystals to control electricity",
+    "link": "https://www.sciencedaily.com/releases/2026/01/260125081138.htm",
+    "pubDate": "Sun, 25 Jan 2026 08:48:10 EST",
+    "category": "Nanotech",
+    "sourceName": "ScienceDaily",
+    "image": "https://www.sciencedaily.com/images/1920/3d-nanostructure-sculpted-with-focused-ion-beam.webp",
+    "isReal": true,
+    "summary": "Researchers have developed a technique that allows them to carve complex three dimensional nanodevices directly from single crystals. To dem..."
+  },
+  {
+    "title": "Help shape how CERN improves",
+    "link": "https://home.cern/news/news/cern/help-shape-how-cern-improves",
+    "pubDate": "Wed, 14 Jan 2026 15:00:27 +0000",
+    "category": "High Energy",
+    "sourceName": "CERN News",
+    "image": "https://cds.cern.ch/images//file?size=medium",
+    "isReal": true,
+    "summary": "Help shape how CERN improves\n\n\t\t\t\t\t\t\nIn his first presentation to personnel, CERN Director-General Mark Thomson emphasised his commitment to..."
+  },
+  {
+    "title": "Does dark energy stem from a thermodynamic theory of space-time?",
+    "link": "https://www.newscientist.com/video/2512882-does-dark-energy-stem-from-a-thermodynamic-theory-of-space-time/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
+    "pubDate": "Wed, 21 Jan 2026 20:07:26 +0000",
+    "category": "Astrophysics",
+    "sourceName": "New Scientist",
+    "image": "https://images.newscientist.com/wp-content/uploads/2026/01/21200650/tessa-baker.jpg",
+    "isReal": true,
+    "summary": "By studying ripples in space-time, physicists are testing wheather dark energy might stem from hidden dimensions, elusive fields detectable ..."
+  },
+  {
+    "title": " See the Milky Way glow with the stars of the Summer Triangle above Egypt's Black Desert ",
+    "link": "https://www.space.com/stargazing/astrophotography/see-the-milky-way-glow-with-the-stars-of-the-summer-triangle-above-egypts-black-desert",
+    "pubDate": "Wed, 28 Jan 2026 20:00:00 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Space.com",
+    "image": "https://cdn.mos.cms.futurecdn.net/t6TE7iUypSbs4ThyLCkqkF-1920-80.jpg",
+    "isReal": true,
+    "summary": "Deneb, Vega and Altair are among the brightest stars in the night sky...."
+  },
+  {
+    "title": "AI reveals 800 never-before-seen ‘cosmic anomalies’ in old Hubble images",
+    "link": "https://www.scientificamerican.com/article/ai-reveals-800-never-before-seen-cosmic-anomalies-in-old-hubble-images/",
+    "pubDate": "Tue, 27 Jan 2026 20:20:00 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Scientific American",
+    "image": "https://static.scientificamerican.com/dam/m/7871c2f785ac16f7/original/hubble-anomaly-jpeg.jpg?m=1769549595.561&w=1200",
+    "isReal": true,
+    "summary": "Scientists analyzed more than 100 million image cutouts from a Hubble Space Telescope archive and found hundreds of previously undiscovered ..."
+  },
+  {
+    "title": "We have a new way to explain why we agree on the nature of reality",
+    "link": "https://www.newscientist.com/article/2512894-we-have-a-new-way-to-explain-why-we-agree-on-the-nature-of-reality/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
+    "pubDate": "Tue, 27 Jan 2026 08:00:20 +0000",
     "category": "Quantum Physics",
     "sourceName": "New Scientist",
-    "image": "https://images.newscientist.com/wp-content/uploads/2026/01/07141826/sei279933924.jpg",
+    "image": "https://images.newscientist.com/wp-content/uploads/2026/01/23172857/SEI_281782031.jpg",
     "isReal": true,
-    "summary": "David Severn has taken a series of images of scientists working on quantum physics for King’s College London’s new Quantum Untangled exhibit..."
+    "summary": "An evolution-inspired framework for how quantum fuzziness gives rise to our classical world shows that even imperfect observers can eventual..."
+  },
+  {
+    "title": "The magnetic secret inside steel finally explained",
+    "link": "https://www.sciencedaily.com/releases/2026/01/260125083427.htm",
+    "pubDate": "Mon, 26 Jan 2026 11:57:18 EST",
+    "category": "Nuclear Physics",
+    "sourceName": "ScienceDaily",
+    "image": "https://www.sciencedaily.com/images/1920/iron-filings-in-magnetic-field.webp",
+    "isReal": true,
+    "summary": "For years, scientists noticed that magnetic fields could improve steel, but no one knew exactly why. New simulations reveal that magnetism c..."
+  },
+  {
+    "title": "The Schrödinger equation just turned 100, and quantum physicists are still grappling with its mysteries",
+    "link": "https://www.scientificamerican.com/article/the-schroedinger-equation-just-turned-100-and-quantum-physicists-are-still/",
+    "pubDate": "Wed, 28 Jan 2026 17:15:00 +0000",
+    "category": "Quantum Physics",
+    "sourceName": "Scientific American",
+    "image": "https://static.scientificamerican.com/dam/m/fc0faa0877cad1f9/original/GettyImages-144635396-WEB.jpg?m=1769620308.693&w=1200",
+    "isReal": true,
+    "summary": "A century ago, Erwin Schrödinger came up with an equation that says how the quantum world behaves. Now scientists are asking what happens wh..."
+  },
+  {
+    "title": "Uranus and Neptune may be more rocky than icy, say astrophysicists",
+    "link": "https://physicsworld.com/a/uranus-and-neptune-may-be-more-rocky-than-icy-say-astrophysicists/",
+    "pubDate": "Tue, 27 Jan 2026 13:00:47 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Physics World",
+    "image": "https://physicsworld.com/wp-content/uploads/2026/01/uranus-neptune.jpg",
+    "isReal": true,
+    "summary": "Novel modelling approach suggests that the traditionally ice-rich image of these planets may be skewed\nThe post Uranus and Neptune may be mo..."
+  },
+  {
+    "title": "European Space Agency unveils first images from Earth-observation ‘sounder’ satellite",
+    "link": "https://physicsworld.com/a/european-space-agency-unveils-first-images-from-earth-observation-sounder-satellite/",
+    "pubDate": "Tue, 27 Jan 2026 18:26:07 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Physics World",
+    "image": "https://physicsworld.com/wp-content/uploads/2026/01/temperature-esa-27-01-26.jpg",
+    "isReal": true,
+    "summary": "Data from the mission will help improve the accuracy of weather forecasting \nThe post European Space Agency unveils first images from Earth-..."
+  },
+  {
+    "title": "New catalyst makes plastic upcycling 10x more efficient than platinum",
+    "link": "https://www.sciencedaily.com/releases/2026/01/260124003806.htm",
+    "pubDate": "Sat, 24 Jan 2026 04:15:29 EST",
+    "category": "Condensed Matter",
+    "sourceName": "ScienceDaily",
+    "image": "https://www.sciencedaily.com/images/1920/evolution-of-carburization-under-kinetic-control.webp",
+    "isReal": true,
+    "summary": "Scientists are finding new ways to replace expensive, scarce platinum catalysts with something far more abundant: tungsten carbide. By caref..."
+  },
+  {
+    "title": "Dark Matter: A Worldwide Search",
+    "link": "https://www.symmetrymagazine.org/article/dark-matter-a-worldwide-search?utm_source=main_feed_click&utm_medium=rss&utm_campaign=main_feed&utm_content=click",
+    "pubDate": "2025-11-19T12:35:56-0600\n",
+    "category": "Astrophysics",
+    "sourceName": "Symmetry Mag",
+    "image": "https://www.symmetrymagazine.org/sites/default/files/styles/2015_hero/public/2025-10/SM25_DarkMatterDay_Hero_Fin.png?itok=cLLAZI2W",
+    "isReal": true,
+    "summary": "Something is out there. As far as scientists know, just 15% of the matter in the universe is the ordinary kind we can see. The other 85%, ca..."
+  },
+  {
+    "title": "A new understanding of causality could fix quantum theory’s fatal flaw",
+    "link": "https://www.newscientist.com/article/2504149-a-new-understanding-of-causality-could-fix-quantum-theorys-fatal-flaw/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
+    "pubDate": "Mon, 24 Nov 2025 16:00:39 +0000",
+    "category": "Quantum Physics",
+    "sourceName": "New Scientist",
+    "image": "https://images.newscientist.com/wp-content/uploads/2025/11/13145354/14.-1350x900-copia.gif",
+    "isReal": true,
+    "summary": "Quantum theory fails to explain how the reality we experience emerges from the world of particles. A new take on quantum cause and effect co..."
+  },
+  {
+    "title": "What can you do with 380 million Higgs bosons?",
+    "link": "https://home.cern/news/news/physics/what-can-you-do-380-million-higgs-bosons",
+    "pubDate": "Fri, 16 Jan 2026 13:46:10 +0000",
+    "category": "Astrophysics",
+    "sourceName": "CERN News",
+    "image": "https://cds.cern.ch/images//file?size=medium",
+    "isReal": true,
+    "summary": "What can you do with 380 million Higgs bosons?\n\n\t\t\t\t\t\t\nWhat is the fate of the Universe? Why is there more matter than antimatter? What lurk..."
+  },
+  {
+    "title": "ALICE welcomes its new management",
+    "link": "https://home.cern/news/news/experiments/alice-welcomes-its-new-management",
+    "pubDate": "Mon, 12 Jan 2026 11:44:55 +0000",
+    "category": "High Energy",
+    "sourceName": "CERN News",
+    "image": "https://cds.cern.ch/images//file?size=medium",
+    "isReal": true,
+    "summary": "ALICE welcomes its new management\n\n\t\t\t\t\t\t\nALICE enters the new year with a new management team, ready to steer the collaboration through a k..."
+  },
+  {
+    "title": "40 years after Challenger disaster, NASA faces safety fears on Artemis II",
+    "link": "https://www.scientificamerican.com/article/40-years-after-challenger-disaster-nasa-faces-safety-fears-on-artemis-ii/",
+    "pubDate": "Wed, 28 Jan 2026 12:00:00 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Scientific American",
+    "image": "https://static.scientificamerican.com/dam/m/1383562e5a4a50a4/original/GettyImages-515306218_web.jpeg?m=1769628183.263&w=1200",
+    "isReal": true,
+    "summary": "Many of the team behind NASA’s Artemis II mission were children 40 years ago, when the space shuttle Challenger disaster reshaped spacefligh..."
+  },
+  {
+    "title": " NASA is preparing for simulated launch of Artemis II mega moon rocket — and it could happen as early as Saturday ",
+    "link": "https://www.livescience.com/space/space-exploration/nasa-is-preparing-for-simulated-launch-of-artemis-ii-mega-moon-rocket-and-it-could-happen-as-early-as-saturday",
+    "pubDate": "Wed, 28 Jan 2026 16:55:52 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Live Science",
+    "image": "https://cdn.mos.cms.futurecdn.net/VBcbNLkQyPUQC8dxPsE53Z-2560-80.jpg",
+    "isReal": true,
+    "summary": "NASA has announced it will fuel the Artemis II rocket as part of a simulated launch that will take place as early as Saturday (Jan. 31)...."
+  },
+  {
+    "title": " Giant 'metal cloud' spotted in nearby star system could be hiding a second alien sun ",
+    "link": "https://www.livescience.com/space/astronomy/giant-metal-cloud-spotted-in-nearby-star-system-could-be-hiding-a-second-alien-sun",
+    "pubDate": "Wed, 28 Jan 2026 17:16:09 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Live Science",
+    "image": "https://cdn.mos.cms.futurecdn.net/snTXVDqzS29sg7UR899SZc-1600-80.jpg",
+    "isReal": true,
+    "summary": "Astronomers suspect that a massive metallic cloud swirling in a nearby star system could be hiding a giant planet or dwarf star from view, a..."
+  },
+  {
+    "title": "Google DeepMind unleashes new AI AlphaGenome to investigate DNA’s ‘dark matter’",
+    "link": "https://www.scientificamerican.com/article/google-deepmind-unleashes-new-ai-alphagenome-to-investigate-dnas-dark-matter/",
+    "pubDate": "Wed, 28 Jan 2026 16:30:00 +0000",
+    "category": "High Energy",
+    "sourceName": "Scientific American",
+    "image": "https://static.scientificamerican.com/dam/m/233b03af8c316b18/original/GettyImages-1344985871_resized.jpeg?m=1769617434.521&w=1200",
+    "isReal": true,
+    "summary": "DeepMind’s AlphaGenome AI model could help solve the problem of predicting how variations in noncoding DNA shape gene expression..."
+  },
+  {
+    "title": " NASA research jet makes fiery 'wheels-up landing' after experiencing mechanical issue (video) ",
+    "link": "https://www.space.com/technology/aerospace/nasa-research-jet-makes-fiery-wheels-up-landing-after-experiencing-mechanical-issue-video",
+    "pubDate": "Wed, 28 Jan 2026 13:00:00 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Space.com",
+    "image": "https://cdn.mos.cms.futurecdn.net/JnrWqRiuC2LkzGon2JMYp4-1280-80.jpg",
+    "isReal": true,
+    "summary": "One of NASA's high-altitude WB-57 research jet made a fiery wheels-up landing on Tuesday (Jan. 27) after a mechanical issue prevented it fro..."
+  },
+  {
+    "title": "Embracing quantum spookiness: Best ideas of the century",
+    "link": "https://www.newscientist.com/article/2508838-embracing-quantum-spookiness-best-ideas-of-the-century/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
+    "pubDate": "Mon, 19 Jan 2026 16:00:59 +0000",
+    "category": "Quantum Physics",
+    "sourceName": "New Scientist",
+    "image": "https://images.newscientist.com/wp-content/uploads/2026/01/13155950/SEI_280670149.jpg",
+    "isReal": true,
+    "summary": "The strange principle of quantum entanglement baffled Albert Einstein. Yet finally putting quantum weirdness to the ultimate test, and embra..."
+  },
+  {
+    "title": "Ghostly particles might just break our understanding of the universe",
+    "link": "https://www.newscientist.com/article/2509266-ghostly-particles-might-just-break-our-understanding-of-the-universe/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
+    "pubDate": "Mon, 05 Jan 2026 08:00:49 +0000",
+    "category": "Astrophysics",
+    "sourceName": "New Scientist",
+    "image": "https://images.newscientist.com/wp-content/uploads/2025/12/19105422/SEI_278479059.jpg",
+    "isReal": true,
+    "summary": "An analysis of several experiments aimed at detecting the mysterious neutrino has identified a hint of a crack in the standard model of part..."
+  },
+  {
+    "title": "JWST spots most distant galaxy ever, pushing the limits of the observable universe",
+    "link": "https://www.scientificamerican.com/article/jwst-spots-most-distant-galaxy-ever-pushing-the-limits-of-the-observable/",
+    "pubDate": "Wed, 28 Jan 2026 20:00:00 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Scientific American",
+    "image": "https://static.scientificamerican.com/dam/m/578b98442469f69a/original/far-away-galaxy.jpg?m=1769631279.125&w=1200",
+    "isReal": true,
+    "summary": "The galaxy MoM-z14 could offer clues to what the universe looked like in its early infancy..."
+  },
+  {
+    "title": "Encrypted qubits can be cloned and stored in multiple locations",
+    "link": "https://physicsworld.com/a/encrypted-qubits-can-be-cloned-and-stored-in-multiple-locations/",
+    "pubDate": "Sat, 24 Jan 2026 15:09:46 +0000",
+    "category": "Quantum Physics",
+    "sourceName": "Physics World",
+    "image": "https://physicsworld.com/wp-content/uploads/2026/01/23-1-26-cloning-illustration.jpg",
+    "isReal": true,
+    "summary": "“Elegant” result has implications for a quantum internet\nThe post Encrypted qubits can be cloned and stored in multiple locations appeared f..."
+  },
+  {
+    "title": " 'Doomsday Clock' ticks 4 seconds closer to midnight as unregulated AI and 'mirror life' threaten humanity ",
+    "link": "https://www.livescience.com/planet-earth/doomsday-clock-ticks-4-seconds-closer-to-midnight-as-unregulated-ai-and-mirror-life-threaten-humanity",
+    "pubDate": "Tue, 27 Jan 2026 22:44:34 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Live Science",
+    "image": "https://cdn.mos.cms.futurecdn.net/Wotx2JnGVacWgECwuiLNqZ-1899-80.jpg",
+    "isReal": true,
+    "summary": "The Bulletin of the Atomic Scientists now says humanity is a metaphorical 85 seconds to global disaster...."
+  },
+  {
+    "title": " Astronomers discover the 'growing pains' of teenage exoplanets ",
+    "link": "https://www.space.com/astronomy/exoplanets/astronomers-discover-the-growing-pains-of-teenage-exoplanets",
+    "pubDate": "Tue, 27 Jan 2026 22:00:00 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Space.com",
+    "image": "https://cdn.mos.cms.futurecdn.net/bVh55HcGedfdi9nRWvYoxa-1600-80.png",
+    "isReal": true,
+    "summary": "\"We've often seen the 'baby pictures' of planets forming, but until now, the 'teenage years' have been a missing link.\"..."
+  },
+  {
+    "title": "European labs get aligned at CERN",
+    "link": "https://home.cern/news/news/engineering/european-labs-get-aligned-cern",
+    "pubDate": "Mon, 26 Jan 2026 14:16:15 +0000",
+    "category": "High Energy",
+    "sourceName": "CERN News",
+    "image": "https://cds.cern.ch/images//file?size=medium",
+    "isReal": true,
+    "summary": "European labs get aligned at CERN\n\n\t\t\t\t\t\t\nUncertainty is inherent to the scientific process. The measurements that scientists make are only ..."
+  },
+  {
+    "title": "A quantum leap for antimatter measurements",
+    "link": "https://www.symmetrymagazine.org/article/a-quantum-leap-for-antimatter-measurements?utm_source=main_feed_click&utm_medium=rss&utm_campaign=main_feed&utm_content=click",
+    "pubDate": "2025-07-23T10:08:41-0500\n",
+    "category": "Quantum Physics",
+    "sourceName": "Symmetry Mag",
+    "image": "https://www.symmetrymagazine.org/sites/default/files/styles/2015_hero/public/2025-07/202407-168_023.jpg?itok=rc399xO4",
+    "isReal": true,
+    "summary": "The demonstration of the first antimatter quantum bit paves the way for substantially improved tests of nature’s fundamental symmetries...."
+  },
+  {
+    "title": "NASA to push ahead with ‘wet’ dress rehearsal for Artemis II moon mission",
+    "link": "https://www.scientificamerican.com/article/nasa-to-push-ahead-with-wet-dress-rehearsal-for-artemis-ii-moon-mission/",
+    "pubDate": "Tue, 27 Jan 2026 16:00:00 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Scientific American",
+    "image": "https://static.scientificamerican.com/dam/m/7e5e51db4bcbd738/original/NASa-Artemis.jpg?m=1769530959.639&w=1200",
+    "isReal": true,
+    "summary": "A crucial test of NASA’s upcoming crewed flight to the moon is set to take place as soon as Saturday, the agency said..."
+  },
+  {
+    "title": "Trade wars muzzle allied talks on Trump's Golden Dome missile shield",
+    "link": "https://arstechnica.com/space/2026/01/trade-wars-muzzle-allied-talks-on-trumps-golden-dome-missile-shield/",
+    "pubDate": "Tue, 27 Jan 2026 15:42:04 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Ars Technica",
+    "image": "https://cdn.arstechnica.net/wp-content/uploads/2026/01/GettyImages-2216141394-1152x648.jpg",
+    "isReal": true,
+    "summary": "“International partners, I have not been allowed to talk to yet because of the trade wars.\"..."
+  },
+  {
+    "title": "Heating homes with the world’s largest particle accelerator",
+    "link": "https://home.cern/news/news/cern/heating-homes-worlds-largest-particle-accelerator",
+    "pubDate": "Mon, 26 Jan 2026 08:48:35 +0000",
+    "category": "High Energy",
+    "sourceName": "CERN News",
+    "image": "https://cds.cern.ch/images//file?size=medium",
+    "isReal": true,
+    "summary": "Heating homes with the world’s largest particle accelerator\n\n\t\t\t\t\t\t\nThe 27-km LHC has eight surface points. Point 8, home of the LHCb experi..."
   },
   {
     "title": "Watch a robot swarm \"bloom\" like a garden",
@@ -850,103 +660,274 @@
     "summary": "The Swarm Garden: An array of modular robot agents that adapt to changing conditions for living architecture...."
   },
   {
-    "title": " From Pluto to Ceres: A dwarf planet word search ",
-    "link": "https://www.space.com/astronomy/dwarf-planets/from-pluto-to-ceres-a-dwarf-planet-word-search",
-    "pubDate": "Tue, 27 Jan 2026 14:30:00 +0000",
+    "title": " Proteins before planets: How space ice may have created the 1st building blocks of life ",
+    "link": "https://www.space.com/space-exploration/search-for-life/proteins-before-planets-how-space-ice-may-have-created-the-1st-building-blocks-of-life",
+    "pubDate": "Wed, 28 Jan 2026 18:12:58 +0000",
     "category": "Astrophysics",
     "sourceName": "Space.com",
-    "image": "https://cdn.mos.cms.futurecdn.net/JMePZFEJNcVnNawYzrCv96-1920-80.jpg",
+    "image": "https://cdn.mos.cms.futurecdn.net/3F8eXsqLobh2EqiUVAj5U7-1600-80.png",
     "isReal": true,
-    "summary": "Hunt for the names of mysterious dwarf planets, most of which orbit on the fringes of our solar system..."
+    "summary": "\"We used to think that only very simple molecules could be created in these clouds. But we have shown that this is clearly not the case.\"..."
   },
   {
-    "title": " Watch NASA's Artemis 2 moon rocket on the launch pad with this 24-hour livestream ",
-    "link": "https://www.space.com/space-exploration/human-spaceflight/watch-nasas-artemis-2-moon-rocket-on-the-launch-pad-with-this-24-hour-livestream",
-    "pubDate": "Tue, 27 Jan 2026 15:00:00 +0000",
+    "title": "Researchers unlocked a new shortcut to quantum materials",
+    "link": "https://www.sciencedaily.com/releases/2026/01/260121233404.htm",
+    "pubDate": "Thu, 22 Jan 2026 00:03:43 EST",
+    "category": "Quantum Physics",
+    "sourceName": "ScienceDaily",
+    "image": "https://www.sciencedaily.com/images/1920/laser-exciting-quantum-material.webp",
+    "isReal": true,
+    "summary": "Scientists are learning how to temporarily reshape materials by nudging their internal quantum rhythms instead of blasting them with extreme..."
+  },
+  {
+    "title": "A hidden magnetic order could unlock superconductivity",
+    "link": "https://www.sciencedaily.com/releases/2026/01/260126231849.htm",
+    "pubDate": "Mon, 26 Jan 2026 23:39:16 EST",
+    "category": "Quantum Physics",
+    "sourceName": "ScienceDaily",
+    "image": "https://www.sciencedaily.com/images/1920/superconducting-material-hovering-over-magnets.webp",
+    "isReal": true,
+    "summary": "Physicists have discovered that hidden magnetic order plays a key role in the pseudogap, a puzzling state of matter that appears just before..."
+  },
+  {
+    "title": "Physicists challenge a 200-year-old law of thermodynamics at the atomic scale",
+    "link": "https://www.sciencedaily.com/releases/2026/01/260121034140.htm",
+    "pubDate": "Thu, 22 Jan 2026 02:27:26 EST",
+    "category": "Quantum Physics",
+    "sourceName": "ScienceDaily",
+    "image": "https://www.sciencedaily.com/images/1920/atomic-physics-thermodynamics-laws.webp",
+    "isReal": true,
+    "summary": "A long-standing law of thermodynamics turns out to have a loophole at the smallest scales. Researchers have shown that quantum engines made ..."
+  },
+  {
+    "title": "Advancing cancer therapy with next-gen radionuclides",
+    "link": "https://home.cern/news/news/knowledge-sharing/advancing-cancer-therapy-next-gen-radionuclides",
+    "pubDate": "Tue, 13 Jan 2026 13:27:50 +0000",
+    "category": "High Energy",
+    "sourceName": "CERN News",
+    "image": "https://cds.cern.ch/images//file?size=medium",
+    "isReal": true,
+    "summary": "Advancing cancer therapy with next-gen radionuclides\n\n\t\t\t\t\t\t\nNuclear medicine uses radionuclides for imaging and therapeutic purposes. These..."
+  },
+  {
+    "title": "Muons: Emblems of discovery ",
+    "link": "https://www.symmetrymagazine.org/article/muons-emblems-of-discovery?utm_source=main_feed_click&utm_medium=rss&utm_campaign=main_feed&utm_content=click",
+    "pubDate": "2026-01-13T17:43:04-0600\n",
+    "category": "High Energy",
+    "sourceName": "Symmetry Mag",
+    "image": "https://www.symmetrymagazine.org/sites/default/files/styles/2015_hero/public/2025-10/Header_Muons_Emblems_of_discovery.jpg?itok=dckh1pCO",
+    "isReal": true,
+    "summary": "Once a surprise to physicists, these particles are useful tools inside and outside the realm of particle physics...."
+  },
+  {
+    "title": " Complex building blocks of life can form on space dust — offering new clues to the origins of life ",
+    "link": "https://www.livescience.com/chemistry/complex-building-blocks-of-life-can-form-on-space-dust-offering-new-clues-to-the-origins-of-life",
+    "pubDate": "Wed, 28 Jan 2026 21:51:02 +0000",
     "category": "Astrophysics",
-    "sourceName": "Space.com",
-    "image": "https://cdn.mos.cms.futurecdn.net/eoADNT3ZnytNt5MEv3AgW3-1920-80.jpg",
+    "sourceName": "Live Science",
+    "image": "https://cdn.mos.cms.futurecdn.net/GuVsfK2DEscSs8Achf4Vnb-1920-80.jpg",
     "isReal": true,
-    "summary": "The Artemis 2 moon mission's SLS rocket is on the pad at Kennedy Space Center for testing ahead of a possible Feb. 6 launch, and you can wat..."
+    "summary": "The complex building blocks of life can form spontaneously in space, a new lab experiment shows...."
   },
   {
-    "title": "Superconducting nanowire memory array achieves significantly lower error rate",
-    "link": "https://phys.org/news/2026-01-superconducting-nanowire-memory-array-significantly.html",
-    "pubDate": "Sun, 25 Jan 2026 11:30:01 EST",
+    "title": "Our elegant universe: rethinking nature’s deepest principle",
+    "link": "https://www.newscientist.com/article/2509985-our-elegant-universe-rethinking-natures-deepest-principle/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
+    "pubDate": "Mon, 12 Jan 2026 16:00:44 +0000",
     "category": "Quantum Physics",
-    "sourceName": "Phys.org",
-    "image": "https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "isReal": false,
-    "summary": "Quantum computers, systems that process information leveraging quantum mechanical effects, will require faster and energy-efficient memory c..."
+    "sourceName": "New Scientist",
+    "image": "https://images.newscientist.com/wp-content/uploads/2026/01/06114130/SEI_279759438.jpg",
+    "isReal": true,
+    "summary": "For centuries, the principle of symmetry has guided physicists towards more fundamental truths, but now a slew of shocking findings suggest ..."
   },
   {
-    "title": "Collaboration of elementary particles: How teamwork among photon pairs overcomes quantum errors",
-    "link": "https://phys.org/news/2026-01-collaboration-elementary-particles-teamwork-photon.html",
-    "pubDate": "Mon, 26 Jan 2026 15:40:01 EST",
-    "category": "Quantum Physics",
-    "sourceName": "Phys.org",
-    "image": "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "isReal": false,
-    "summary": "Some things are easier to achieve if you're not alone. As researchers from the University of Rostock, Germany have shown, this very human in..."
-  },
-  {
-    "title": "Breakthrough laser technique holds quantum matter in stable packets",
-    "link": "https://phys.org/news/2026-01-breakthrough-laser-technique-quantum-stable.html",
-    "pubDate": "Sun, 25 Jan 2026 13:00:03 EST",
-    "category": "Quantum Physics",
-    "sourceName": "Phys.org",
-    "image": "https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "isReal": false,
-    "summary": "For the first time, physicists have generated and observed stable bright matter-wave solitons with attractive interactions within a grid of ..."
-  },
-  {
-    "title": "AI makes quantum field theories computable",
-    "link": "https://phys.org/news/2026-01-ai-quantum-field-theories.html",
-    "pubDate": "Mon, 26 Jan 2026 13:11:58 EST",
-    "category": "Quantum Physics",
-    "sourceName": "Phys.org",
-    "image": "https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "isReal": false,
-    "summary": "An old puzzle in particle physics has been solved: How can quantum field theories be best formulated on a lattice to optimally simulate them..."
-  },
-  {
-    "title": "'Spectral slimming' yields ultranarrow plasmons in single metal nanoparticles",
-    "link": "https://phys.org/news/2026-01-spectral-slimming-yields-ultranarrow-plasmons.html",
-    "pubDate": "Tue, 27 Jan 2026 14:28:26 EST",
+    "title": "A controversial experiment threatened to kill the multiverse in 2025",
+    "link": "https://www.newscientist.com/article/2508704-a-controversial-experiment-threatened-to-kill-the-multiverse-in-2025/?utm_campaign=RSS%7CNSNS&utm_source=NSNS&utm_medium=RSS&utm_content=physics",
+    "pubDate": "Tue, 30 Dec 2025 11:00:08 +0000",
     "category": "Optics",
-    "sourceName": "Phys.org",
-    "image": "https://images.pexels.com/photos/3862632/pexels-photo-3862632.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "isReal": false,
-    "summary": "Researchers have developed a new strategy to overcome a long-standing limitation in plasmonic loss by reshaping light–matter interactions th..."
+    "sourceName": "New Scientist",
+    "image": "https://images.newscientist.com/wp-content/uploads/2025/12/15135033/SEI_277406814.jpg",
+    "isReal": true,
+    "summary": "A photon was apparently detected in two places at once in a twist on the classic double-slit experiment, but many physicists didn't accept t..."
   },
   {
-    "title": "3D material mimics graphene's electron flow for green computing",
-    "link": "https://phys.org/news/2026-01-3d-material-mimics-graphene-electron.html",
-    "pubDate": "Tue, 27 Jan 2026 16:32:21 EST",
+    "title": "Distant entangled atoms acting as one sensor deliver stunning precision",
+    "link": "https://www.sciencedaily.com/releases/2026/01/260126075842.htm",
+    "pubDate": "Mon, 26 Jan 2026 08:26:09 EST",
+    "category": "Quantum Physics",
+    "sourceName": "ScienceDaily",
+    "image": "https://www.sciencedaily.com/images/1920/entangled-atomic-clouds.webp",
+    "isReal": true,
+    "summary": "Researchers have demonstrated that quantum entanglement can link atoms across space to improve measurement accuracy. By splitting an entangl..."
+  },
+  {
+    "title": " 'Star Wars Outlaws' scores a new prequel novel starring antagonist Jaylen Vrax and his ND-5 assassin droid ",
+    "link": "https://www.space.com/entertainment/space-books/star-wars-outlaws-scores-a-new-prequel-novel-starring-antagonist-jaylen-vrax-and-his-nd-5-assassin-droid",
+    "pubDate": "Wed, 28 Jan 2026 16:00:00 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Space.com",
+    "image": "https://cdn.mos.cms.futurecdn.net/PKsgKCCEmXySjmkWyT4ene-1280-80.png",
+    "isReal": true,
+    "summary": "Author Mike Chen returns fans to the galaxy's grimy underworld in this thrilling crime caper book..."
+  },
+  {
+    "title": "A strange in-between state of matter is finally observed",
+    "link": "https://www.sciencedaily.com/releases/2026/01/260125083404.htm",
+    "pubDate": "Mon, 26 Jan 2026 10:11:17 EST",
     "category": "Nanotech",
-    "sourceName": "Phys.org",
-    "image": "https://images.pexels.com/photos/356043/pexels-photo-356043.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "isReal": false,
-    "summary": "University of Liverpool researchers have discovered a way to host some of the most significant properties of graphene in a three-dimensional..."
+    "sourceName": "ScienceDaily",
+    "image": "https://www.sciencedaily.com/images/1920/protochips-fusion-heating-stage-and-chip.webp",
+    "isReal": true,
+    "summary": "When materials become just one atom thick, melting no longer follows the familiar rules. Instead of jumping straight from solid to liquid, a..."
   },
   {
-    "title": "Establishing a new QM/MM design principle based on electronic-state responses",
-    "link": "https://phys.org/news/2026-01-qmmm-principle-based-electronic-state.html",
-    "pubDate": "Mon, 26 Jan 2026 17:07:22 EST",
+    "title": "Electrons stop acting like particles—and physics still works",
+    "link": "https://www.sciencedaily.com/releases/2026/01/260115022758.htm",
+    "pubDate": "Thu, 15 Jan 2026 08:36:20 EST",
+    "category": "Quantum Physics",
+    "sourceName": "ScienceDaily",
+    "image": "https://www.sciencedaily.com/images/1920/frozen-atoms-quantum-physics-state-of-matter.webp",
+    "isReal": true,
+    "summary": "Physicists have long relied on the idea that electrons behave like tiny particles zipping through materials, even though quantum physics say..."
+  },
+  {
+    "title": "Photons light the way",
+    "link": "https://www.symmetrymagazine.org/article/photons-light-the-way?utm_source=main_feed_click&utm_medium=rss&utm_campaign=main_feed&utm_content=click",
+    "pubDate": "2025-12-01T12:19:18-0600\n",
+    "category": "Optics",
+    "sourceName": "Symmetry Mag",
+    "image": "https://www.symmetrymagazine.org/sites/default/files/styles/2015_hero/public/2025-10/Header_Photons_light_the_way.jpg?itok=G1zyOv81",
+    "isReal": true,
+    "summary": "Photons, for centuries both a puzzle and a tool, continue to help scientists illuminate nature at the smallest and largest scales...."
+  },
+  {
+    "title": " Inside Lego's Artemis 2 range: Which set delivers the best build, detail and value? ",
+    "link": "https://www.space.com/entertainment/space-toys-lego/inside-legos-artemis-ii-range-which-set-delivers-the-best-build-detail-and-value",
+    "pubDate": "Wed, 28 Jan 2026 15:53:57 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Space.com",
+    "image": "https://cdn.mos.cms.futurecdn.net/oKbLAmxdNjhULsZTo6TrxV-1920-80.jpg",
+    "isReal": true,
+    "summary": "Space fans looking for a Lego Artemis set to build now have an interesting conundrum, as there are two Lego NASA Space Launch System Artemis..."
+  },
+  {
+    "title": " SpaceX targeting mid-March for 1st flight of bigger, more powerful Starship 'Version 3,' Elon Musk says ",
+    "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-targeting-mid-march-for-1st-flight-of-bigger-more-powerful-starship-version-3-elon-musk-says",
+    "pubDate": "Wed, 28 Jan 2026 19:00:00 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Space.com",
+    "image": "https://cdn.mos.cms.futurecdn.net/d6w5rtZNUwsKZcazQsoxYi-2560-80.jpg",
+    "isReal": true,
+    "summary": "SpaceX plans to launch the 12th test flight of its Starship megarocket in six weeks, according to Elon Musk. It will be the first mission of..."
+  },
+  {
+    "title": "DUNE experiment prepares for supernova watch",
+    "link": "https://www.symmetrymagazine.org/article/dune-experiment-prepares-for-supernova-watch?utm_source=main_feed_click&utm_medium=rss&utm_campaign=main_feed&utm_content=click",
+    "pubDate": "2025-09-16T08:00:00-0500\n",
+    "category": "High Energy",
+    "sourceName": "Symmetry Mag",
+    "image": "https://www.symmetrymagazine.org/sites/default/files/styles/2015_hero/public/2025-09/Header_REV_DUNE_experiment_prepares_for_supernova_watch.jpg?itok=KomP1_YD",
+    "isReal": true,
+    "summary": "In addition to revealing characteristics of mysterious particles called neutrinos, the massive DUNE experiment could help astronomers find a..."
+  },
+  {
+    "title": "Curiouser and curiouser: a riddle at the ALICE detector",
+    "link": "https://www.symmetrymagazine.org/article/curiouser-and-curiouser-a-riddle-at-the-alice-detector?utm_source=main_feed_click&utm_medium=rss&utm_campaign=main_feed&utm_content=click",
+    "pubDate": "2025-12-09T08:37:43-0600\n",
+    "category": "High Energy",
+    "sourceName": "Symmetry Mag",
+    "image": "https://www.symmetrymagazine.org/sites/default/files/styles/2015_hero/public/2025-11/ALICE_header.jpg?itok=VF6rX3pd",
+    "isReal": true,
+    "summary": "In 2023, the ALICE experiment was ready for their best year yet, until a mysterious signal threatened everything. As the LHC wraps up its 20..."
+  },
+  {
+    "title": "Into the quantum realm ",
+    "link": "https://www.symmetrymagazine.org/article/into-the-quantum-realm?utm_source=main_feed_click&utm_medium=rss&utm_campaign=main_feed&utm_content=click",
+    "pubDate": "2025-08-19T08:26:58-0500\n",
+    "category": "Quantum Physics",
+    "sourceName": "Symmetry Mag",
+    "image": "https://www.symmetrymagazine.org/sites/default/files/styles/2015_hero/public/2025-08/Header_Into_the_quantum_realm.png?itok=Y8-5KEYK",
+    "isReal": true,
+    "summary": "New technologies are enabling scientists to tackle previously elusive physics problems...."
+  },
+  {
+    "title": "New research challenges the cold dark matter assumption",
+    "link": "https://www.sciencedaily.com/releases/2026/01/260114084113.htm",
+    "pubDate": "Thu, 15 Jan 2026 00:42:07 EST",
+    "category": "Astrophysics",
+    "sourceName": "ScienceDaily",
+    "image": "https://www.sciencedaily.com/images/1920/big-bang-hot-cold-dark-matter.webp",
+    "isReal": true,
+    "summary": "Dark matter, one of the Universe’s greatest mysteries, may have been born blazing hot instead of cold and sluggish as scientists long believ..."
+  },
+  {
+    "title": "Silver just solved a major solid-state battery problem",
+    "link": "https://www.sciencedaily.com/releases/2026/01/260118064641.htm",
+    "pubDate": "Sun, 18 Jan 2026 22:23:20 EST",
+    "category": "Nanotech",
+    "sourceName": "ScienceDaily",
+    "image": "https://www.sciencedaily.com/images/1920/silver-coating-lithium-metal-batteries.webp",
+    "isReal": true,
+    "summary": "Solid-state batteries could store more energy and charge faster than today’s batteries, but they tend to crack and fail over time. Stanford ..."
+  },
+  {
+    "title": " 40 years after the space shuttle Challenger disaster, spaceflight remains far from routine ",
+    "link": "https://www.space.com/space-exploration/human-spaceflight/40-years-after-the-space-shuttle-challenger-disaster-spaceflight-remains-far-from-routine",
+    "pubDate": "Wed, 28 Jan 2026 05:05:00 +0000",
+    "category": "Astrophysics",
+    "sourceName": "Space.com",
+    "image": "https://cdn.mos.cms.futurecdn.net/8H7o7fENse2x6YupUsN7o4-1920-80.jpg",
+    "isReal": true,
+    "summary": "Seven astronauts lost their lives during the Challenger space shuttle disaster on Jan. 28, 1986. Four decades later, human spaceflight remai..."
+  },
+  {
+    "title": "‘Impossible’ Higgs boson measurement within reach, thanks to a detour",
+    "link": "https://www.symmetrymagazine.org/article/impossible-higgs-boson-measurement-within-reach-thanks-to-a-detour?utm_source=main_feed_click&utm_medium=rss&utm_campaign=main_feed&utm_content=click",
+    "pubDate": "2025-08-05T08:00:00-0500\n",
+    "category": "High Energy",
+    "sourceName": "Symmetry Mag",
+    "image": "https://www.symmetrymagazine.org/sites/default/files/styles/2015_hero/public/2025-08/Header_Impossible_Higgs_boson_measurement_within_reach_thanks_to_a_detour.jpg?itok=iUzvy7F-",
+    "isReal": true,
+    "summary": "A team of young scientists paused their new physics searches to develop an innovative machine-learning tool, which is now helping them narro..."
+  },
+  {
+    "title": "The first direct observation of a liquid charge density wave",
+    "link": "https://phys.org/news/2026-01-liquid-density.html",
+    "pubDate": "Wed, 28 Jan 2026 08:00:01 EST",
+    "category": "Condensed Matter",
+    "sourceName": "Phys.org",
+    "image": "https://images.pexels.com/photos/256262/pexels-photo-256262.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "isReal": false,
+    "summary": "Charge density waves (CDWs) are ordered, crystal-like patterns in the arrangement of electrons that spontaneously form inside some solid mat..."
+  },
+  {
+    "title": "Thinking on different wavelengths: New approach to circuit design introduces next-level quantum computing",
+    "link": "https://phys.org/news/2026-01-wavelengths-approach-circuit-quantum.html",
+    "pubDate": "Tue, 27 Jan 2026 15:40:36 EST",
     "category": "Quantum Physics",
     "sourceName": "Phys.org",
     "image": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800",
     "isReal": false,
-    "summary": "A research team has proposed a new design principle for QM/MM (quantum mechanics/molecular mechanics) simulations. The approach enables obje..."
+    "summary": "Quantum computing represents a potential breakthrough technology that could far surpass the technical limitations of modern-day computing sy..."
   },
   {
-    "title": "Material Strength Doesn’t Follow the Rules",
-    "link": "http://link.aps.org/doi/10.1103/Physics.19.4",
-    "category": "Condensed Matter",
-    "sourceName": "APS Physics",
-    "image": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "title": "New light-based platform sets the stage for future quantum supercomputers",
+    "link": "https://phys.org/news/2026-01-based-platform-stage-future-quantum.html",
+    "pubDate": "Wed, 28 Jan 2026 11:00:18 EST",
+    "category": "Quantum Physics",
+    "sourceName": "Phys.org",
+    "image": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800",
     "isReal": false,
-    "summary": "Author(s): Mark Buchanan\nA textbook rule for the relationship between the structure and strength of a material breaks down for high-speed de..."
+    "summary": "A light has emerged at the end of the tunnel in the long pursuit of developing quantum computers, which are expected to radically reduce the..."
+  },
+  {
+    "title": "Laser beam flips a ferromagnet's polarity without heating the material",
+    "link": "https://phys.org/news/2026-01-laser-flips-ferromagnet-polarity-material.html",
+    "pubDate": "Wed, 28 Jan 2026 11:00:26 EST",
+    "category": "Optics",
+    "sourceName": "Phys.org",
+    "image": "https://images.pexels.com/photos/3862632/pexels-photo-3862632.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "isReal": false,
+    "summary": "Researchers at the University of Basel and the ETH in Zurich have succeeded in changing the polarity of a special ferromagnet using a laser ..."
   },
   {
     "title": "Earth’s Magnetic Field as Dark-Matter Sensor",
@@ -958,69 +939,52 @@
     "summary": "Author(s): Michael Schirber\nDark matter having a small electric charge would presumably generate a magnetic-field variation on Earth’s surfa..."
   },
   {
-    "title": "The Dark Halo That Never Lit Up",
-    "link": "http://link.aps.org/doi/10.1103/Physics.19.5",
-    "category": "Astrophysics",
-    "sourceName": "APS Physics",
-    "image": "https://images.pexels.com/photos/110854/pexels-photo-110854.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "isReal": false,
-    "summary": "Author(s): Matteo Rini\nResearchers may have detected a dark matter clump, or halo, that doesn’t host a galaxy—providing a possible test bed ..."
-  },
-  {
-    "title": "Metasurface Entangles and Distributes Photons",
-    "link": "http://link.aps.org/doi/10.1103/Physics.19.s11",
-    "category": "Optics",
-    "sourceName": "APS Physics",
-    "image": "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "isReal": false,
-    "summary": "Author(s): Charles Day\nPhotons passing through a specially engineered wafer emerge entangled and spread among multiple output channels.\n\n[Ph..."
-  },
-  {
-    "title": "How Fast Ions Damage Crystalline Materials",
-    "link": "http://link.aps.org/doi/10.1103/Physics.19.s9",
-    "category": "Condensed Matter",
-    "sourceName": "APS Physics",
-    "image": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "isReal": false,
-    "summary": "Author(s): Sophia Chen\nIons tearing through a crystal leave destructive tracks whose shapes vary with the crystal’s orientation.\n\n[Physics 1..."
-  },
-  {
     "title": "Benchmarking a Spin-Based Quantum Computer",
     "link": "http://link.aps.org/doi/10.1103/Physics.19.s12",
     "category": "Quantum Physics",
     "sourceName": "APS Physics",
-    "image": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "image": "https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&w=800",
     "isReal": false,
     "summary": "Author(s): Marric Stephens\nResearchers have quantified the performance of a quantum processor built from semiconductor quantum dots, chartin..."
   },
   {
-    "title": "Researchers develop high-performance fluoroborate crystals for deep-ultraviolet lasers",
-    "link": "https://phys.org/news/2026-01-high-fluoroborate-crystals-deep-ultraviolet.html",
-    "pubDate": "Sun, 25 Jan 2026 04:50:01 EST",
+    "title": "New ABF crystal delivers high-performance vacuum ultraviolet nonlinear optical conversion",
+    "link": "https://phys.org/news/2026-01-abf-crystal-high-vacuum-ultraviolet.html",
+    "pubDate": "Wed, 28 Jan 2026 11:00:34 EST",
+    "category": "Quantum Physics",
+    "sourceName": "Phys.org",
+    "image": "https://images.pexels.com/photos/373543/pexels-photo-373543.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "isReal": false,
+    "summary": "Vacuum ultraviolet (VUV, 100–200 nm) light sources are indispensable for advanced spectroscopy, quantum research, and semiconductor lithogra..."
+  },
+  {
+    "title": "Chip-sized optical amplifier can intensify light 100-fold with minimal energy",
+    "link": "https://phys.org/news/2026-01-chip-sized-optical-amplifier-minimal.html",
+    "pubDate": "Wed, 28 Jan 2026 11:00:29 EST",
     "category": "Optics",
     "sourceName": "Phys.org",
-    "image": "https://images.pexels.com/photos/5726706/pexels-photo-5726706.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "image": "https://images.pexels.com/photos/3862632/pexels-photo-3862632.jpeg?auto=compress&cs=tinysrgb&w=800",
     "isReal": false,
-    "summary": "Deep-ultraviolet (DUV, λ < 200 nm) all-solid-state lasers, essential to modern scientific research and industrial manufacturing, are widely ..."
+    "summary": "Light does a lot of work in the modern world, enabling all types of information technology, from TVs to satellites to fiber-optic cables tha..."
   },
   {
     "title": "A New Probe of Nanoparticle Melting",
     "link": "http://link.aps.org/doi/10.1103/Physics.19.s18",
     "category": "High Energy",
     "sourceName": "APS Physics",
-    "image": "https://images.pexels.com/photos/632470/pexels-photo-632470.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "image": "https://images.pexels.com/photos/256302/pexels-photo-256302.jpeg?auto=compress&cs=tinysrgb&w=800",
     "isReal": false,
     "summary": "Author(s): David Ehrenstein\nThe melting point of alkali-metal nanoparticles was determined with high accuracy by measuring the energy requir..."
   },
   {
-    "title": "Particle permutation task can be tackled by quantum but not classical computers, study finds",
-    "link": "https://phys.org/news/2026-01-particle-permutation-task-tackled-quantum.html",
-    "pubDate": "Fri, 23 Jan 2026 12:30:01 EST",
-    "category": "Quantum Physics",
+    "title": "Novel ferroelectric ultraviolet photodetector achieves near-10,000-fold speed increase",
+    "link": "https://phys.org/news/2026-01-ferroelectric-ultraviolet-photodetector.html",
+    "pubDate": "Wed, 28 Jan 2026 15:00:32 EST",
+    "category": "Condensed Matter",
     "sourceName": "Phys.org",
-    "image": "https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "image": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800",
     "isReal": false,
-    "summary": "Quantum computers, systems that process information leveraging quantum mechanical effects, are expected to outperform classical computers on..."
+    "summary": "Researchers from the Institute of Metal Research (IMR) of the Chinese Academy of Sciences have developed a new ferroelectric ultraviolet pho..."
   },
   {
     "title": "How Disorder Regulates Heat Flow",
@@ -1032,43 +996,119 @@
     "summary": "Author(s): Sam Jarman\nA new theory linking atomic disorder to heat flow offers a strong foundation for predicting thermal conductivity in ma..."
   },
   {
-    "title": "Swimming in a shared medium makes particles synchronize without touching",
-    "link": "https://phys.org/news/2026-01-medium-particles-synchronize.html",
-    "pubDate": "Mon, 26 Jan 2026 15:53:26 EST",
-    "category": "High Energy",
-    "sourceName": "Phys.org",
-    "image": "https://images.pexels.com/photos/60022/pexels-photo-60022.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "isReal": false,
-    "summary": "Several years ago, scientists discovered that a single microscopic particle could rock back and forth on its own under a steady electric fie..."
-  },
-  {
-    "title": "Physicists eye emerging technology for solar cells in outer space",
-    "link": "https://phys.org/news/2026-01-physicists-eye-emerging-technology-solar.html",
-    "pubDate": "Tue, 27 Jan 2026 09:30:01 EST",
-    "category": "Astrophysics",
-    "sourceName": "Phys.org",
-    "image": "https://images.pexels.com/photos/1169754/pexels-photo-1169754.jpeg?auto=compress&cs=tinysrgb&w=800",
-    "isReal": false,
-    "summary": "Solar cells face significant challenges when deployed in outer space, where extremes in the environment decrease the efficiency and longevit..."
-  },
-  {
-    "title": "Thinking on different wavelengths: New approach to circuit design introduces next-level quantum computing",
-    "link": "https://phys.org/news/2026-01-wavelengths-approach-circuit-quantum.html",
-    "pubDate": "Tue, 27 Jan 2026 15:40:36 EST",
+    "title": "Superfluids are supposed to flow indefinitely. Physicists just watched one stop moving",
+    "link": "https://phys.org/news/2026-01-superfluids-indefinitely-physicists.html",
+    "pubDate": "Wed, 28 Jan 2026 12:46:29 EST",
     "category": "Quantum Physics",
     "sourceName": "Phys.org",
-    "image": "https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "image": "https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=800",
     "isReal": false,
-    "summary": "Quantum computing represents a potential breakthrough technology that could far surpass the technical limitations of modern-day computing sy..."
+    "summary": "Ordinary matter, when cooled, transitions from a gas into a liquid. Cool it further still, and it freezes into a solid. Quantum matter, howe..."
   },
   {
-    "title": "Watching atoms roam before they decay",
-    "link": "https://phys.org/news/2026-01-atoms-roam-decay.html",
-    "pubDate": "Mon, 26 Jan 2026 13:20:04 EST",
+    "title": "3D material mimics graphene's electron flow for green computing",
+    "link": "https://phys.org/news/2026-01-3d-material-mimics-graphene-electron.html",
+    "pubDate": "Tue, 27 Jan 2026 16:32:21 EST",
     "category": "Nanotech",
     "sourceName": "Phys.org",
     "image": "https://images.pexels.com/photos/3825527/pexels-photo-3825527.jpeg?auto=compress&cs=tinysrgb&w=800",
     "isReal": false,
-    "summary": "Together with an international team, researchers from the Molecular Physics Department at the Fritz Haber Institute have revealed how atoms ..."
+    "summary": "University of Liverpool researchers have discovered a way to host some of the most significant properties of graphene in a three-dimensional..."
+  },
+  {
+    "title": "CERN chief upbeat on funding for new particle collider",
+    "link": "https://phys.org/news/2026-01-cern-chief-upbeat-funding-particle.html",
+    "pubDate": "Wed, 28 Jan 2026 04:51:23 EST",
+    "category": "High Energy",
+    "sourceName": "Phys.org",
+    "image": "https://images.pexels.com/photos/632470/pexels-photo-632470.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "isReal": false,
+    "summary": "Mark Thomson, the new head of Europe's physics laboratory CERN, voiced confidence Tuesday about raising the billions of dollars needed to bu..."
+  },
+  {
+    "title": "Quantum batteries could quadruple qubit capacity while reducing energy infrastructure requirements",
+    "link": "https://phys.org/news/2026-01-quantum-batteries-quadruple-qubit-capacity.html",
+    "pubDate": "Wed, 28 Jan 2026 14:26:45 EST",
+    "category": "Quantum Physics",
+    "sourceName": "Phys.org",
+    "image": "https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "isReal": false,
+    "summary": "Scientists have unveiled a new approach to powering quantum computers using quantum batteries—a breakthrough that could make future computer..."
+  },
+  {
+    "title": "Novel 'XFELO' laser system produces razor-sharp X-ray light",
+    "link": "https://phys.org/news/2026-01-xfelo-laser-razor-sharp-ray.html",
+    "pubDate": "Wed, 28 Jan 2026 17:15:35 EST",
+    "category": "Optics",
+    "sourceName": "Phys.org",
+    "image": "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "isReal": false,
+    "summary": "A team of engineers and scientists has shown for the first time that a hard-X-ray cavity can provide net X-ray gain, with X-ray pulses being..."
+  },
+  {
+    "title": "Establishing design principles for achieving ultralow thermal conductivity via controlled chemical disorder",
+    "link": "https://phys.org/news/2026-01-principles-ultralow-thermal-chemical-disorder.html",
+    "pubDate": "Wed, 28 Jan 2026 15:18:20 EST",
+    "category": "Condensed Matter",
+    "sourceName": "Phys.org",
+    "image": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "isReal": false,
+    "summary": "A major challenge in thermal-management and thermal-insulation technologies, across multiple industries, is the lack of materials that simul..."
+  },
+  {
+    "title": "How Fast Ions Damage Crystalline Materials",
+    "link": "http://link.aps.org/doi/10.1103/Physics.19.s9",
+    "category": "Condensed Matter",
+    "sourceName": "APS Physics",
+    "image": "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "isReal": false,
+    "summary": "Author(s): Sophia Chen\nIons tearing through a crystal leave destructive tracks whose shapes vary with the crystal’s orientation.\n\n[Physics 1..."
+  },
+  {
+    "title": "Breaking the Absorption Limit",
+    "link": "http://link.aps.org/doi/10.1103/Physics.19.s13",
+    "category": "Optics",
+    "sourceName": "APS Physics",
+    "image": "https://images.pexels.com/photos/5726706/pexels-photo-5726706.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "isReal": false,
+    "summary": "Author(s): Ryan Wilkinson\nLight grazing an ultrathin conductive film can be absorbed much more strongly than previously thought.\n\n[Physics 1..."
+  },
+  {
+    "title": "Metasurface Entangles and Distributes Photons",
+    "link": "http://link.aps.org/doi/10.1103/Physics.19.s11",
+    "category": "Optics",
+    "sourceName": "APS Physics",
+    "image": "https://images.pexels.com/photos/5726706/pexels-photo-5726706.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "isReal": false,
+    "summary": "Author(s): Charles Day\nPhotons passing through a specially engineered wafer emerge entangled and spread among multiple output channels.\n\n[Ph..."
+  },
+  {
+    "title": "A New Ingredient for Quantum Error Correction",
+    "link": "http://link.aps.org/doi/10.1103/Physics.19.9",
+    "category": "Quantum Physics",
+    "sourceName": "APS Physics",
+    "image": "https://images.pexels.com/photos/5473182/pexels-photo-5473182.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "isReal": false,
+    "summary": "Author(s): Xiang Zhan and Peng Xue\nEntanglement and so-called magic states have long been viewed as the key resources for quantum error corr..."
+  },
+  {
+    "title": "Ultrathin kagome metal hosts robust 3D flat electronic band state",
+    "link": "https://phys.org/news/2026-01-ultrathin-kagome-metal-hosts-robust.html",
+    "pubDate": "Wed, 28 Jan 2026 10:10:06 EST",
+    "category": "Quantum Physics",
+    "sourceName": "Phys.org",
+    "image": "https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "isReal": false,
+    "summary": "A team of researchers at Monash University has uncovered a powerful new way to engineer exotic quantum states, revealing a robust and tunabl..."
+  },
+  {
+    "title": "The infant universe's 'primordial soup' was actually soupy, study finds",
+    "link": "https://phys.org/news/2026-01-infant-universe-primordial-soup-soupy.html",
+    "pubDate": "Wed, 28 Jan 2026 09:40:58 EST",
+    "category": "Astrophysics",
+    "sourceName": "Phys.org",
+    "image": "https://images.pexels.com/photos/1169754/pexels-photo-1169754.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "isReal": false,
+    "summary": "In its first moments, the infant universe was a trillion-degree-hot soup of quarks and gluons. These elementary particles zinged around at l..."
   }
 ]
