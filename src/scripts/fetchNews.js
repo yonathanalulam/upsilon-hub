@@ -2,10 +2,9 @@ import Parser from 'rss-parser';
 import fs from 'fs';
 import path from 'path';
 import * as cheerio from 'cheerio';
-import axios from 'axios';
 
 const parser = new Parser({
-  timeout: 20000,
+  timeout: 15000,
   headers: {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36'
   }
@@ -29,7 +28,6 @@ const SOURCES = [
   { name: "IEEE Spectrum", url: "https://spectrum.ieee.org/feeds/topic/robotics" }
 ];
 
-// UPDATED: Expanded keywords to ensure Strict Mode captures variations (e.g., "robotics" vs "robot")
 const TOPIC_KEYWORDS = [
   { id: "Quantum Physics", terms: ["quantum", "entanglement", "qubit", "qubits", "spin", "superposition", "decoherence"] },
   { id: "Astrophysics", terms: ["space", "universe", "galaxy", "galaxies", "star", "stars", "planet", "planets", "nasa", "webb", "black hole", "cosmos", "solar", "asteroid"] },
@@ -148,10 +146,19 @@ function getFallbackImage(category) {
 
 async function getOgImage(url) {
   try {
-    const { data } = await axios.get(url, { headers: { 'User-Agent': 'Mozilla/5.0' }, timeout: 3000 });
+    const response = await fetch(url, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36' },
+      signal: AbortSignal.timeout(4000)
+    });
+    
+    if (!response.ok) return null;
+    
+    const data = await response.text();
     const $ = cheerio.load(data);
     return $('meta[property="og:image"]').attr('content') || null;
-  } catch (error) { return null; }
+  } catch (error) { 
+    return null; 
+  }
 }
 
 async function fetchNews() {
@@ -161,7 +168,11 @@ async function fetchNews() {
   for (const source of SOURCES) {
     try {
       console.log(`\n📡 Contacting ${source.name}...`);
-      const feed = await parser.parseURL(source.url);
+      
+      const feed = await Promise.race([
+        parser.parseURL(source.url),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('Feed timeout')), 15000))
+      ]);
 
       const items = feed.items.slice(0, 15);
 
@@ -216,7 +227,7 @@ async function fetchNews() {
 
   console.log(`\n🎉 DONE! Processed ${allNews.length} articles.`);
   console.log(`📸 Scraped Images: ${realCount} | 🎲 Fallback Images: ${fallbackCount}`);
-  
+  console.log(`✨ Trash & "General Physics" have been filtered out.`);
 }
 
 fetchNews();
