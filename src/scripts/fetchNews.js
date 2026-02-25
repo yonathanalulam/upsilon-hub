@@ -228,6 +228,8 @@ async function fetchNews() {
   console.log(`\n🎉 DONE! Processed ${allNews.length} articles.`);
   console.log(`📸 Scraped Images: ${realCount} | 🎲 Fallback Images: ${fallbackCount}`);
   console.log(`✨ Trash & "General Physics" have been filtered out.`);
+  
+  process.exit(0); 
 }
 
 fetchNews();
