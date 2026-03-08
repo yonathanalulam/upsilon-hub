@@ -1,10 +1,10 @@
 ---
-const { title, category, image, summary, url, sourceName } = Astro.props;
+const { title, category, image, summary, url, sourceName, slug } = Astro.props;
 const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
 ---
 
 <div 
-  class="group relative flex flex-col h-full bg-transparent dark:bg-transparent transition-all duration-300 border border-gray-200 dark:border-gray-800 rounded-lg"
+  class="group relative flex flex-col h-full bg-transparent dark:bg-transparent transition-all duration-300 border border-gray-200 dark:border-gray-800 rounded-lg overflow-hidden"
   data-title={title.toLowerCase()}
   data-category={category.toLowerCase()}
   data-source={sourceName?.toLowerCase() || ''}
@@ -21,6 +21,7 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
     <button 
       class="bookmark-btn absolute top-2 right-2 z-30 p-2 rounded bg-surface-light dark:bg-surface-dark hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group/btn border border-gray-200 dark:border-gray-700"
       data-url={url}
+      data-slug={slug}
       data-title={title}
       data-image={image}
       data-category={category}
@@ -32,7 +33,7 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
       <svg class="bookmark-icon-filled hidden w-5 h-5 text-primary-light dark:text-primary-dark" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
     </button>
 
-    <a href={url} target="_blank" rel="noopener noreferrer" class="block h-full w-full">
+    <a href={`/article/${slug}`} class="block h-full w-full">
       <img 
         src={image} 
         alt={title} 
@@ -44,7 +45,7 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
   </div>
 
   <div class="p-4 flex flex-col flex-grow">
-    <a href={url} target="_blank" rel="noopener noreferrer" class="block">
+    <a href={`/article/${slug}`} class="block">
       <h3 class="text-lg font-bold text-text-light dark:text-text-dark mb-2 leading-snug group-hover:text-primary-light dark:group-hover:text-primary-dark transition-colors">
         {title}
       </h3>
@@ -59,7 +60,7 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
           {sourceName || "Science Daily"}
         </span>
         
-        <a href={url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary-light dark:text-primary-dark font-medium text-sm hover:underline">
+        <a href={`/article/${slug}`} class="inline-flex items-center text-primary-light dark:text-primary-dark font-medium text-sm hover:underline">
         Read
         </a>
     </div>
@@ -101,6 +102,7 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
         } else {
           const articleData = {
             url: btn.dataset.url,
+            slug: btn.dataset.slug,
             title: btn.dataset.title,
             image: btn.dataset.image,
             category: btn.dataset.category,
