@@ -2,6 +2,7 @@
 import newsData from '../data/news.json';
 const allCategories = newsData.map((item: any) => item.category);
 const uniqueCategories = [...new Set(allCategories)].sort();
+const currentPath = Astro.url.pathname;
 interface Props {
   title: string;
   description?: string;
@@ -284,38 +285,44 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <div class="hidden xl:block w-full border-t border-gray-200 dark:border-gray-800">
         <div class="max-w-[1600px] mx-auto px-8 overflow-x-auto hide-scrollbar">
           <nav class="flex items-center h-14 gap-8">
-            <a href="/" class="text-[13px] font-bold uppercase tracking-[0.15em] text-primary-light dark:text-primary-dark whitespace-nowrap flex-shrink-0 hover:underline">
+            <a href="/" class={`text-[13px] font-bold uppercase tracking-[0.15em] whitespace-nowrap flex-shrink-0 hover:underline transition-colors ${currentPath === '/' ? 'text-primary-light dark:text-primary-dark' : 'text-text-light dark:text-text-dark hover:text-primary-light dark:hover:text-primary-dark'}`}>
               All Topics
             </a>
 
-            <a href="/saved" class="flex items-center gap-2 text-[13px] font-bold uppercase tracking-[0.15em] text-text-light dark:text-text-dark whitespace-nowrap flex-shrink-0 hover:text-primary-light dark:hover:text-primary-dark transition-colors">
+            <a href="/saved" class={`flex items-center gap-2 text-[13px] font-bold uppercase tracking-[0.15em] whitespace-nowrap flex-shrink-0 transition-colors ${currentPath === '/saved/' || currentPath === '/saved' ? 'text-primary-light dark:text-primary-dark' : 'text-text-light dark:text-text-dark hover:text-primary-light dark:hover:text-primary-dark'}`}>
               <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
               Bookmarks
             </a>
 
             <div class="h-4 w-px bg-gray-300 dark:bg-gray-700 flex-shrink-0"></div>
 
-            {uniqueCategories.map((category: any) => (
-              <a 
-                href={`/category/${category.toLowerCase().replace(/\s+/g, '-')}`} 
-                class="text-[13px] font-bold uppercase tracking-[0.15em] text-text-light dark:text-text-dark hover:text-primary-light dark:hover:text-primary-dark transition-colors whitespace-nowrap flex-shrink-0"
-              >
+            {uniqueCategories.map((category: any) => {
+              const catSlug = `/category/${category.toLowerCase().replace(/\s+/g, '-')}`;
+              const isActive = currentPath === catSlug || currentPath === catSlug + '/';
+              return (
+                <a 
+                  href={catSlug}
+                  class={`text-[13px] font-bold uppercase tracking-[0.15em] whitespace-nowrap flex-shrink-0 transition-colors ${isActive ? 'text-primary-light dark:text-primary-dark underline underline-offset-4' : 'text-text-light dark:text-text-dark hover:text-primary-light dark:hover:text-primary-dark'}`}
+                >
                   {category}
-              </a>
-            ))}
+                </a>
+              );
+            })}
           </nav>
         </div>
       </div>
 
       <!-- Mobile Dropdown Menu -->
       <div id="mobile-menu" class="hidden xl:hidden border-t-4 border-primary-light/10 dark:border-primary-dark/10 bg-background-light dark:bg-background-dark absolute w-full left-0 top-20 flex-col py-8 px-8 shadow-2xl z-40 gap-6">
-        <a href="/" class="text-[14px] font-bold uppercase tracking-[0.2em] text-text-light dark:text-text-dark hover:text-primary-light">All Topics</a>
-        <a href="/saved" class="text-[14px] font-bold uppercase tracking-[0.2em] text-text-light dark:text-text-dark hover:text-primary-light">Bookmarks</a>
-        <a href="/about" class="text-[14px] font-bold uppercase tracking-[0.2em] text-text-light dark:text-text-dark hover:text-primary-light">About</a>
+        <a href="/" class={`text-[14px] font-bold uppercase tracking-[0.2em] transition-colors ${currentPath === '/' ? 'text-primary-light dark:text-primary-dark' : 'text-text-light dark:text-text-dark hover:text-primary-light'}`}>All Topics</a>
+        <a href="/saved" class={`text-[14px] font-bold uppercase tracking-[0.2em] transition-colors ${currentPath.startsWith('/saved') ? 'text-primary-light dark:text-primary-dark' : 'text-text-light dark:text-text-dark hover:text-primary-light'}`}>Bookmarks</a>
+        <a href="/about" class={`text-[14px] font-bold uppercase tracking-[0.2em] transition-colors ${currentPath.startsWith('/about') ? 'text-primary-light dark:text-primary-dark' : 'text-text-light dark:text-text-dark hover:text-primary-light'}`}>About</a>
         <hr class="border-gray-200 dark:border-gray-800 my-2" />
-        {uniqueCategories.map((cat: any) => (
-          <a href={`/category/${cat.toLowerCase().replace(/\s+/g, '-')}`} class="text-[14px] font-bold uppercase tracking-[0.2em] text-text-light dark:text-text-dark hover:text-primary-light">{cat}</a>
-        ))}
+        {uniqueCategories.map((cat: any) => {
+          const catSlug = `/category/${cat.toLowerCase().replace(/\s+/g, '-')}`;
+          const isActive = currentPath === catSlug || currentPath === catSlug + '/';
+          return <a href={catSlug} class={`text-[14px] font-bold uppercase tracking-[0.2em] transition-colors ${isActive ? 'text-primary-light dark:text-primary-dark' : 'text-text-light dark:text-text-dark hover:text-primary-light'}`}>{cat}</a>;
+        })}
       </div>
     </header>
 
