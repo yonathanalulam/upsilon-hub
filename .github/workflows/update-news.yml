@@ -29,6 +29,8 @@ jobs:
         run: mkdir -p src/data
 
       - name: Fetch Fresh News
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: node src/scripts/fetchNews.js
 
       - name: Commit and Push Changes
