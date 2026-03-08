@@ -2,11 +2,39 @@ import Parser from 'rss-parser';
 import fs from 'fs';
 import path from 'path';
 import * as cheerio from 'cheerio';
+import crypto from 'crypto';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 
+// ─── Load env variables ───────────────────────────────────────────────────────
+// dotenv isn't needed for Node 20.6+ — use --env-file flag, or load manually:
+const envPath = path.resolve('.env');
+if (fs.existsSync(envPath)) {
+  const envContent = fs.readFileSync(envPath, 'utf-8');
+  envContent.split('\n').forEach(line => {
+    const [key, ...valueParts] = line.split('=');
+    if (key && !key.startsWith('#')) {
+      process.env[key.trim()] = valueParts.join('=').trim();
+    }
+  });
+}
+
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const geminiEnabled = GEMINI_API_KEY && GEMINI_API_KEY !== 'your_gemini_api_key_here';
+let genAI, model;
+
+if (geminiEnabled) {
+  genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+  model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-lite' });
+  console.log('✨ Gemini 2.0 Flash Lite AI summaries: ENABLED\n');
+} else {
+  console.log('⚠️  GEMINI_API_KEY not set — AI summaries disabled, using RSS excerpts as fallback.\n');
+}
+
+// ─── RSS Parser ───────────────────────────────────────────────────────────────
 const parser = new Parser({
   timeout: 15000,
   headers: {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36'
+    'User-Agent': 'Upsilon-Hub-NewsAggregator/1.0 (+https://upsilon-hub.vercel.app)'
   }
 });
 
@@ -113,20 +141,10 @@ const THEME_GALLERY = {
 
 function classifyArticle(item) {
   const text = (item.title + " " + (item.contentSnippet || "") + " " + (item.categories || []).join(" ")).toLowerCase();
-
-  if (EXCLUDED_TERMS.some(badWord => text.includes(badWord))) {
-    return null;
-  }
-
+  if (EXCLUDED_TERMS.some(badWord => text.includes(badWord))) return null;
   for (const topic of TOPIC_KEYWORDS) {
-    if (topic.terms.some(term => {
-      const regex = new RegExp(`\\b${term}\\b`, 'i');
-      return regex.test(text);
-    })) {
-      return topic.id;
-    }
+    if (topic.terms.some(term => new RegExp(`\\b${term}\\b`, 'i').test(text))) return topic.id;
   }
-
   return null;
 }
 
@@ -134,9 +152,8 @@ function isRoboticsValid(item) {
   const text = (item.title + " " + item.contentSnippet).toLowerCase();
   const forbidden = ["chatbot", "chatgpt", "generative ai", "llm", "large language model", "stock market"];
   const required = ["robot", "drone", "machine", "actuator", "sensor", "autonomous", "rover"];
-
-  if (forbidden.some(word => text.includes(word))) return false;
-  return required.some(word => text.includes(word));
+  if (forbidden.some(w => text.includes(w))) return false;
+  return required.some(w => text.includes(w));
 }
 
 function getFallbackImage(category) {
@@ -147,71 +164,155 @@ function getFallbackImage(category) {
 async function getOgImage(url) {
   try {
     const response = await fetch(url, {
-      headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36' },
-      signal: AbortSignal.timeout(4000)
+      headers: { 
+        'User-Agent': 'Upsilon-Hub-NewsAggregator/1.0 (+https://upsilon-hub.vercel.app)',
+        'Accept': 'text/html'
+      },
+      signal: AbortSignal.timeout(5000)
     });
-    
     if (!response.ok) return null;
-    
-    const data = await response.text();
-    const $ = cheerio.load(data);
+    const html = await response.text();
+    const $ = cheerio.load(html);
     return $('meta[property="og:image"]').attr('content') || null;
-  } catch (error) { 
-    return null; 
+  } catch {
+    return null;
   }
 }
 
+function generateSlug(title) {
+  const baseSlug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+  const hash = crypto.randomBytes(4).toString('hex');
+  return `${baseSlug}-${hash}`;
+}
+
+function getRssExcerpt(item) {
+  const rawContent = item.content || item['content:encoded'] || '';
+  const snippetText = item.contentSnippet || '';
+  const stripped = rawContent.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  const best = stripped.length > snippetText.length ? stripped : snippetText;
+  return best.slice(0, 600).trim();
+}
+
+// ─── Gemini AI Summary ────────────────────────────────────────────────────────
+let lastGeminiCall = 0;
+const GEMINI_DELAY_MS = 2100; // 30 RPM free tier = 1 call per 2s
+
+async function generateAiSummary(title, sourceName, rssExcerpt, category) {
+  if (!geminiEnabled || !model) return null;
+
+  // Rate limiting — enforce min delay between calls
+  const now = Date.now();
+  const wait = GEMINI_DELAY_MS - (now - lastGeminiCall);
+  if (wait > 0) await new Promise(r => setTimeout(r, wait));
+  lastGeminiCall = Date.now();
+
+  const prompt = `You are a science writer for Upsilon Hub, a physics news aggregator. Write an AI summary of the following article for curious readers.
+
+Article Title: "${title}"
+Source: ${sourceName}
+Category: ${category}
+RSS Excerpt: "${rssExcerpt}"
+
+Instructions:
+- Write 3 to 5 paragraphs (around 200–280 words total)
+- Start directly with the substance — no "This article..." or "According to..." openers
+- Explain the core discovery or development clearly
+- Give relevant context (why it matters, what came before, how it fits into the field)
+- Highlight one or two genuinely fascinating or surprising aspects
+- End with an open question or hint at what comes next — leaving the reader curious to read more
+- Keep the tone engaging, clear, and accessible to an educated non-specialist
+- Do NOT reproduce quotes, specific data, or detailed methodology — those are for the original article
+- Return plain text only, no markdown, no bullet points`;
+
+  // Retry up to 2 times on 429
+  for (let attempt = 0; attempt < 3; attempt++) {
+    try {
+      const result = await Promise.race([
+        model.generateContent(prompt),
+        new Promise((_, reject) => setTimeout(() => reject(new Error('Gemini timeout')), 15000))
+      ]);
+      const text = result.response.text().trim();
+      return text.length > 50 ? text : null;
+    } catch (err) {
+      if (err.message?.includes('429') && attempt < 2) {
+        const retryMs = 60000; // wait 60s on rate limit
+        process.stdout.write(`   ⏳ Rate limited — waiting 60s...`);
+        await new Promise(r => setTimeout(r, retryMs));
+        lastGeminiCall = Date.now();
+        continue;
+      }
+      console.log(`   ⚠️  Gemini error: ${err.message?.split('\n')[0]}`);
+      return null;
+    }
+  }
+  return null;
+}
+
+// ─── Main Fetch ───────────────────────────────────────────────────────────────
 async function fetchNews() {
-  console.log("🚀 Starting Massive Physics Fetch...");
+  console.log("🚀 Starting Upsilon Hub fetch (RSS excerpt mode — copyright safe)...\n");
   let allNews = [];
+  let aiCount = 0;
 
   for (const source of SOURCES) {
     try {
-      console.log(`\n📡 Contacting ${source.name}...`);
+      console.log(`📡 Contacting ${source.name}...`);
       
       const feed = await Promise.race([
         parser.parseURL(source.url),
         new Promise((_, reject) => setTimeout(() => reject(new Error('Feed timeout')), 15000))
       ]);
 
-      const items = feed.items.slice(0, 15);
+      const items = feed.items.slice(0, 20);
+      let sourceCount = 0;
 
       for (const item of items) {
         let category = classifyArticle(item);
-
         if (!category) {
-           if (source.name === "IEEE Spectrum" && isRoboticsValid(item)) {
-               category = "Robotics";
-           } else {
-               continue;
-           }
+           if (source.name === "IEEE Spectrum" && isRoboticsValid(item)) category = "Robotics";
+           else continue;
         }
 
-        process.stdout.write(`   ↳ [${category}] ${item.title.substring(0, 30)}... `);
+        process.stdout.write(`   ↳ [${category}] ${item.title.substring(0, 38)}... `);
 
-        let image = await getOgImage(item.link);
-        let isReal = false;
+        const ogImage = await getOgImage(item.link);
+        const image = ogImage || getFallbackImage(category);
+        const isReal = !!ogImage;
 
-        if (!image) {
-          image = getFallbackImage(category);
-          console.log("🎲 (Fallback)");
-        } else {
-          isReal = true;
-          console.log("✅ (Scraped)");
-        }
+        const slug = generateSlug(item.title);
+        const rssExcerpt = getRssExcerpt(item);
+        const summary = item.contentSnippet 
+          ? item.contentSnippet.substring(0, 160).trim() + "..."
+          : rssExcerpt.substring(0, 160).trim() + "...";
+
+        // Generate AI summary if Gemini is configured
+        const aiSummary = await generateAiSummary(item.title, source.name, rssExcerpt, category);
+        if (aiSummary) aiCount++;
+
+        console.log(isReal ? `🖼️  ${aiSummary ? '🤖 AI' : ''}` : `🎲 ${aiSummary ? '🤖 AI' : ''}`);
 
         allNews.push({
           title: item.title,
           link: item.link,
+          slug,
           pubDate: item.pubDate,
-          category: category,
+          category,
           sourceName: source.name,
-          image: image,
-          isReal: isReal,
-          summary: item.contentSnippet ? item.contentSnippet.substring(0, 140) + "..." : ""
+          image,
+          isReal,
+          summary,
+          excerpt: rssExcerpt,
+          // aiSummary is only present when Gemini is enabled and succeeds
+          ...(aiSummary && { aiSummary }),
         });
+
+        sourceCount++;
       }
-    } catch (error) { console.error(`❌ Error: ${error.message}`); }
+
+      console.log(`   ✅ ${sourceCount} articles added from ${source.name}`);
+    } catch (error) { 
+      console.error(`   ❌ Error: ${error.message}`); 
+    }
   }
 
   allNews.sort((a, b) => {
@@ -220,14 +321,13 @@ async function fetchNews() {
   });
 
   const realCount = allNews.filter(n => n.isReal).length;
-  const fallbackCount = allNews.filter(n => !n.isReal).length;
 
   const outputPath = path.resolve('./src/data/news.json');
   fs.writeFileSync(outputPath, JSON.stringify(allNews, null, 2));
 
-  console.log(`\n🎉 DONE! Processed ${allNews.length} articles.`);
-  console.log(`📸 Scraped Images: ${realCount} | 🎲 Fallback Images: ${fallbackCount}`);
-  console.log(`✨ Trash & "General Physics" have been filtered out.`);
+  console.log(`\n🎉 DONE! ${allNews.length} articles saved.`);
+  console.log(`🖼️  OG Images: ${realCount} | 🤖 AI Summaries: ${aiCount}`);
+  console.log(`✅ Copyright-safe: RSS excerpts only. No full article reproduction.`);
   
   process.exit(0); 
 }
