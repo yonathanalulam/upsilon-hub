@@ -313,7 +313,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </div>
 
       <!-- Mobile Dropdown Menu -->
-      <div id="mobile-menu" class="hidden xl:hidden border-t-4 border-primary-light/10 dark:border-primary-dark/10 bg-background-light dark:bg-background-dark absolute w-full left-0 top-20 flex-col py-8 px-8 shadow-2xl z-40 gap-6">
+      <div id="mobile-menu" class="hidden xl:hidden border-t-4 border-primary-light/10 dark:border-primary-dark/10 bg-background-light dark:bg-background-dark fixed inset-0 top-20 overflow-y-auto flex-col py-8 px-8 shadow-2xl z-40 gap-6">
         <a href="/" class={`text-[14px] font-bold uppercase tracking-[0.2em] transition-colors ${currentPath === '/' ? 'text-primary-light dark:text-primary-dark' : 'text-text-light dark:text-text-dark hover:text-primary-light'}`}>All Topics</a>
         <a href="/saved" class={`text-[14px] font-bold uppercase tracking-[0.2em] transition-colors ${currentPath.startsWith('/saved') ? 'text-primary-light dark:text-primary-dark' : 'text-text-light dark:text-text-dark hover:text-primary-light'}`}>Bookmarks</a>
         <a href="/about" class={`text-[14px] font-bold uppercase tracking-[0.2em] transition-colors ${currentPath.startsWith('/about') ? 'text-primary-light dark:text-primary-dark' : 'text-text-light dark:text-text-dark hover:text-primary-light'}`}>About</a>
@@ -414,8 +414,25 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
       if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.addEventListener('click', () => {
+          const isOpen = mobileMenu.classList.contains('flex');
           mobileMenu.classList.toggle('hidden');
           mobileMenu.classList.toggle('flex');
+          
+          if (!isOpen) { // Opening
+            document.body.style.overflow = 'hidden';
+          } else { // Closing
+            document.body.style.overflow = '';
+          }
+        });
+
+        // Close menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            document.body.style.overflow = '';
+          });
         });
       }
 
@@ -442,9 +459,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         lastScrollY = currentScrollY;
       });
 
-      scrollBtn.addEventListener('click', () => {
+      const handleScrollToTop = (e) => {
+        if (e && e.type === 'touchstart') e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
+      };
+
+      scrollBtn.addEventListener('click', handleScrollToTop);
+      scrollBtn.addEventListener('touchstart', handleScrollToTop, { passive: false });
     </script>
   </body>
 </html>
