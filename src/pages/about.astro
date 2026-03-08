@@ -28,7 +28,7 @@ description="Learn about Upsilon Hub's mission to track breakthroughs in Quantum
             Keeping up with scientific breakthroughs is difficult. The <strong>signal-to-noise ratio</strong> in modern media is low, and important discoveries often get buried under clickbait.
           </p>
           <p>
-            Upsilon.Hub solves this by aggregating raw, high-impact research news from the world's most respected institutions like <strong>CERN, NASA, MIT</strong>, and leading physics journals, into one clean, real-time feed.
+            Upsilon.Hub solves this by aggregating raw, high-impact research news from the world's most respected institutions like <strong>CERN, NASA, MIT</strong>, and leading physics journals, into one clean, real-time feed. Each article is paired with an AI-generated summary written for curious readers, with a direct link to the original source for those who want the full story.
           </p>
         </div>
       </div>
@@ -43,21 +43,28 @@ description="Learn about Upsilon Hub's mission to track breakthroughs in Quantum
             <svg class="w-6 h-6 text-primary-light dark:text-primary-dark flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
             <div>
               <strong class="text-text-light dark:text-text-dark block mb-1">Automated Retrieval</strong>
-              <p class="text-sm text-gray-600 dark:text-gray-400">A custom scraping engine runs daily at 6:00 AM UTC via GitHub Actions.</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">A custom aggregation engine runs daily via GitHub Actions, pulling from 15 curated RSS feeds across physics and science media.</p>
             </div>
           </li>
           <li class="flex gap-4">
             <svg class="w-6 h-6 text-primary-light dark:text-primary-dark flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
             <div>
               <strong class="text-text-light dark:text-text-dark block mb-1">Smart Filtering</strong>
-              <p class="text-sm text-gray-600 dark:text-gray-400">Algorithms filter out irrelevant noise and categorize content into the available physics categories.</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Algorithms filter out irrelevant noise and classify articles into physics categories — Quantum, Astrophysics, High Energy, Nanotech, and more.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <svg class="w-6 h-6 text-primary-light dark:text-primary-dark flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+            <div>
+              <strong class="text-text-light dark:text-text-dark block mb-1">AI Summaries</strong>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Each article is summarized by Google Gemini — clear, accessible, and written for curious readers. The original source is always one click away.</p>
             </div>
           </li>
           <li class="flex gap-4">
             <svg class="w-6 h-6 text-primary-light dark:text-primary-dark flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
             <div>
               <strong class="text-text-light dark:text-text-dark block mb-1">Self-Deploying</strong>
-              <p class="text-sm text-gray-600 dark:text-gray-400">The system automatically rebuilds and deploys the live site on Vercel whenever new data is verified.</p>
+              <p class="text-sm text-gray-600 dark:text-gray-400">The system automatically rebuilds and deploys the live site on Vercel whenever new data is ready.</p>
             </div>
           </li>
         </ul>
@@ -65,7 +72,14 @@ description="Learn about Upsilon Hub's mission to track breakthroughs in Quantum
 
     </div>
 
-    <div class="mt-20 pt-12 border-t border-gray-200 dark:border-gray-800">
+    <div class="mt-16 pt-12 border-t border-gray-200 dark:border-gray-800">
+      <h2 class="text-xl font-bold text-text-light dark:text-text-dark mb-3">Privacy &amp; Copyright</h2>
+      <p class="text-sm text-gray-500 dark:text-gray-400 max-w-2xl leading-relaxed">
+        Upsilon Hub only uses the excerpts that publishers voluntarily distribute via RSS feeds. No full article text is reproduced. AI summaries are original derivative works. No user data is collected or stored.
+      </p>
+    </div>
+
+    <div class="mt-16 pt-12 border-t border-gray-200 dark:border-gray-800">
       <h2 class="text-2xl md:text-3xl font-bold text-text-light dark:text-text-dark mb-4">Have Feedback or Suggestions?</h2>
       <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-xl mx-auto">
         Feel free to reach out for collaboration, bug reports, or just to say hi.
