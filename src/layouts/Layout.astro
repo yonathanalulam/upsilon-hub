@@ -1,6 +1,7 @@
 ---
-import CategoryNav from '../components/CategoryNav.astro';
-
+import newsData from '../data/news.json';
+const allCategories = newsData.map((item: any) => item.category);
+const uniqueCategories = [...new Set(allCategories)].sort();
 interface Props {
   title: string;
   description?: string;
@@ -53,10 +54,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         }
       }
     </script>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
     
     <script is:inline>
       if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -67,25 +64,23 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     </script>
     
     <style is:global>
-      :root { font-family: 'Outfit', sans-serif; }
+      :root { font-family: 'system-ui', sans-serif; }
       
       /* --- GLOBAL BUTTERY ANIMATION --- */
       @keyframes fadeInUp {
         0% {
           opacity: 0;
-          transform: translateY(30px) scale(0.96); 
+          transform: translateY(10px); 
         }
         100% {
           opacity: 1;
-          transform: translateY(0) scale(1); 
+          transform: translateY(0); 
         }
       }
 
       .animate-card-entry {
-        animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        animation: fadeInUp 0.5s ease-out forwards;
         opacity: 0; 
-        will-change: opacity, transform; 
-        backface-visibility: hidden;     
       }
 
       /* Preloader */
@@ -93,19 +88,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         position: fixed;
         inset: 0;
         z-index: 99999;
-        background-color: #0f1117; 
+        background-color: #121212; 
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 2rem;
-        transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+        transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
       }
-      html:not(.dark) #preloader { background-color: #ffffff; }
+      html:not(.dark) #preloader { background-color: #fff5d7; }
 
       .preloader-hidden {
         opacity: 0;
-        transform: scale(1.05);
+        transform: scale(1.02);
         pointer-events: none;
       }
 
@@ -123,11 +118,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         position: absolute;
         width: 16px;
         height: 16px;
-        background: #3b82f6;
+        background: #ff5e6c;
         border-radius: 50%;
-        box-shadow: 0 0 25px #3b82f6;
+        box-shadow: 0 0 25px #ff5e6c;
         z-index: 10;
         animation: pulseNucleus 3s infinite ease-in-out;
+      }
+      html:not(.dark) .nucleus {
+        background: #ff5e6c;
+        box-shadow: 0 0 25px #ff5e6c;
       }
 
       .orbit {
@@ -135,8 +134,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         width: 100%;
         height: 100%;
         border-radius: 50%;
-        border: 2px solid rgba(59, 130, 246, 0.2);
+        border: 2px solid rgba(255, 94, 108, 0.2);
         transform-style: preserve-3d;
+      }
+      html:not(.dark) .orbit {
+        border-color: rgba(255, 94, 108, 0.2);
       }
       
       .orbit::before {
@@ -145,13 +147,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         top: -5px;
         left: 50%;
         transform: translateX(-50%);
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
         background: white;
         border-radius: 50%;
-        box-shadow: 0 0 15px white;
+        box-shadow: 0 0 10px white;
       }
-      html:not(.dark) .orbit::before { background: #3b82f6; box-shadow: none; }
+      html:not(.dark) .orbit::before { background: #ff5e6c; box-shadow: none; }
 
       .orbit:nth-child(1) { animation: rotate1 2s linear infinite; }
       .orbit:nth-child(2) { animation: rotate2 2s linear infinite; }
@@ -175,7 +177,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
 
       .preloader-text {
-        font-family: 'Outfit', sans-serif;
+        font-family: 'system-ui', sans-serif;
         font-weight: 800;
         font-size: 1.75rem;
         letter-spacing: -0.05em;
@@ -183,92 +185,49 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         opacity: 0;
         animation: fadeInText 1s ease forwards 0.5s; 
       }
-      html:not(.dark) .preloader-text { color: #0f1117; }
+      html:not(.dark) .preloader-text { color: #1c1917; }
 
       @keyframes fadeInText { to { opacity: 1; } }
 
-      body, header, nav, footer, div, span, p, h1, h2, h3, a, button {
-        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      body, header, nav, footer, div, span, p, h1, h2, h3, h4, h5, h6, a, button {
+        transition-property: background-color, border-color, color, fill, stroke;
+        transition-timing-function: ease-in-out;
         transition-duration: 300ms; 
       }
-
-      /* Performance: Aggressively hide laggy elements during theme transition */
-      html.is-transitioning * {
-        animation-play-state: paused !important;
-        transition: none !important;
-      }
-      
-      html.is-transitioning .blur-\[120px\] {
-        opacity: 0 !important;
-        display: none !important;
-      }
-
-      .article-card {
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
-      }
-      .article-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
-        z-index: 10;
-      }
-      .dark .article-card:hover {
-        box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.5);
-      }
-
-      h1, h2, h3, h4, h5, h6 { letter-spacing: -0.025em; }
-      
-      ::-webkit-scrollbar { width: 10px; }
-      ::-webkit-scrollbar-track { background: transparent; }
-      ::-webkit-scrollbar-thumb {
-        background-color: rgba(156, 163, 175, 0.3); 
-        border-radius: 9999px;
-        border: 2px solid transparent;
-        background-clip: content-box;
-      }
-      ::-webkit-scrollbar-thumb:hover { background-color: rgba(156, 163, 175, 0.6); }
-      .dark ::-webkit-scrollbar-thumb { background-color: rgba(75, 85, 99, 0.4); }
-      .dark ::-webkit-scrollbar-thumb:hover { background-color: rgba(75, 85, 99, 0.7); }
 
       ::view-transition-old(root),
       ::view-transition-new(root) {
         animation: none;
         mix-blend-mode: normal;
       }
+      
       ::view-transition-new(root) {
-        z-index: 9999;
+        z-index: 999;
       }
+      
       ::view-transition-old(root) {
         z-index: 1;
       }
-
-      @media screen and (max-width: 768px) {
-        * {
-          backdrop-filter: none !important;
-          -webkit-backdrop-filter: none !important;
-        }
-        .blur-\[120px\] {
-            filter: none !important;
-            opacity: 0.3;
-        }
-        .animate-pulse {
-            animation: none !important;
-        }
-        .nucleus, .orbit::before {
-            box-shadow: none !important;
-        }
-        nav {
-            background-color: rgb(255 255 255 / 0.95) !important;
-        }
-        html.dark nav {
-            background-color: #0f1117 !important;
-            border-bottom: 1px solid #1f2937;
-        }
+      
+      .is-transitioning * {
+        transition: none !important;
       }
+
+      h1, h2, h3, h4, h5, h6 { letter-spacing: -0.025em; }
+      
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb {
+        background-color: rgba(156, 163, 175, 0.3); 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover { background-color: rgba(156, 163, 175, 0.6); }
+      .dark ::-webkit-scrollbar-thumb { background-color: rgba(75, 85, 99, 0.4); }
+      .dark ::-webkit-scrollbar-thumb:hover { background-color: rgba(75, 85, 99, 0.7); }
     </style>
   </head>
   
-  <body class="bg-gray-50 text-gray-900 dark:bg-[#0f1117] dark:text-gray-100 font-sans antialiased selection:bg-blue-600/30 selection:text-blue-600 dark:selection:text-blue-300 relative flex flex-col min-h-screen">
+  <body class="bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark font-sans antialiased selection:bg-primary-light/30 selection:text-primary-light dark:selection:text-primary-dark flex flex-col min-h-screen transition-colors duration-300">
     
     <div id="preloader">
       <div class="atom-container">
@@ -278,7 +237,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <div class="nucleus"></div>
       </div>
       <div class="preloader-text">
-        UPSILON<span class="text-blue-600">.HUB</span>
+        UPSILON<span class="text-primary-dark">.HUB</span>
       </div>
     </div>
     
@@ -289,50 +248,88 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
     </script>
 
-    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-      <div class="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-blue-400/20 blur-[120px] dark:bg-blue-900/20 mix-blend-multiply dark:mix-blend-screen animate-pulse duration-[4000ms]"></div>
-      <div class="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-violet-400/20 blur-[120px] dark:bg-violet-900/20 mix-blend-multiply dark:mix-blend-screen animate-pulse duration-[7000ms]"></div>
-    </div>
-
     <div class="fixed top-0 left-0 w-full h-1 z-[60] pointer-events-none bg-transparent">
-      <div id="progress-bar" class="h-full bg-gradient-to-r from-blue-600 to-violet-600 origin-left scale-x-0 transition-transform duration-100 ease-out shadow-[0_0_15px_rgba(37,99,235,0.6)]"></div>
+      <div id="progress-bar" class="h-full bg-primary-light dark:bg-primary-dark origin-left scale-x-0 transition-transform duration-100 ease-out"></div>
     </div>
 
-    <header id="main-header" class="sticky top-0 z-50 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
-      <nav class="bg-white/80 dark:bg-[#0f1117]/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800">
-        <div class="max-w-[1800px] mx-auto px-6 h-20 flex items-center justify-between">
-          
-          <a href="/" class="group flex items-center gap-2 hover:scale-105 transition-transform duration-300">
-            <span class="text-2xl font-black tracking-tighter text-gray-900 dark:text-white">
-              UPSILON<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600 group-hover:from-blue-500 group-hover:to-violet-500 transition-all">.HUB</span>
-            </span>
-          </a>
+    <header id="main-header" class="sticky top-0 z-50 bg-background-light dark:bg-background-dark border-b-[3px] border-primary-light/20 dark:border-primary-dark/20 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]">
+      
+      <!-- TOP ROW: Logo and Utilities -->
+      <div class="max-w-[1600px] mx-auto px-4 sm:px-8 h-20 flex items-center justify-between">
+        
+        <!-- Mobile Menu Button (Left) -->
+        <button id="mobile-menu-btn" class="xl:hidden p-2 text-text-light dark:text-text-dark">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+        
+        <!-- Center Logo (Absolute on mobile, static on xl) -->
+        <a href="/" class="absolute left-1/2 -translate-x-1/2 xl:static xl:transform-none group flex items-center gap-2">
+          <span class="text-3xl font-black tracking-tighter text-text-light dark:text-text-dark">
+            UPSILON<span class="text-primary-light dark:text-primary-dark">.HUB</span>
+          </span>
+        </a>
 
-          <div class="flex items-center gap-3">
-            <a href="/about" aria-label="About" class="magnetic-btn p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400">
-              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            </a>
-            <button id="theme-toggle-btn" class="magnetic-btn p-2.5 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none ring-1 ring-gray-200 dark:ring-gray-700 bg-gray-50 dark:bg-gray-900/50 group relative overflow-hidden active:scale-95">
-              <svg id="theme-toggle-light-icon" class="hidden w-5 h-5 text-yellow-400 transition-transform duration-700 group-hover:rotate-[180deg]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
-              <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5 text-blue-300 transition-transform duration-700 group-hover:-rotate-12" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-            </button>
-          </div>
+        <!-- Right Side (About & Theme Toggle) -->
+        <div class="flex items-center gap-6">
+          <a href="/about" class="hidden xl:block text-[13px] font-bold uppercase tracking-[0.15em] text-text-light dark:text-text-dark hover:text-primary-light dark:hover:text-primary-dark transition-colors">About</a>
+          
+          <button id="theme-toggle-btn" class="p-2 rounded focus:outline-none flex items-center justify-center text-text-light dark:text-text-dark hover:text-primary-light dark:hover:text-primary-dark transition-colors">
+            <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+            <svg id="theme-toggle-dark-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+          </button>
         </div>
-      </nav>
-      <CategoryNav />
+      </div>
+
+      <!-- BOTTOM ROW: Scrolling Categories (Desktop Only) -->
+      <div class="hidden xl:block w-full border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-[1600px] mx-auto px-8 overflow-x-auto hide-scrollbar">
+          <nav class="flex items-center h-14 gap-8">
+            <a href="/" class="text-[13px] font-bold uppercase tracking-[0.15em] text-primary-light dark:text-primary-dark whitespace-nowrap flex-shrink-0 hover:underline">
+              All Topics
+            </a>
+
+            <a href="/saved" class="flex items-center gap-2 text-[13px] font-bold uppercase tracking-[0.15em] text-text-light dark:text-text-dark whitespace-nowrap flex-shrink-0 hover:text-primary-light dark:hover:text-primary-dark transition-colors">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
+              Bookmarks
+            </a>
+
+            <div class="h-4 w-px bg-gray-300 dark:bg-gray-700 flex-shrink-0"></div>
+
+            {uniqueCategories.map((category: any) => (
+              <a 
+                href={`/category/${category.toLowerCase().replace(/\s+/g, '-')}`} 
+                class="text-[13px] font-bold uppercase tracking-[0.15em] text-text-light dark:text-text-dark hover:text-primary-light dark:hover:text-primary-dark transition-colors whitespace-nowrap flex-shrink-0"
+              >
+                  {category}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobile-menu" class="hidden xl:hidden border-t-4 border-primary-light/10 dark:border-primary-dark/10 bg-background-light dark:bg-background-dark absolute w-full left-0 top-20 flex-col py-8 px-8 shadow-2xl z-40 gap-6">
+        <a href="/" class="text-[14px] font-bold uppercase tracking-[0.2em] text-text-light dark:text-text-dark hover:text-primary-light">All Topics</a>
+        <a href="/saved" class="text-[14px] font-bold uppercase tracking-[0.2em] text-text-light dark:text-text-dark hover:text-primary-light">Bookmarks</a>
+        <a href="/about" class="text-[14px] font-bold uppercase tracking-[0.2em] text-text-light dark:text-text-dark hover:text-primary-light">About</a>
+        <hr class="border-gray-200 dark:border-gray-800 my-2" />
+        {uniqueCategories.map((cat: any) => (
+          <a href={`/category/${cat.toLowerCase().replace(/\s+/g, '-')}`} class="text-[14px] font-bold uppercase tracking-[0.2em] text-text-light dark:text-text-dark hover:text-primary-light">{cat}</a>
+        ))}
+      </div>
     </header>
 
-    <main class="max-w-[1800px] mx-auto px-4 sm:px-6 pt-6 pb-20 flex-grow relative min-h-screen">
+    <main class="max-w-[1400px] mx-auto px-4 sm:px-6 pt-6 pb-20 flex-grow w-full">
       <slot />
     </main>
 
-    <footer class="border-t border-gray-200 dark:border-gray-800 mt-20 py-10 text-center opacity-80 hover:opacity-100 transition-opacity">
-      <p class="text-gray-500 dark:text-gray-600 text-sm font-medium uppercase tracking-wider">
+    <footer class="border-t border-gray-200 dark:border-gray-800 mt-20 py-10 text-center">
+      <p class="text-gray-500 dark:text-gray-600 text-sm font-medium">
         &copy; {new Date().getFullYear()} Upsilon Hub. The Frontier of Physics.
       </p>
     </footer>
 
-    <button id="scrollToTop" class="fixed bottom-8 right-8 p-3 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 hover:scale-110 transition-all duration-500 opacity-0 invisible translate-y-10 z-50">
+    <button id="scrollToTop" class="fixed bottom-12 right-6 md:bottom-10 md:right-10 p-4 rounded-xl bg-primary-light dark:bg-primary-dark text-white hover:bg-opacity-90 opacity-0 invisible translate-y-10 transition-all duration-300 z-[9999] shadow-2xl">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
     </button>
 
@@ -354,27 +351,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         });
       };
 
-      const initMagnetics = () => {
-        const magneticBtns = document.querySelectorAll('.magnetic-btn');
-        magneticBtns.forEach(btn => {
-          btn.addEventListener('mousemove', (e) => {
-            const rect = btn.getBoundingClientRect();
-            const x = (e).clientX - rect.left - rect.width / 2;
-            const y = (e).clientY - rect.top - rect.height / 2;
-            (btn).style.transition = 'transform 0s';
-            (btn).style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-          });
-          btn.addEventListener('mouseleave', () => {
-            (btn).style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
-            (btn).style.transform = 'translate(0, 0)';
-          });
-        });
-      };
-
       initPreloader();
-      initMagnetics();
       document.addEventListener('astro:page-load', () => {
-        initMagnetics();
       });
 
       const themeToggleBtn = document.getElementById('theme-toggle-btn');
@@ -424,6 +402,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       const header = document.getElementById('main-header');
       const progressBar = document.getElementById('progress-bar');
       const scrollBtn = document.getElementById('scrollToTop');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+          mobileMenu.classList.toggle('flex');
+        });
+      }
+
       let lastScrollY = window.scrollY;
 
       window.addEventListener('scroll', () => {

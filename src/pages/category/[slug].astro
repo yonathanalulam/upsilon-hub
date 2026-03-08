@@ -22,29 +22,29 @@ const categoryNews = newsData
   description={`Latest breakthroughs and research reports in ${categoryName} curated by Upsilon Hub.`}
 >
   
-  <header class="mb-6 mt-4">
-    <a href="/" class="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-gray-100 dark:bg-[#1a1d26] text-sm font-bold text-gray-600 dark:text-gray-300 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-x-1">
+  <header class="mb-6 mt-4 border-b border-gray-200 dark:border-gray-800 pb-6">
+    <a href="/" class="group inline-flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary-light dark:hover:text-primary-dark transition-colors">
       <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
       Back to Global News
     </a>
 
-    <div class="flex flex-col md:flex-row md:items-end gap-4 mt-8 border-b border-gray-200 dark:border-gray-800 pb-6">
-      <h1 class="text-4xl md:text-6xl font-black text-gray-900 dark:text-white tracking-tight leading-none">
+    <div class="flex flex-col md:flex-row md:items-end gap-4 mt-8">
+      <h1 class="text-4xl md:text-6xl font-black text-text-light dark:text-text-dark tracking-tight leading-none">
         {categoryName}
       </h1>
       <div class="mb-2">
-        <span class="inline-flex items-center justify-center px-3 py-1 text-xs font-bold font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 border border-blue-100 dark:border-blue-800 rounded-lg uppercase tracking-wider">
+        <span class="inline-flex items-center justify-center px-3 py-1 text-xs font-bold text-primary-light dark:text-primary-dark bg-primary-light/10 dark:bg-primary-dark/10 border border-primary-light/20 dark:border-primary-dark/20 rounded-md uppercase">
           {categoryNews.length} Articles
         </span>
       </div>
     </div>
   </header>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
     {categoryNews.map((item, index) => (
       <div 
         class="animate-card-entry h-full" 
-        style={`animation-delay: ${Math.min(index * 50, 800)}ms`}
+        style={`animation-delay: ${Math.min(index * 50, 300)}ms`}
       >
         <NewsCard 
           title={item.title}

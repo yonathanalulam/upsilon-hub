@@ -4,22 +4,22 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
 ---
 
 <div 
-  class="article-card group relative flex flex-col h-full bg-white dark:bg-[#1a1d26] rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl dark:shadow-none dark:hover:bg-[#232732] transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 dark:border-gray-800"
+  class="group relative flex flex-col h-full bg-transparent dark:bg-transparent transition-all duration-300 border border-gray-200 dark:border-gray-800 rounded-lg"
   data-title={title.toLowerCase()}
   data-category={category.toLowerCase()}
   data-source={sourceName?.toLowerCase() || ''}
 >
   
-  <div class="h-56 overflow-hidden relative bg-gray-200 dark:bg-gray-800">
+  <div class="h-48 overflow-hidden relative">
     
-    <div class="absolute top-4 left-4 z-20">
-      <a href={`/category/${categorySlug}`} class="inline-block px-3 py-1 text-[10px] font-extrabold uppercase tracking-widest text-white bg-blue-600 rounded-lg shadow-lg hover:bg-blue-500 transition-colors">
+    <div class="absolute top-2 left-2 z-20">
+      <a href={`/category/${categorySlug}`} class="inline-block px-2 py-1 text-xs font-medium text-white bg-primary-light dark:bg-primary-dark rounded hover:opacity-90 transition-opacity">
         {category}
       </a>
     </div>
 
     <button 
-      class="bookmark-btn absolute top-4 right-4 z-30 p-2 rounded-full bg-white/90 dark:bg-black/60 backdrop-blur-sm shadow-lg hover:scale-110 transition-transform group/btn"
+      class="bookmark-btn absolute top-2 right-2 z-30 p-2 rounded bg-surface-light dark:bg-surface-dark hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors group/btn border border-gray-200 dark:border-gray-700"
       data-url={url}
       data-title={title}
       data-image={image}
@@ -28,8 +28,8 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
       data-source={sourceName}
       aria-label="Save article"
     >
-      <svg class="bookmark-icon-empty w-5 h-5 text-gray-700 dark:text-gray-200 group-hover/btn:text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
-      <svg class="bookmark-icon-filled hidden w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
+      <svg class="bookmark-icon-empty w-5 h-5 text-text-light dark:text-text-dark group-hover/btn:text-primary-light dark:group-hover/btn:text-primary-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
+      <svg class="bookmark-icon-filled hidden w-5 h-5 text-primary-light dark:text-primary-dark" fill="currentColor" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
     </button>
 
     <a href={url} target="_blank" rel="noopener noreferrer" class="block h-full w-full">
@@ -37,32 +37,30 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
         src={image} 
         alt={title} 
         loading="lazy"
-        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+        class="w-full h-full object-cover"
         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80';" 
       />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
     </a>
   </div>
 
-  <div class="p-6 flex flex-col flex-grow relative">
+  <div class="p-4 flex flex-col flex-grow">
     <a href={url} target="_blank" rel="noopener noreferrer" class="block">
-      <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3 leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors font-sans">
+      <h3 class="text-lg font-bold text-text-light dark:text-text-dark mb-2 leading-snug group-hover:text-primary-light dark:group-hover:text-primary-dark transition-colors">
         {title}
       </h3>
     </a>
 
-    <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-3 leading-relaxed mb-6 flex-grow font-serif">
+    <p class="text-gray-600 dark:text-gray-400 text-sm line-clamp-3 leading-relaxed mb-4 flex-grow">
       {summary}
     </p>
     
-    <div class="border-t border-gray-100 dark:border-gray-700 pt-4 mt-auto flex justify-between items-center">
-        <span class="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider flex items-center gap-1">
-          <span class="w-2 h-2 rounded-full bg-blue-500"></span>
+    <div class="border-t border-gray-200 dark:border-gray-800 pt-3 mt-auto flex justify-between items-center">
+        <span class="text-sm font-medium text-gray-600 dark:text-gray-400">
           {sourceName || "Science Daily"}
         </span>
         
-        <a href={url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-blue-600 dark:text-blue-400 font-bold text-xs uppercase tracking-wide group-hover:underline">
-        Read Now
+        <a href={url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-primary-light dark:text-primary-dark font-medium text-sm hover:underline">
+        Read
         </a>
     </div>
   </div>
@@ -85,6 +83,9 @@ const categorySlug = category.toLowerCase().replace(/\s+/g, '-');
       if (isSaved) {
         emptyIcon.classList.add('hidden');
         filledIcon.classList.remove('hidden');
+      } else {
+        emptyIcon.classList.remove('hidden');
+        filledIcon.classList.add('hidden');
       }
 
       btn.addEventListener('click', (e) => {

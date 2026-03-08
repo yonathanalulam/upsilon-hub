@@ -5,6 +5,9 @@ on:
     - cron: '17 3 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   update-news:
     runs-on: ubuntu-latest
@@ -12,23 +15,26 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v3
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: npm install rss-parser cheerio axios
+      - name: Install Dependencies
+        run: npm install
 
-      - name: Run Fetch Script
+      - name: Ensure Data Directory Exists
+        run: mkdir -p src/data
+
+      - name: Fetch Fresh News
         run: node src/scripts/fetchNews.js
 
       - name: Commit and Push Changes
         run: |
-          git config user.name "Yonathan Alula"
-          git config user.email "yonathanalulam@gmail.com"
+          git config --global user.name "Yonathan Alula"
+          git config --global user.email "yonathanalulam@gmail.com"
           git add src/data/news.json
-          git commit -m "chore: Daily news update" || echo "No changes to commit"
+          git commit -m "🤖 Daily News Update" || echo "No news changes to commit"
           git push

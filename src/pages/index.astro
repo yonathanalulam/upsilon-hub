@@ -11,20 +11,20 @@ const safeNews = newsData || [];
   
   <div class="flex flex-col gap-12 pb-20">
     
-    <header class="mb-8 mt-8 border-b border-gray-200 dark:border-gray-800 pb-10">
-      <h1 class="text-5xl md:text-7xl font-black text-gray-900 dark:text-white tracking-tight mb-6">
-        The Frontier <br/> of <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Physics</span>
+    <header class="mb-8 mt-8 border-b border-gray-200 dark:border-gray-800 pb-6">
+      <h1 class="text-3xl md:text-4xl font-bold text-text-light dark:text-text-dark mb-4">
+        Latest Research
       </h1>
-      <p class="text-xl text-gray-600 dark:text-gray-400 font-serif max-w-2xl leading-relaxed">
-        Daily reports from the world's leading research institutions.
+      <p class="text-lg text-gray-600 dark:text-gray-400">
+        Reports from leading research institutions.
       </p>
     </header>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
       {safeNews.map((item, index) => (
   
         <FadeIn client:load delay={(index % 6) * 0.05}>
-          <div class="article-card h-full">
+          <div class="h-full">
             <NewsCard 
               title={item.title}
               category={item.category}
