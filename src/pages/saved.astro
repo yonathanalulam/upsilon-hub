@@ -61,13 +61,13 @@ import Layout from '../layouts/Layout.astro';
                <svg class="w-4 h-4 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
 
-            <a href="${item.url}" target="_blank" class="block h-full w-full">
+            <a href="${item.slug ? '/article/' + item.slug : item.url}" target="${item.slug ? '_self' : '_blank'}" class="block h-full w-full">
               <img src="${item.image}" alt="${item.title}" class="w-full h-full object-cover" loading="lazy" />
             </a>
           </div>
 
           <div class="p-4 flex flex-col flex-grow">
-            <a href="${item.url}" target="_blank" class="block">
+            <a href="${item.slug ? '/article/' + item.slug : item.url}" target="${item.slug ? '_self' : '_blank'}" class="block">
               <h3 class="text-lg font-bold text-text-light dark:text-text-dark mb-2 leading-snug group-hover:text-primary-light dark:group-hover:text-primary-dark transition-colors">
                 ${item.title}
               </h3>
@@ -79,7 +79,7 @@ import Layout from '../layouts/Layout.astro';
                 <span class="text-sm font-medium text-gray-600 dark:text-gray-400">
                   ${item.sourceName || 'Source'}
                 </span>
-                <a href="${item.url}" target="_blank" class="text-primary-light dark:text-primary-dark font-medium text-sm hover:underline">Read</a>
+                <a href="${item.slug ? '/article/' + item.slug : item.url}" target="${item.slug ? '_self' : '_blank'}" class="text-primary-light dark:text-primary-dark font-medium text-sm hover:underline">Read</a>
             </div>
           </div>
         </div>
