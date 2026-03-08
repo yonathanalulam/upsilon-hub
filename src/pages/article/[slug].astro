@@ -1,0 +1,161 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import newsData from '../../data/news.json';
+
+export async function getStaticPaths() {
+  return newsData
+    .filter((article: any) => article.slug)
+    .map((article: any) => ({
+      params: { slug: article.slug },
+      props: { article },
+    }));
+}
+
+const { article } = Astro.props;
+
+const formattedDate = article.pubDate
+  ? new Date(article.pubDate).toLocaleDateString('en-US', {
+      year: 'numeric', month: 'long', day: 'numeric'
+    })
+  : null;
+
+const hasAiSummary = !!(article as any).aiSummary;
+
+// Split AI summary into paragraphs (split on double newline or every ~2 sentences)
+const summaryText: string = hasAiSummary ? (article as any).aiSummary : (article.excerpt || article.summary || '');
+const paragraphs: string[] = hasAiSummary
+  ? summaryText.split(/\n\n+/).filter((p: string) => p.trim().length > 0)
+  : summaryText
+      .split(/(?<=[.!?])\s+/)
+      .reduce((acc: string[], s: string, i: number) => {
+        const chunk = Math.floor(i / 3);
+        if (!acc[chunk]) acc[chunk] = '';
+        acc[chunk] += (acc[chunk] ? ' ' : '') + s;
+        return acc;
+      }, [])
+      .filter((p: string) => p.trim().length > 0);
+---
+
+<Layout title={`${article.title} | Upsilon Hub`} description={article.summary}>
+  <article class="max-w-3xl mx-auto px-4 sm:px-8 py-12 md:py-20 animate-card-entry">
+
+    <!-- Header -->
+    <header class="mb-10 text-center flex flex-col items-center">
+      <div class="flex items-center justify-center gap-4 mb-6">
+        <a 
+          href={`/category/${article.category.toLowerCase().replace(/\s+/g, '-')}`}
+          class="text-[11px] font-bold uppercase tracking-[0.2em] text-primary-light dark:text-primary-dark hover:underline"
+        >
+          {article.category}
+        </a>
+        <span class="text-gray-300 dark:text-gray-700">•</span>
+        <span class="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">
+          {article.sourceName}
+        </span>
+      </div>
+      
+      <h1 class="text-3xl md:text-5xl font-black text-text-light dark:text-text-dark tracking-tighter leading-[1.1] mb-6 max-w-2xl">
+        {article.title}
+      </h1>
+
+      {formattedDate && (
+        <div class="text-[11px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-[0.15em]">
+          {formattedDate}
+        </div>
+      )}
+    </header>
+
+    <!-- Hero Image -->
+    {article.image && (
+      <div class="w-full aspect-[16/9] rounded-xl overflow-hidden mb-12 border border-gray-200 dark:border-gray-800 relative">
+        <img 
+          src={article.image} 
+          alt={article.title}
+          class="w-full h-full object-cover"
+          onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80';"
+        />
+        {!article.isReal && (
+          <div class="absolute bottom-3 right-3 bg-black/60 backdrop-blur-sm px-3 py-1.5 rounded text-[9px] font-bold uppercase tracking-widest text-white/70">
+            Illustrative image
+          </div>
+        )}
+      </div>
+    )}
+
+    <!-- Summary Section -->
+    <div class="mb-10">
+
+      <!-- Label -->
+      <div class="flex items-center gap-3 mb-6">
+        <div class="h-px flex-1 bg-gray-200 dark:bg-gray-800"></div>
+        <span class="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-600 whitespace-nowrap">
+          {hasAiSummary ? (
+            <>
+              <svg class="w-3 h-3 text-primary-light dark:text-primary-dark" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2L9.19 8.63L2 9.24L7 13.97L5.82 21L12 17.27L18.18 21L17 13.97L22 9.24L14.81 8.63L12 2Z"/>
+              </svg>
+              AI Summary
+            </>
+          ) : 'Article Preview'}
+        </span>
+        <div class="h-px flex-1 bg-gray-200 dark:bg-gray-800"></div>
+      </div>
+
+      <!-- Paragraphs -->
+      <div class="space-y-5 text-text-light dark:text-text-dark text-base md:text-[17px] leading-[1.8]">
+        {paragraphs.length > 0
+          ? paragraphs.map((para: string) => <p>{para}</p>)
+          : <p class="text-gray-500 italic">No preview available for this article.</p>
+        }
+      </div>
+
+      <!-- Fade-out / CTA hint (only for RSS excerpt, not AI) -->
+      {!hasAiSummary && (
+        <div class="relative mt-[-2rem] pt-10 bg-gradient-to-t from-background-light dark:from-background-dark to-transparent flex items-end justify-center pb-2">
+          <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-600 animate-pulse">
+            Continue reading on {article.sourceName} ↓
+          </p>
+        </div>
+      )}
+    </div>
+
+    <!-- Primary CTA -->
+    <div class="rounded-xl border-2 border-primary-light dark:border-primary-dark p-8 flex flex-col items-center text-center gap-4 bg-primary-light/5 dark:bg-primary-dark/5">
+      <p class="text-sm font-medium text-gray-500 dark:text-gray-400 max-w-sm">
+        {hasAiSummary
+          ? `This summary was written by an AI based on publicly available information. Read the complete, detailed article on `
+          : `This is a preview from the publisher's RSS feed. Read the full article on `
+        }
+        <strong class="text-text-light dark:text-text-dark">{article.sourceName}</strong>.
+      </p>
+      <a 
+        href={article.link} 
+        target="_blank" 
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-3 bg-primary-light dark:bg-primary-dark text-white px-8 py-4 rounded-lg font-bold uppercase tracking-widest hover:opacity-90 active:scale-95 transition-all text-[13px] shadow-lg"
+      >
+        Read Full Article
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Footer nav -->
+    <div class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800 flex items-center justify-between">
+      <a href="/" class="text-[12px] font-bold uppercase tracking-[0.15em] text-primary-light dark:text-primary-dark hover:underline flex items-center gap-2">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        Back to Hub
+      </a>
+      <a 
+        href={`/category/${article.category.toLowerCase().replace(/\s+/g, '-')}`}
+        class="text-[12px] font-bold uppercase tracking-[0.15em] text-gray-400 dark:text-gray-500 hover:text-primary-light dark:hover:text-primary-dark transition-colors"
+      >
+        More {article.category} →
+      </a>
+    </div>
+
+  </article>
+</Layout>
