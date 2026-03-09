@@ -229,36 +229,27 @@ Instructions:
 - Do NOT reproduce quotes, specific data, or detailed methodology — those are for the original article
 - Return plain text only, no markdown, no bullet points`;
 
-  // Retry once on transient per-minute 429s (RPM throttle).
-  // If we exhaust retries, the daily quota is likely gone — trip the circuit breaker.
-  for (let attempt = 0; attempt < 2; attempt++) {
-    try {
-      const result = await Promise.race([
-        model.generateContent(prompt),
-        new Promise((_, reject) => setTimeout(() => reject(new Error('Gemini timeout')), 15000))
-      ]);
-      const text = result.response.text().trim();
-      return text.length > 50 ? text : null;
-    } catch (err) {
-      if (err.message?.includes('429') && attempt < 1) {
-        // Wait 60s and retry once for a transient per-minute throttle
-        process.stdout.write(`   ⏳ Rate limited — waiting 60s (attempt ${attempt + 1}/2)...`);
-        await new Promise(r => setTimeout(r, 60000));
-        lastGeminiCall = Date.now();
-        continue;
-      }
-      // If we still get 429 after the retry, the daily quota is exhausted.
-      // Trip the circuit breaker so all remaining articles skip Gemini instantly.
-      if (err.message?.includes('429')) {
-        geminiQuotaExhausted = true;
-        console.log(`\n   🚫 Gemini daily quota exhausted — switching all remaining articles to RSS excerpt fallback.`);
-        return null;
-      }
-      console.log(`   ⚠️  Gemini error: ${err.message?.split('\n')[0]}`);
+  // Single attempt — if we get 429, trip the circuit breaker immediately.
+  // Daily quota exhaustion 429s don't clear after 60s, so retrying wastes time.
+  // Per-minute throttle (RPM) 429s are handled by the 2.1s GEMINI_DELAY_MS above.
+  try {
+    const result = await Promise.race([
+      model.generateContent(prompt),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('Gemini timeout')), 15000))
+    ]);
+    const text = result.response.text().trim();
+    return text.length > 50 ? text : null;
+  } catch (err) {
+    if (err.message?.includes('429')) {
+      // Quota exhausted — trip the circuit breaker so all remaining articles
+      // skip Gemini instantly instead of hammering a dead endpoint.
+      geminiQuotaExhausted = true;
+      console.log(`\n   🚫 Gemini quota exhausted — switching all remaining articles to RSS excerpt fallback.`);
       return null;
     }
+    console.log(`   ⚠️  Gemini error: ${err.message?.split('\n')[0]}`);
+    return null;
   }
-  return null;
 }
 
 // ─── Main Fetch ───────────────────────────────────────────────────────────────
