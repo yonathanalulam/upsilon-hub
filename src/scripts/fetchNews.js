@@ -161,6 +161,7 @@ function getFallbackImage(category) {
   return gallery[Math.floor(Math.random() * gallery.length)];
 }
 
+// ─── OG Image (with parallel fetching per source) ────────────────────────────
 async function getOgImage(url) {
   try {
     const response = await fetch(url, {
@@ -197,8 +198,12 @@ function getRssExcerpt(item) {
 let lastGeminiCall = 0;
 const GEMINI_DELAY_MS = 2100; // 30 RPM free tier = 1 call per 2s
 
+// Global circuit breaker: flipped to true when the daily quota is fully exhausted.
+// All subsequent articles will skip Gemini and use the RSS excerpt fallback.
+let geminiQuotaExhausted = false;
+
 async function generateAiSummary(title, sourceName, rssExcerpt, category) {
-  if (!geminiEnabled || !model) return null;
+  if (!geminiEnabled || !model || geminiQuotaExhausted) return null;
 
   // Rate limiting — enforce min delay between calls
   const now = Date.now();
@@ -224,8 +229,9 @@ Instructions:
 - Do NOT reproduce quotes, specific data, or detailed methodology — those are for the original article
 - Return plain text only, no markdown, no bullet points`;
 
-  // Retry up to 2 times on 429
-  for (let attempt = 0; attempt < 3; attempt++) {
+  // Retry once on transient per-minute 429s (RPM throttle).
+  // If we exhaust retries, the daily quota is likely gone — trip the circuit breaker.
+  for (let attempt = 0; attempt < 2; attempt++) {
     try {
       const result = await Promise.race([
         model.generateContent(prompt),
@@ -234,12 +240,19 @@ Instructions:
       const text = result.response.text().trim();
       return text.length > 50 ? text : null;
     } catch (err) {
-      if (err.message?.includes('429') && attempt < 2) {
-        const retryMs = 60000; // wait 60s on rate limit
-        process.stdout.write(`   ⏳ Rate limited — waiting 60s...`);
-        await new Promise(r => setTimeout(r, retryMs));
+      if (err.message?.includes('429') && attempt < 1) {
+        // Wait 60s and retry once for a transient per-minute throttle
+        process.stdout.write(`   ⏳ Rate limited — waiting 60s (attempt ${attempt + 1}/2)...`);
+        await new Promise(r => setTimeout(r, 60000));
         lastGeminiCall = Date.now();
         continue;
+      }
+      // If we still get 429 after the retry, the daily quota is exhausted.
+      // Trip the circuit breaker so all remaining articles skip Gemini instantly.
+      if (err.message?.includes('429')) {
+        geminiQuotaExhausted = true;
+        console.log(`\n   🚫 Gemini daily quota exhausted — switching all remaining articles to RSS excerpt fallback.`);
+        return null;
       }
       console.log(`   ⚠️  Gemini error: ${err.message?.split('\n')[0]}`);
       return null;
@@ -251,6 +264,7 @@ Instructions:
 // ─── Main Fetch ───────────────────────────────────────────────────────────────
 async function fetchNews() {
   console.log("🚀 Starting Upsilon Hub fetch (RSS excerpt mode — copyright safe)...\n");
+  const startTime = Date.now();
   let allNews = [];
   let aiCount = 0;
 
@@ -263,21 +277,41 @@ async function fetchNews() {
         new Promise((_, reject) => setTimeout(() => reject(new Error('Feed timeout')), 15000))
       ]);
 
-      const items = feed.items.slice(0, 20);
-      let sourceCount = 0;
-
-      for (const item of items) {
+      // ── Classify articles first (cheap, synchronous) ──────────────────────
+      const classified = [];
+      for (const item of feed.items.slice(0, 20)) {
         let category = classifyArticle(item);
         if (!category) {
-           if (source.name === "IEEE Spectrum" && isRoboticsValid(item)) category = "Robotics";
-           else continue;
+          if (source.name === "IEEE Spectrum" && isRoboticsValid(item)) category = "Robotics";
+          else continue;
         }
+        classified.push({ item, category });
+      }
 
-        process.stdout.write(`   ↳ [${category}] ${item.title.substring(0, 38)}... `);
+      if (classified.length === 0) {
+        console.log(`   ✅ 0 articles added from ${source.name}`);
+        continue;
+      }
 
-        const ogImage = await getOgImage(item.link);
+      // ── Fetch all OG images in parallel for this source ───────────────────
+      // This is the KEY fix: previously each OG image was awaited serially
+      // (up to 5s each × 150+ articles = 12+ minutes). Now we fire them all
+      // at once per source and wait for the batch to resolve together.
+      console.log(`   ↳ Fetching ${classified.length} OG images in parallel...`);
+      const ogImages = await Promise.all(
+        classified.map(({ item }) => getOgImage(item.link))
+      );
+
+      let sourceCount = 0;
+
+      // ── Process classified articles (AI summaries remain serial to respect RPM) ──
+      for (let i = 0; i < classified.length; i++) {
+        const { item, category } = classified[i];
+        const ogImage = ogImages[i];
         const image = ogImage || getFallbackImage(category);
         const isReal = !!ogImage;
+
+        process.stdout.write(`   ↳ [${category}] ${item.title.substring(0, 38)}... `);
 
         const slug = generateSlug(item.title);
         const rssExcerpt = getRssExcerpt(item);
@@ -285,7 +319,7 @@ async function fetchNews() {
           ? item.contentSnippet.substring(0, 160).trim() + "..."
           : rssExcerpt.substring(0, 160).trim() + "...";
 
-        // Generate AI summary if Gemini is configured
+        // Generate AI summary if Gemini is configured and quota not exhausted
         const aiSummary = await generateAiSummary(item.title, source.name, rssExcerpt, category);
         if (aiSummary) aiCount++;
 
@@ -325,8 +359,11 @@ async function fetchNews() {
   const outputPath = path.resolve('./src/data/news.json');
   fs.writeFileSync(outputPath, JSON.stringify(allNews, null, 2));
 
-  console.log(`\n🎉 DONE! ${allNews.length} articles saved.`);
-  console.log(`🖼️  OG Images: ${realCount} | 🤖 AI Summaries: ${aiCount}`);
+  const totalSecs = Math.floor((Date.now() - startTime) / 1000);
+  const mins = Math.floor(totalSecs / 60);
+  const secs = totalSecs % 60;
+  console.log(`\n🎉 DONE! ${allNews.length} articles saved in ${mins}m ${secs}s.`);
+  console.log(`🖼️  OG Images: ${realCount} | 🤖 AI Summaries: ${aiCount}${geminiQuotaExhausted ? ' (quota exhausted — remaining used RSS fallback)' : ''}`);
   console.log(`✅ Copyright-safe: RSS excerpts only. No full article reproduction.`);
   
   process.exit(0); 
