@@ -28,6 +28,17 @@ jobs:
       - name: Ensure Data Directory Exists
         run: mkdir -p src/data
 
+      - name: Verify Gemini API Key
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "❌ GEMINI_API_KEY is EMPTY or not set!"
+            exit 1
+          else
+            echo "✅ GEMINI_API_KEY is set (length: ${#GEMINI_API_KEY} chars)"
+          fi
+
       - name: Fetch Fresh News
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
