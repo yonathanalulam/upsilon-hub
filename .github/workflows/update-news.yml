@@ -37,6 +37,6 @@ jobs:
         run: |
           git config --global user.name "Yonathan Alula"
           git config --global user.email "yonathanalulam@gmail.com"
-          git add src/data/news.json
+          git add src/data/news.json src/data/summaryCache.json
           git commit -m "🤖 Daily News Update" || echo "No news changes to commit"
           git push

@@ -5,6 +5,20 @@ import * as cheerio from 'cheerio';
 import crypto from 'crypto';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
+// ─── Summary Cache ────────────────────────────────────────────────────────────
+// Keyed by article URL. Persisted to disk so repeated builds don't re-call Gemini
+// for articles that haven't changed.
+const CACHE_PATH = path.resolve('./src/data/summaryCache.json');
+let summaryCache = {};
+if (fs.existsSync(CACHE_PATH)) {
+  try {
+    summaryCache = JSON.parse(fs.readFileSync(CACHE_PATH, 'utf-8'));
+    console.log(`📦 Loaded summary cache (${Object.keys(summaryCache).length} entries)\n`);
+  } catch {
+    console.log('⚠️  Could not parse summaryCache.json — starting with empty cache.\n');
+  }
+}
+
 // ─── Load env variables ───────────────────────────────────────────────────────
 // dotenv isn't needed for Node 20.6+ — use --env-file flag, or load manually:
 const envPath = path.resolve('.env');
@@ -310,8 +324,16 @@ async function fetchNews() {
           ? item.contentSnippet.substring(0, 160).trim() + "..."
           : rssExcerpt.substring(0, 160).trim() + "...";
 
-        // Generate AI summary if Gemini is configured and quota not exhausted
-        const aiSummary = await generateAiSummary(item.title, source.name, rssExcerpt, category);
+        // Generate AI summary — reuse cached version if available to save tokens
+        let aiSummary = summaryCache[item.link] || null;
+        if (aiSummary) {
+          process.stdout.write('(cached) ');
+        } else {
+          aiSummary = await generateAiSummary(item.title, source.name, rssExcerpt, category);
+          if (aiSummary) {
+            summaryCache[item.link] = aiSummary;
+          }
+        }
         if (aiSummary) aiCount++;
 
         console.log(isReal ? `🖼️  ${aiSummary ? '🤖 AI' : ''}` : `🎲 ${aiSummary ? '🤖 AI' : ''}`);
@@ -346,6 +368,10 @@ async function fetchNews() {
   });
 
   const realCount = allNews.filter(n => n.isReal).length;
+
+  // Persist the updated summary cache so the next build can reuse summaries
+  fs.writeFileSync(CACHE_PATH, JSON.stringify(summaryCache, null, 2));
+  console.log(`💾 Summary cache saved (${Object.keys(summaryCache).length} total entries).`);
 
   const outputPath = path.resolve('./src/data/news.json');
   fs.writeFileSync(outputPath, JSON.stringify(allNews, null, 2));
