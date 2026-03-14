@@ -5,9 +5,8 @@ import * as cheerio from 'cheerio';
 import crypto from 'crypto';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-// ─── Summary Cache ────────────────────────────────────────────────────────────
-// Keyed by article URL. Persisted to disk so repeated builds don't re-call Gemini
-// for articles that haven't changed.
+
+// cache by URL so we don't hit gemini again for the same articles
 const CACHE_PATH = path.resolve('./src/data/summaryCache.json');
 let summaryCache = {};
 if (fs.existsSync(CACHE_PATH)) {
@@ -19,8 +18,8 @@ if (fs.existsSync(CACHE_PATH)) {
   }
 }
 
-// ─── Load env variables ───────────────────────────────────────────────────────
-// dotenv isn't needed for Node 20.6+ — use --env-file flag, or load manually:
+
+// manually load env vars
 const envPath = path.resolve('.env');
 if (fs.existsSync(envPath)) {
   const envContent = fs.readFileSync(envPath, 'utf-8');
@@ -44,7 +43,7 @@ if (geminiEnabled) {
   console.log('⚠️  GEMINI_API_KEY not set — AI summaries disabled, using RSS excerpts as fallback.\n');
 }
 
-// ─── RSS Parser ───────────────────────────────────────────────────────────────
+
 const parser = new Parser({
   timeout: 15000,
   headers: {
@@ -175,7 +174,7 @@ function getFallbackImage(category) {
   return gallery[Math.floor(Math.random() * gallery.length)];
 }
 
-// ─── OG Image (with parallel fetching per source) ────────────────────────────
+
 async function getOgImage(url) {
   try {
     const response = await fetch(url, {
@@ -208,12 +207,11 @@ function getRssExcerpt(item) {
   return best.slice(0, 600).trim();
 }
 
-// ─── Gemini AI Summary ────────────────────────────────────────────────────────
+
 let lastGeminiCall = 0;
 const GEMINI_DELAY_MS = 2100; // 30 RPM free tier = 1 call per 2s
 
-// Global circuit breaker: flipped to true when the daily quota is fully exhausted.
-// All subsequent articles will skip Gemini and use the RSS excerpt fallback.
+// flag to stop if we hit daily limits on gemini
 let geminiQuotaExhausted = false;
 
 async function generateAiSummary(title, sourceName, rssExcerpt, category) {
@@ -243,9 +241,7 @@ Instructions:
 - Do NOT reproduce quotes, specific data, or detailed methodology — those are for the original article
 - Return plain text only, no markdown, no bullet points`;
 
-  // Single attempt — if we get 429, trip the circuit breaker immediately.
-  // Daily quota exhaustion 429s don't clear after 60s, so retrying wastes time.
-  // Per-minute throttle (RPM) 429s are handled by the 2.1s GEMINI_DELAY_MS above.
+  // try once, immediately mark as exhausted if we hit a 429
   try {
     const result = await Promise.race([
       model.generateContent(prompt),
@@ -266,7 +262,7 @@ Instructions:
   }
 }
 
-// ─── Main Fetch ───────────────────────────────────────────────────────────────
+
 async function fetchNews() {
   console.log("🚀 Starting Upsilon Hub fetch (RSS excerpt mode — copyright safe)...\n");
   const startTime = Date.now();
@@ -282,7 +278,7 @@ async function fetchNews() {
         new Promise((_, reject) => setTimeout(() => reject(new Error('Feed timeout')), 15000))
       ]);
 
-      // ── Classify articles first (cheap, synchronous) ──────────────────────
+      // classify articles quickly
       const classified = [];
       for (const item of feed.items.slice(0, 20)) {
         let category = classifyArticle(item);
@@ -298,7 +294,7 @@ async function fetchNews() {
         continue;
       }
 
-      // ── Fetch all OG images in parallel for this source ───────────────────
+      // fetch OG images in parallel
       // This is the KEY fix: previously each OG image was awaited serially
       // (up to 5s each × 150+ articles = 12+ minutes). Now we fire them all
       // at once per source and wait for the batch to resolve together.
@@ -309,7 +305,7 @@ async function fetchNews() {
 
       let sourceCount = 0;
 
-      // ── Process classified articles (AI summaries remain serial to respect RPM) ──
+      // process articles, keeping AI summaries serial to respect rate limits
       for (let i = 0; i < classified.length; i++) {
         const { item, category } = classified[i];
         const ogImage = ogImages[i];
