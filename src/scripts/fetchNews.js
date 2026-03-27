@@ -6,7 +6,7 @@ import crypto from 'crypto';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 
-// cache by URL so we don't hit gemini again for the same articles
+// persist summaries between runs so we don't re-summarize articles we've already seen
 const CACHE_PATH = path.resolve('./src/data/summaryCache.json');
 let summaryCache = {};
 if (fs.existsSync(CACHE_PATH)) {
@@ -14,12 +14,20 @@ if (fs.existsSync(CACHE_PATH)) {
     summaryCache = JSON.parse(fs.readFileSync(CACHE_PATH, 'utf-8'));
     console.log(`📦 Loaded summary cache (${Object.keys(summaryCache).length} entries)\n`);
   } catch {
-    console.log('⚠️  Could not parse summaryCache.json — starting with empty cache.\n');
+    console.log('⚠️  Could not parse summaryCache.json — starting fresh.\n');
   }
 }
 
+// How many NEW (non-cached) Gemini calls we'll allow per run.
+// The free tier is 1,500 requests/day. Daily runs of ~140 articles would exceed
+// that immediately if everything is uncached. Capping at 25 keeps us safe even
+// if the cache is wiped, and the cache fills quickly over the first few runs.
+const MAX_NEW_GEMINI_CALLS_PER_RUN = 25;
+let newGeminiCallsThisRun = 0;
 
-// manually load env vars
+
+// load .env manually — GitHub Actions injects GEMINI_API_KEY via secrets,
+// but local runs need it from the file
 const envPath = path.resolve('.env');
 if (fs.existsSync(envPath)) {
   const envContent = fs.readFileSync(envPath, 'utf-8');
@@ -32,15 +40,29 @@ if (fs.existsSync(envPath)) {
 }
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
+const GROQ_API_KEY = process.env.GROQ_API_KEY;
+
 const geminiEnabled = GEMINI_API_KEY && GEMINI_API_KEY !== 'your_gemini_api_key_here';
-let genAI, model;
+const groqEnabled = GROQ_API_KEY && GROQ_API_KEY !== 'your_groq_api_key_here';
+
+let genAI, geminiModel;
 
 if (geminiEnabled) {
   genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-  model = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-lite' });
+  geminiModel = genAI.getGenerativeModel({ model: 'gemini-2.0-flash-lite' });
   console.log('✨ Gemini 2.0 Flash Lite AI summaries: ENABLED\n');
 } else {
-  console.log('⚠️  GEMINI_API_KEY not set — AI summaries disabled, using RSS excerpts as fallback.\n');
+  console.log('⚠️  GEMINI_API_KEY not set — Gemini disabled.\n');
+}
+
+if (groqEnabled) {
+  console.log('✨ Groq fallback AI summaries: ENABLED\n');
+} else {
+  console.log('⚠️  GROQ_API_KEY not set — Groq fallback disabled.\n');
+}
+
+if (!geminiEnabled && !groqEnabled) {
+  console.log('⚠️  No AI provider available — all summaries will fall back to RSS excerpts.\n');
 }
 
 
@@ -193,9 +215,11 @@ async function getOgImage(url) {
   }
 }
 
-function generateSlug(title) {
+function generateSlug(title, url) {
   const baseSlug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
-  const hash = crypto.randomBytes(4).toString('hex');
+  // hash the article URL so the slug is always the same for the same article,
+  // even across daily rebuilds — random bytes would break saved bookmarks every run
+  const hash = crypto.createHash('sha256').update(url).digest('hex').slice(0, 8);
   return `${baseSlug}-${hash}`;
 }
 
@@ -208,22 +232,16 @@ function getRssExcerpt(item) {
 }
 
 
+// Gemini rate-limiting: 30 RPM on free tier = one call every ~2s
 let lastGeminiCall = 0;
-const GEMINI_DELAY_MS = 2100; // 30 RPM free tier = 1 call per 2s
+const GEMINI_DELAY_MS = 2100;
 
-// flag to stop if we hit daily limits on gemini
+// tripped to true the moment we see a 429 from either provider
 let geminiQuotaExhausted = false;
+let groqQuotaExhausted = false;
 
-async function generateAiSummary(title, sourceName, rssExcerpt, category) {
-  if (!geminiEnabled || !model || geminiQuotaExhausted) return null;
-
-  // Rate limiting — enforce min delay between calls
-  const now = Date.now();
-  const wait = GEMINI_DELAY_MS - (now - lastGeminiCall);
-  if (wait > 0) await new Promise(r => setTimeout(r, wait));
-  lastGeminiCall = Date.now();
-
-  const prompt = `You are a science writer for Upsilon Hub, a physics news aggregator. Write an AI summary of the following article for curious readers.
+function buildSummaryPrompt(title, sourceName, rssExcerpt, category) {
+  return `You are a science writer for Upsilon Hub, a physics news aggregator. Write an AI summary of the following article for curious readers.
 
 Article Title: "${title}"
 Source: ${sourceName}
@@ -240,26 +258,94 @@ Instructions:
 - Keep the tone engaging, clear, and accessible to an educated non-specialist
 - Do NOT reproduce quotes, specific data, or detailed methodology — those are for the original article
 - Return plain text only, no markdown, no bullet points`;
+}
 
-  // try once, immediately mark as exhausted if we hit a 429
+async function generateGeminiSummary(title, sourceName, rssExcerpt, category) {
+  if (!geminiEnabled || !geminiModel || geminiQuotaExhausted) return null;
+  if (newGeminiCallsThisRun >= MAX_NEW_GEMINI_CALLS_PER_RUN) return null;
+
+  // space calls out to stay under 30 RPM
+  const now = Date.now();
+  const wait = GEMINI_DELAY_MS - (now - lastGeminiCall);
+  if (wait > 0) await new Promise(r => setTimeout(r, wait));
+  lastGeminiCall = Date.now();
+
+  const prompt = buildSummaryPrompt(title, sourceName, rssExcerpt, category);
+
   try {
     const result = await Promise.race([
-      model.generateContent(prompt),
+      geminiModel.generateContent(prompt),
       new Promise((_, reject) => setTimeout(() => reject(new Error('Gemini timeout')), 15000))
     ]);
+    newGeminiCallsThisRun++;
     const text = result.response.text().trim();
     return text.length > 50 ? text : null;
   } catch (err) {
     if (err.message?.includes('429')) {
-      // Quota exhausted — trip the circuit breaker so all remaining articles
-      // skip Gemini instantly instead of hammering a dead endpoint.
       geminiQuotaExhausted = true;
-      console.log(`\n   🚫 Gemini quota exhausted — switching all remaining articles to RSS excerpt fallback.`);
+      console.log(`\n   🚫 Gemini quota hit — switching to Groq fallback for remaining articles.`);
       return null;
     }
     console.log(`   ⚠️  Gemini error: ${err.message?.split('\n')[0]}`);
     return null;
   }
+}
+
+// Groq free tier: llama-3.3-70b-versatile, 14,400 req/day, 6,000 tokens/min
+// We use it as a fallback when Gemini quota runs out or the per-run cap is hit.
+async function generateGroqSummary(title, sourceName, rssExcerpt, category) {
+  if (!groqEnabled || groqQuotaExhausted) return null;
+
+  const prompt = buildSummaryPrompt(title, sourceName, rssExcerpt, category);
+
+  try {
+    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${GROQ_API_KEY}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        model: 'llama-3.3-70b-versatile',
+        messages: [{ role: 'user', content: prompt }],
+        max_tokens: 400,
+        temperature: 0.7
+      }),
+      signal: AbortSignal.timeout(20000)
+    });
+
+    if (response.status === 429) {
+      groqQuotaExhausted = true;
+      console.log(`\n   🚫 Groq quota hit — falling back to RSS excerpts.`);
+      return null;
+    }
+
+    if (!response.ok) {
+      console.log(`   ⚠️  Groq error: HTTP ${response.status}`);
+      return null;
+    }
+
+    const data = await response.json();
+    const text = data.choices?.[0]?.message?.content?.trim();
+    return text && text.length > 50 ? text : null;
+  } catch (err) {
+    console.log(`   ⚠️  Groq error: ${err.message?.split('\n')[0]}`);
+    return null;
+  }
+}
+
+// tries Gemini first (up to the per-run cap), then Groq, then gives up
+async function generateAiSummary(title, sourceName, rssExcerpt, category) {
+  const geminiResult = await generateGeminiSummary(title, sourceName, rssExcerpt, category);
+  if (geminiResult) return geminiResult;
+
+  // only try Groq if Gemini was genuinely unavailable (quota/cap), not just an error
+  const geminiUnavailable = !geminiEnabled || geminiQuotaExhausted || newGeminiCallsThisRun >= MAX_NEW_GEMINI_CALLS_PER_RUN;
+  if (geminiUnavailable && groqEnabled) {
+    return await generateGroqSummary(title, sourceName, rssExcerpt, category);
+  }
+
+  return null;
 }
 
 
@@ -268,6 +354,7 @@ async function fetchNews() {
   const startTime = Date.now();
   let allNews = [];
   let aiCount = 0;
+  let cachedCount = 0;
 
   for (const source of SOURCES) {
     try {
@@ -278,7 +365,6 @@ async function fetchNews() {
         new Promise((_, reject) => setTimeout(() => reject(new Error('Feed timeout')), 15000))
       ]);
 
-      // classify articles quickly
       const classified = [];
       for (const item of feed.items.slice(0, 20)) {
         let category = classifyArticle(item);
@@ -294,10 +380,7 @@ async function fetchNews() {
         continue;
       }
 
-      // fetch OG images in parallel
-      // This is the KEY fix: previously each OG image was awaited serially
-      // (up to 5s each × 150+ articles = 12+ minutes). Now we fire them all
-      // at once per source and wait for the batch to resolve together.
+      // fire all OG image requests at once per source — serial would be >5s per article
       console.log(`   ↳ Fetching ${classified.length} OG images in parallel...`);
       const ogImages = await Promise.all(
         classified.map(({ item }) => getOgImage(item.link))
@@ -305,7 +388,7 @@ async function fetchNews() {
 
       let sourceCount = 0;
 
-      // process articles, keeping AI summaries serial to respect rate limits
+      // AI calls stay serial so we can throttle them properly
       for (let i = 0; i < classified.length; i++) {
         const { item, category } = classified[i];
         const ogImage = ogImages[i];
@@ -314,16 +397,17 @@ async function fetchNews() {
 
         process.stdout.write(`   ↳ [${category}] ${item.title.substring(0, 38)}... `);
 
-        const slug = generateSlug(item.title);
+        const slug = generateSlug(item.title, item.link);
         const rssExcerpt = getRssExcerpt(item);
         const summary = item.contentSnippet 
           ? item.contentSnippet.substring(0, 160).trim() + "..."
           : rssExcerpt.substring(0, 160).trim() + "...";
 
-        // Generate AI summary — reuse cached version if available to save tokens
+        // reuse cached summaries — no API call needed if we've seen this URL before
         let aiSummary = summaryCache[item.link] || null;
         if (aiSummary) {
           process.stdout.write('(cached) ');
+          cachedCount++;
         } else {
           aiSummary = await generateAiSummary(item.title, source.name, rssExcerpt, category);
           if (aiSummary) {
@@ -345,7 +429,6 @@ async function fetchNews() {
           isReal,
           summary,
           excerpt: rssExcerpt,
-          // aiSummary is only present when Gemini is enabled and succeeds
           ...(aiSummary && { aiSummary }),
         });
 
@@ -365,7 +448,6 @@ async function fetchNews() {
 
   const realCount = allNews.filter(n => n.isReal).length;
 
-  // Persist the updated summary cache so the next build can reuse summaries
   fs.writeFileSync(CACHE_PATH, JSON.stringify(summaryCache, null, 2));
   console.log(`💾 Summary cache saved (${Object.keys(summaryCache).length} total entries).`);
 
@@ -376,7 +458,7 @@ async function fetchNews() {
   const mins = Math.floor(totalSecs / 60);
   const secs = totalSecs % 60;
   console.log(`\n🎉 DONE! ${allNews.length} articles saved in ${mins}m ${secs}s.`);
-  console.log(`🖼️  OG Images: ${realCount} | 🤖 AI Summaries: ${aiCount}${geminiQuotaExhausted ? ' (quota exhausted — remaining used RSS fallback)' : ''}`);
+  console.log(`🖼️  OG Images: ${realCount} | 🤖 AI Summaries: ${aiCount} (${cachedCount} cached, ${newGeminiCallsThisRun} new Gemini)${geminiQuotaExhausted ? ' — Gemini quota hit' : ''}${groqQuotaExhausted ? ' — Groq quota hit' : ''}`);
   console.log(`✅ Copyright-safe: RSS excerpts only. No full article reproduction.`);
   
   process.exit(0); 
